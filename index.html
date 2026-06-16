@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Jepri | Portfolio</title>
+    <meta name="description" content="Muhammad Jepri - IT Student & Developer Portfolio.">
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons for clean outline icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Jeppp</a>
+            <nav class="nav">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="ph ph-sun theme-icon-sun"></i>
+                    <i class="ph ph-moon theme-icon-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-flex">
+                <div class="hero-content">
+                    <span class="badge">Informatics Student & Developer</span>
+                    <h1 class="hero-title">Hi, I'm Muhammad Jepri</h1>
+                    <p class="hero-subtitle">
+                        Informatics (S1) Student at Universitas Teknologi Digital Indonesia (UTDI). Focusing on backend systems, data analytics, and machine learning solutions.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">View Projects</a>
+                        <a href="#" class="btn btn-secondary" id="download-cv"><i class="ph ph-download-simple"></i> Download CV</a>
+                    </div>
+                </div>
+                <div class="hero-avatar-wrapper">
+                    <img src="https://avatars.githubusercontent.com/u/105275132?v=4" alt="Muhammad Jepri Avatar" class="hero-avatar">
+                </div>
+            </div>
+        </main>
+
+        <!-- Services Section -->
+        <section id="services" class="services section container">
+            <hr class="divider">
+            <div class="section-grid">
+                <div class="section-title-col">
+                    <h2 class="section-title">What I Do</h2>
+                </div>
+                <div class="section-content-col">
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon"><i class="ph ph-terminal-window"></i></div>
+                            <h3>Backend & Python</h3>
+                            <p>Designing backend architecture, working with databases, and building robust scripts using Python.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon"><i class="ph ph-layout"></i></div>
+                            <h3>Web & Mobile Dev</h3>
+                            <p>Building responsive web solutions and mobile-first applications based on clean design principles and business logic.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon"><i class="ph ph-cpu"></i></div>
+                            <h3>Automation Scripts</h3>
+                            <p>Automating workflows, file management, and system tasks with custom Windows Batch files and automation tools.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section container">
+            <hr class="divider">
+            <div class="section-grid">
+                <div class="section-title-col">
+                    <h2 class="section-title">Selected Work</h2>
+                </div>
+                <div class="section-content-col">
+                    <div class="project-list">
+                        <!-- Project 1 -->
+                        <article class="project-card" data-project="clipboard">
+                            <div class="project-info">
+                                <h3 class="project-name">clipboard-manager</h3>
+                                <p class="project-desc">Modern clipboard history manager built with Python and CustomTkinter.</p>
+                                <div class="project-tags">
+                                    <span>Python</span>
+                                    <span>CustomTkinter</span>
+                                    <span>GUI</span>
+                                </div>
+                            </div>
+                            <button class="project-link" aria-label="Open Project Details"><i class="ph ph-arrow-up-right"></i></button>
+                        </article>
+
+                        <!-- Project 2 -->
+                        <article class="project-card" data-project="uangku">
+                            <div class="project-info">
+                                <h3 class="project-name">Uangku-HematMahasiswa</h3>
+                                <p class="project-desc">Prototype tracking uang saku + peta interaktif pencarian warung murah akhir bulan.</p>
+                                <div class="project-tags">
+                                    <span>HTML</span>
+                                    <span>CSS</span>
+                                    <span>JavaScript</span>
+                                </div>
+                            </div>
+                            <button class="project-link" aria-label="Open Project Details"><i class="ph ph-arrow-up-right"></i></button>
+                        </article>
+
+                        <!-- Project 3 -->
+                        <article class="project-card" data-project="wintools">
+                            <div class="project-info">
+                                <h3 class="project-name">windows-tools</h3>
+                                <p class="project-desc">Collection of useful Windows Batch utilities for cleaning, organizing, and automation.</p>
+                                <div class="project-tags">
+                                    <span>Batchfile</span>
+                                    <span>Windows Scripting</span>
+                                </div>
+                            </div>
+                            <button class="project-link" aria-label="Open Project Details"><i class="ph ph-arrow-up-right"></i></button>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Education Section -->
+        <section id="experience" class="experience section container">
+            <hr class="divider">
+            <div class="section-grid">
+                <div class="section-title-col">
+                    <h2 class="section-title">Experience & Education</h2>
+                </div>
+                <div class="section-content-col">
+                    <div class="timeline">
+                        <!-- S1 Informatika -->
+                        <div class="timeline-item">
+                            <div class="timeline-date">2025 — Present</div>
+                            <div class="timeline-content">
+                                <h3>Universitas Teknologi Digital Indonesia (UTDI)</h3>
+                                <span class="timeline-subtitle">Bachelor's Degree (S1) in Informatika - Rekognisi Pembelajaran Lampau (RPL)</span>
+                                <p>Advancing computer science fundamentals, focusing on intelligent systems, distributed computing, and data analytics. Maintaining academic excellence with a strong interest in machine learning workflows.</p>
+                                <div class="coursework-badges">
+                                    <strong>Completed Coursework:</strong>
+                                    <div class="badge-group">
+                                        <span>Machine Learning</span>
+                                        <span>Data Lakehouse</span>
+                                        <span>Sistem Terdistribusi</span>
+                                        <span>Analitika Data</span>
+                                        <span>Jaringan Syaraf Tiruan</span>
+                                        <span>Uji Kualitas Perangkat Lunak</span>
+                                        <span>Struktur Data</span>
+                                    </div>
+                                    <strong>Current Semester:</strong>
+                                    <div class="badge-group">
+                                        <span>Cybersecurity & Threat Intelligence</span>
+                                        <span>Keamanan Sistem & Kriptografi</span>
+                                        <span>Interaksi Manusia & Komputer</span>
+                                        <span>Teori Bahasa & Otomata</span>
+                                        <span>Visualisasi Data</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Projects -->
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023 — Present</div>
+                            <div class="timeline-content">
+                                <h3>Independent Scripting & Automation Projects</h3>
+                                <span class="timeline-subtitle">Self-employed Developer</span>
+                                <p>Building lightweight GUI utilities in Python and writing script automation suites in Windows Batch files to simplify file structures and clean system temporary files.</p>
+                            </div>
+                        </div>
+                        <!-- D3 RPLA -->
+                        <div class="timeline-item">
+                            <div class="timeline-date">2022 — 2025</div>
+                            <div class="timeline-content">
+                                <h3>Universitas Teknologi Digital Indonesia (UTDI)</h3>
+                                <span class="timeline-subtitle">Associate Degree (D3) in Application Software Engineering (RPLA)</span>
+                                <p>Focused on the design, development, and implementation of business-oriented web and mobile information systems. Mastered database modeling, software engineering principles, and human-computer interaction workflows.</p>
+                                <div class="coursework-badges">
+                                    <strong>Core Coursework:</strong>
+                                    <div class="badge-group">
+                                        <span>Web Client (Frontend)</span>
+                                        <span>Web Server Side (Backend)</span>
+                                        <span>Web Frameworks</span>
+                                        <span>Web Lanjut</span>
+                                        <span>Native Mobile Dev 1 & 2</span>
+                                        <span>NoSQL (Non-Relasional) DB</span>
+                                        <span>Teknologi Cloud</span>
+                                        <span>Pengantar Big Data</span>
+                                        <span>Object-Oriented Programming (OOP)</span>
+                                        <span>Sistem Basis Data</span>
+                                        <span>Metodologi Pengembangan SI</span>
+                                        <span>Proyek Aplikasi 1, 2, & 3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section container">
+            <hr class="divider">
+            <div class="section-grid">
+                <div class="section-title-col">
+                    <h2 class="section-title">Let's Connect</h2>
+                </div>
+                <div class="section-content-col">
+                    <p class="contact-text">
+                        I'm open to collaborations or conversations. Feel free to connect with me on social media or copy my email address.
+                    </p>
+                    <div class="contact-actions">
+                        <a href="mailto:jefryoconner49@gmail.com" class="btn btn-primary">Send an Email</a>
+                        <button id="copy-email-btn" class="btn btn-secondary">
+                            <span id="copy-btn-text">Copy Email Address</span>
+                            <i class="ph ph-copy"></i>
+                        </button>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/Emzyjeppp" target="_blank" rel="noopener noreferrer"><i class="ph ph-github-logo"></i> GitHub</a>
+                        <a href="https://www.instagram.com/emzyjeppp/" target="_blank" rel="noopener noreferrer"><i class="ph ph-instagram-logo"></i> Instagram</a>
+                        <a href="https://twitter.com/9202jx" target="_blank" rel="noopener noreferrer"><i class="ph ph-twitter-logo"></i> Twitter</a>
+                        <a href="https://www.facebook.com/EmjixD/" target="_blank" rel="noopener noreferrer"><i class="ph ph-facebook-logo"></i> Facebook</a>
+                        <a href="https://discord.com/users/380345873139367936" target="_blank" rel="noopener noreferrer"><i class="ph ph-discord-logo"></i> Discord</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer container">
+        <p>&copy; 2026 Muhammad Jepri. All rights reserved.</p>
+    </footer>
+
+    <!-- Details Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close modal"><i class="ph ph-x"></i></button>
+            <div class="modal-content">
+                <h2 id="modal-title" class="modal-project-title">Project Title</h2>
+                <div id="modal-tags" class="modal-project-tags"></div>
+                <div class="modal-body-text">
+                    <p id="modal-desc">Detailed project description goes here.</p>
+                    <div class="modal-highlights">
+                        <h4>Key Accomplishments & Features:</h4>
+                        <ul id="modal-features-list"></ul>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a href="#" id="modal-repo-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        <span>View Repository</span>
+                        <i class="ph ph-github-logo"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
