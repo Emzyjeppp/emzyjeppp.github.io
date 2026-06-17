@@ -571,6 +571,7 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     border-radius: 8px;
     background-color: var(--card-bg);
     transition: all var(--transition-fast);
+    gap: 1.5rem;
 }
 
 .cert-card:hover {
@@ -582,6 +583,7 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+    flex: 1;
 }
 
 .cert-info h3 {
