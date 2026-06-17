@@ -82,6 +82,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Safe shell execution using native Windows command lines.'
             ],
             repo: 'https://github.com/Emzyjeppp/windows-tools'
+        },
+        aspirasi: {
+            title: 'aspirasi-sanggar-tari',
+            tags: ['PHP', 'MySQL', 'Bootstrap', 'Web'],
+            description: 'Aplikasi web penyampaian aspirasi masyarakat terhadap layanan sanggar tari di Yogyakarta. Proyek Tugas Akhir D3 ini bertujuan untuk meningkatkan keterlibatan masyarakat dan memberikan transparansi serta responsivitas yang lebih cepat dari pengelola sanggar tari.',
+            features: [
+                'Sistem manajemen aspirasi dan pengaduan berbasis web.',
+                'Integrasi basis data MySQL untuk perekaman dan pelacakan keluhan secara terstruktur.',
+                'Antarmuka responsif berbasis framework Bootstrap untuk kemudahan akses perangkat seluler.',
+                'Modul pengelolaan dan administrasi tanggapan langsung oleh admin sanggar tari.'
+            ],
+            repo: 'https://eprints.utdi.ac.id/10601/'
         }
     };
 
