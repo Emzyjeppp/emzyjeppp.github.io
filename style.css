@@ -621,6 +621,12 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     border-color: var(--text-primary);
 }
 
+.cert-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
 /* Contact Section */
 .contact-text {
     font-size: 1.1rem;
