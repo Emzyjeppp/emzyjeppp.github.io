@@ -264,9 +264,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     appendTerminalLine('Available commands:', 'system-out');
                     appendTerminalLine('  about     - Print a brief bio', 'system-out');
                     appendTerminalLine('  projects  - List repository highlights', 'system-out');
-                    appendTerminalLine('  clear     - Clear terminal screen', 'system-out');
-                    appendTerminalLine('  secret    - Run system diagnostics easter egg', 'system-out');
+                    appendTerminalLine('  skills    - Show core programming skill set', 'system-out');
+                    appendTerminalLine('  contact   - Show contact and social links', 'system-out');
+                    appendTerminalLine('  quote     - Print my favorite motivational quote', 'system-out');
                     appendTerminalLine('  theme     - Toggle light/dark site theme', 'system-out');
+                    appendTerminalLine('  clear     - Clear terminal screen', 'system-out');
                     appendTerminalLine('  help      - Show this help message', 'system-out');
                     break;
                 case 'about':
@@ -282,18 +284,27 @@ document.addEventListener('DOMContentLoaded', () => {
                     appendTerminalLine('- unidaily-asisten-mahasiswa (Web client/server)', 'system-out');
                     appendTerminalLine('- Pengaduan-Fasilitas-Kampus (PHP/MySQL)', 'system-out');
                     break;
+                case 'skills':
+                    appendTerminalLine('Core Programming Skills:', 'system-out');
+                    appendTerminalLine('  - Backend: Python, PHP, Kotlin, Batchfile Scripting', 'system-out');
+                    appendTerminalLine('  - Frontend/Mobile: HTML5, CSS3, JavaScript, Jetpack Compose, Bootstrap', 'system-out');
+                    appendTerminalLine('  - Databases & Tools: MySQL, Git, GitHub, System Admin', 'system-out');
+                    break;
+                case 'contact':
+                    appendTerminalLine('Contact Details:', 'system-out');
+                    appendTerminalLine('  - Email: jefryoconner49@gmail.com', 'system-out');
+                    appendTerminalLine('  - Phone: 082251090558', 'system-out');
+                    appendTerminalLine('  - GitHub: github.com/Emzyjeppp', 'system-out');
+                    appendTerminalLine('  - LinkedIn: linkedin.com/in/muhammadjepri', 'system-out');
+                    break;
+                case 'quote':
+                case 'quotes':
+                case 'motivasi':
+                case 'kata':
+                    appendTerminalLine('"Tidak ada kata terlambat untuk memulai, semua orang punya garis start masing-masing."', 'diag-out');
+                    break;
                 case 'clear':
                     terminalOutput.innerHTML = '';
-                    break;
-                case 'secret':
-                    appendTerminalLine('[!] Initializing Antigravity Core...', 'diag-out');
-                    setTimeout(() => appendTerminalLine('[+] Loading gravitational displacement parameters...', 'diag-out'), 200);
-                    setTimeout(() => appendTerminalLine('[+] Calibrating space-time coordinates...', 'diag-out'), 500);
-                    setTimeout(() => appendTerminalLine('[+] Antigravity drive successfully engaged!', 'diag-out'), 800);
-                    setTimeout(() => appendTerminalLine('[!] WARNING: Keep your feet on the ground.', 'diag-out'), 1100);
-                    setTimeout(() => {
-                        terminalBody.scrollTop = terminalBody.scrollHeight;
-                    }, 1200);
                     break;
                 case 'theme':
                     appendTerminalLine('Toggling website theme...', 'system-out');
