@@ -537,6 +537,24 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     transition: background-color var(--transition-normal), border-color var(--transition-normal);
 }
 
+.verify-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-top: 0.75rem;
+    font-weight: 500;
+    width: fit-content;
+    border-bottom: 1px dashed transparent;
+    transition: all var(--transition-fast);
+}
+
+.verify-link:hover {
+    color: var(--text-primary);
+    border-bottom-color: var(--text-primary);
+}
+
 /* Contact Section */
 .contact-text {
     font-size: 1.1rem;
