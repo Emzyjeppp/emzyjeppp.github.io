@@ -86,12 +86,12 @@ document.addEventListener('DOMContentLoaded', () => {
         aspirasi: {
             title: 'aspirasi-sanggar-tari',
             tags: ['PHP', 'MySQL', 'Bootstrap', 'Web'],
-            description: 'Aplikasi web penyampaian aspirasi masyarakat terhadap layanan sanggar tari di Yogyakarta. Proyek Tugas Akhir D3 ini bertujuan untuk meningkatkan keterlibatan masyarakat dan memberikan transparansi serta responsivitas yang lebih cepat dari pengelola sanggar tari.',
+            description: 'A web-based public feedback and aspiration system for dance studios in Yogyakarta. Developed as a D3 Final Project, it aims to enhance community engagement, improve administrative transparency, and speed up responsiveness from studio administrators.',
             features: [
-                'Sistem manajemen aspirasi dan pengaduan berbasis web.',
-                'Integrasi basis data MySQL untuk perekaman dan pelacakan keluhan secara terstruktur.',
-                'Antarmuka responsif berbasis framework Bootstrap untuk kemudahan akses perangkat seluler.',
-                'Modul pengelolaan dan administrasi tanggapan langsung oleh admin sanggar tari.'
+                'Web-based community aspiration and complaint management system.',
+                'MySQL database integration for structured recording and tracking of public feedback.',
+                'Responsive interface powered by the Bootstrap framework for mobile accessibility.',
+                'Dedicated admin dashboard for managing and responding to public aspirations.'
             ],
             repo: 'https://eprints.utdi.ac.id/10601/'
         }
