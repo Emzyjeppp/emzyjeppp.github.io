@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!statsCard || !langsCard) return;
 
         if (theme === 'dark') {
-            statsCard.src = 'https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=react&hide_border=true&bg_color=121214&title_color=6366f1&icon_color=6366f1&text_color=a1a1aa';
-            langsCard.src = 'https://github-readme-stats.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=react&hide_border=true&bg_color=121214&title_color=6366f1&icon_color=6366f1&text_color=a1a1aa';
+            statsCard.src = 'https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=react&hide_border=true&bg_color=00000000&title_color=6366f1&icon_color=6366f1&text_color=a1a1aa';
+            langsCard.src = 'https://github-readme-stats.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=react&hide_border=true&bg_color=00000000&title_color=6366f1&icon_color=6366f1&text_color=a1a1aa';
         } else {
-            statsCard.src = 'https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=default&hide_border=true&bg_color=f4f4f5&title_color=4f46e5&icon_color=4f46e5&text_color=4b5563';
-            langsCard.src = 'https://github-readme-stats.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=default&hide_border=true&bg_color=f4f4f5&title_color=4f46e5&icon_color=4f46e5&text_color=4b5563';
+            statsCard.src = 'https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=default&hide_border=true&bg_color=00000000&title_color=4f46e5&icon_color=4f46e5&text_color=4b5563';
+            langsCard.src = 'https://github-readme-stats.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=default&hide_border=true&bg_color=00000000&title_color=4f46e5&icon_color=4f46e5&text_color=4b5563';
         }
     };
 
