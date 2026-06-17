@@ -316,6 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     appendTerminalLine(`Command not found: ${cmd}. Type 'help' for options.`, 'error-out');
             }
         };
+    }
     // 6. Back to Top Button Interaction
     const backToTopBtn = document.getElementById('back-to-top');
 
