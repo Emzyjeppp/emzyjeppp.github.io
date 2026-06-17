@@ -1140,3 +1140,48 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
         height: auto;
     }
 }
+
+/* 4. Back to Top Button */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.25rem;
+    box-shadow: 0 4px 12px var(--shadow);
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.back-to-top-btn:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+}
+
+.back-to-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+    .back-to-top-btn {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+}
