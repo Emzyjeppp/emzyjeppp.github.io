@@ -5,9 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
 
+    const updateGithubStatsTheme = (theme) => {
+        const statsCard = document.getElementById('github-stats-card');
+        const langsCard = document.getElementById('github-langs-card');
+        if (!statsCard || !langsCard) return;
+
+        if (theme === 'dark') {
+            statsCard.src = 'https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=react&hide_border=true&bg_color=121214&title_color=6366f1&icon_color=6366f1&text_color=a1a1aa';
+            langsCard.src = 'https://github-readme-stats.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=react&hide_border=true&bg_color=121214&title_color=6366f1&icon_color=6366f1&text_color=a1a1aa';
+        } else {
+            statsCard.src = 'https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=default&hide_border=true&bg_color=f4f4f5&title_color=4f46e5&icon_color=4f46e5&text_color=4b5563';
+            langsCard.src = 'https://github-readme-stats.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=default&hide_border=true&bg_color=f4f4f5&title_color=4f46e5&icon_color=4f46e5&text_color=4b5563';
+        }
+    };
+
     // Load saved theme or default to dark
     const savedTheme = localStorage.getItem('theme') || 'dark';
     htmlElement.setAttribute('data-theme', savedTheme);
+    updateGithubStatsTheme(savedTheme);
 
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', () => {
@@ -16,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             htmlElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
+            updateGithubStatsTheme(newTheme);
         });
     }
 
@@ -183,4 +199,111 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', highlightNavLink);
+
+    // 5. Interactive Dev Terminal Sandbox
+    const terminalContainer = document.querySelector('.terminal-container');
+    const terminalBody = document.getElementById('terminal-body');
+    const terminalOutput = document.getElementById('terminal-output');
+    const terminalInput = document.getElementById('terminal-input');
+    const terminalInputDisplay = document.getElementById('terminal-input-display');
+    const terminalCursor = document.getElementById('terminal-cursor');
+
+    if (terminalContainer && terminalInput && terminalBody) {
+        // Auto focus input on clicking terminal
+        terminalBody.addEventListener('click', () => {
+            terminalInput.focus();
+        });
+
+        // Sync input typing to display span
+        terminalInput.addEventListener('input', () => {
+            terminalInputDisplay.textContent = terminalInput.value;
+        });
+
+        // Keep input focused when container is clicked
+        terminalInput.addEventListener('blur', () => {
+            terminalCursor.classList.add('blurred');
+        });
+        terminalInput.addEventListener('focus', () => {
+            terminalCursor.classList.remove('blurred');
+        });
+
+        // Handle commands on enter key
+        terminalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const fullCommand = terminalInput.value.trim();
+                const command = fullCommand.toLowerCase().split(' ')[0];
+                
+                // Echo typed command
+                appendTerminalLine(`guest@jeppp-terminal:~$ ${fullCommand}`, 'cmd-echo');
+                
+                if (command) {
+                    processCommand(command);
+                }
+                
+                // Reset input
+                terminalInput.value = '';
+                terminalInputDisplay.textContent = '';
+                
+                // Auto scroll to bottom
+                setTimeout(() => {
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                }, 10);
+            }
+        });
+
+        const appendTerminalLine = (text, className = 'system-out') => {
+            const line = document.createElement('div');
+            line.className = `terminal-output-line ${className}`;
+            line.textContent = text;
+            terminalOutput.appendChild(line);
+        };
+
+        const processCommand = (cmd) => {
+            switch (cmd) {
+                case 'help':
+                    appendTerminalLine('Available commands:', 'system-out');
+                    appendTerminalLine('  about     - Print a brief bio', 'system-out');
+                    appendTerminalLine('  projects  - List repository highlights', 'system-out');
+                    appendTerminalLine('  clear     - Clear terminal screen', 'system-out');
+                    appendTerminalLine('  secret    - Run system diagnostics easter egg', 'system-out');
+                    appendTerminalLine('  theme     - Toggle light/dark site theme', 'system-out');
+                    appendTerminalLine('  help      - Show this help message', 'system-out');
+                    break;
+                case 'about':
+                    appendTerminalLine('Muhammad Jepri, A.Md.Kom.', 'system-out');
+                    appendTerminalLine('Informatics S1 Student at UTDI Yogyakarta.', 'system-out');
+                    appendTerminalLine('Specializing in Backend Systems, Python Automation, and Native Android.', 'system-out');
+                    break;
+                case 'projects':
+                    appendTerminalLine('- clipboard-manager (Python, CustomTkinter)', 'system-out');
+                    appendTerminalLine('- windows-tools (Batchfile automation)', 'system-out');
+                    appendTerminalLine('- Uangku-HematMahasiswa (Web prototype)', 'system-out');
+                    appendTerminalLine('- aspirasi-sanggar-tari (D3 Final Project - Bootstrap/PHP/MySQL)', 'system-out');
+                    appendTerminalLine('- unidaily-asisten-mahasiswa (Web client/server)', 'system-out');
+                    appendTerminalLine('- Pengaduan-Fasilitas-Kampus (PHP/MySQL)', 'system-out');
+                    break;
+                case 'clear':
+                    terminalOutput.innerHTML = '';
+                    break;
+                case 'secret':
+                    appendTerminalLine('[!] Initializing Antigravity Core...', 'diag-out');
+                    setTimeout(() => appendTerminalLine('[+] Loading gravitational displacement parameters...', 'diag-out'), 200);
+                    setTimeout(() => appendTerminalLine('[+] Calibrating space-time coordinates...', 'diag-out'), 500);
+                    setTimeout(() => appendTerminalLine('[+] Antigravity drive successfully engaged!', 'diag-out'), 800);
+                    setTimeout(() => appendTerminalLine('[!] WARNING: Keep your feet on the ground.', 'diag-out'), 1100);
+                    setTimeout(() => {
+                        terminalBody.scrollTop = terminalBody.scrollHeight;
+                    }, 1200);
+                    break;
+                case 'theme':
+                    appendTerminalLine('Toggling website theme...', 'system-out');
+                    if (themeToggleBtn) {
+                        themeToggleBtn.click();
+                    }
+                    break;
+                default:
+                    appendTerminalLine(`Command not found: ${cmd}. Type 'help' for options.`, 'error-out');
+            }
+        };
+    }
 });

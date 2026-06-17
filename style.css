@@ -863,3 +863,271 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
         padding: 1.75rem;
     }
 }
+
+/* ==========================================================================
+   Portfolio Expansion Additions: Tech Stack, Focus, GitHub Stats, and Terminal
+   ========================================================================== */
+
+/* 1. Tech Stack & Focus Layout */
+.skills-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.skills-category-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.85rem;
+}
+
+.skill-badge-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.skill-badge-item i {
+    font-size: 1.25rem;
+}
+
+.skill-badge-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-hover);
+    box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* Current Focus Styles */
+.focus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.focus-item {
+    display: flex;
+    gap: 1rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem;
+    border-radius: 8px;
+    transition: border-color var(--transition-fast);
+}
+
+.focus-item:hover {
+    border-color: var(--border-hover);
+}
+
+.focus-icon {
+    font-size: 1.5rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+}
+
+.focus-info h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+}
+
+.focus-info p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* 2. GitHub Stats Styles */
+.github-stats-container {
+    margin-top: 3rem;
+    width: 100%;
+}
+
+.sub-divider {
+    border: 0;
+    border-top: 1px dashed var(--border-color);
+    margin: 2rem 0;
+}
+
+.github-stats-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.github-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.github-stats-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem;
+    transition: border-color var(--transition-fast);
+}
+
+.github-stats-grid img:hover {
+    border-color: var(--border-hover);
+}
+
+/* 3. Interactive Developer Terminal Styles */
+.terminal-container {
+    background-color: #09090b;
+    border: 1px solid #27272a;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+}
+
+.terminal-header {
+    background-color: #18181b;
+    border-bottom: 1px solid #27272a;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.terminal-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.term-btn {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.term-btn.close { background-color: #ef4444; }
+.term-btn.minimize { background-color: #eab308; }
+.term-btn.maximize { background-color: #22c55e; }
+
+.terminal-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8rem;
+    color: #71717a;
+    font-weight: 500;
+}
+
+.terminal-body {
+    padding: 1.5rem;
+    min-height: 240px;
+    max-height: 320px;
+    overflow-y: auto;
+    color: #a1a1aa;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    cursor: text;
+}
+
+.terminal-line {
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap;
+}
+
+.terminal-cmd-highlight {
+    color: #a78bfa;
+    font-weight: 600;
+}
+
+.terminal-prompt {
+    color: #22c55e;
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+.terminal-input-line {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.terminal-input-display {
+    color: #f4f4f5;
+    white-space: pre-wrap;
+}
+
+.terminal-cursor {
+    color: #22c55e;
+    font-weight: bold;
+    animation: blink 1s step-end infinite;
+}
+
+#terminal-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+
+.terminal-output-container {
+    margin-top: 0.5rem;
+}
+
+.terminal-output-line {
+    margin-bottom: 0.5rem;
+    white-space: pre-wrap;
+}
+
+.terminal-output-line.cmd-echo {
+    color: #f4f4f5;
+}
+
+.terminal-output-line.system-out {
+    color: #a1a1aa;
+}
+
+.terminal-output-line.error-out {
+    color: #ef4444;
+}
+
+.terminal-output-line.diag-out {
+    color: #a78bfa;
+}
+
+@keyframes blink {
+    from, to { color: transparent; }
+    50% { color: #22c55e; }
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+    .skills-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .github-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
