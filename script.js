@@ -208,6 +208,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalInputDisplay = document.getElementById('terminal-input-display');
     const terminalCursor = document.getElementById('terminal-cursor');
 
+    let commandHistory = [];
+    let historyIndex = -1;
+
     if (terminalContainer && terminalInput && terminalBody) {
         // Auto focus input on clicking terminal
         terminalBody.addEventListener('click', () => {
@@ -227,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             terminalCursor.classList.remove('blurred');
         });
 
-        // Handle commands on enter key
+        // Handle commands on enter key and history navigation
         terminalInput.addEventListener('keydown', (e) => {
             if (e.key === 'Enter') {
                 const fullCommand = terminalInput.value.trim();
@@ -235,6 +238,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Echo typed command
                 appendTerminalLine(`guest@jeppp-terminal:~$ ${fullCommand}`, 'cmd-echo');
+                
+                if (fullCommand) {
+                    // Save to history if different from the last entry
+                    if (commandHistory.length === 0 || commandHistory[commandHistory.length - 1] !== fullCommand) {
+                        commandHistory.push(fullCommand);
+                    }
+                }
+                historyIndex = -1; // Reset history index
                 
                 if (command) {
                     processCommand(command);
@@ -248,6 +259,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     terminalBody.scrollTop = terminalBody.scrollHeight;
                 }, 10);
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (commandHistory.length > 0) {
+                    if (historyIndex === -1) {
+                        historyIndex = commandHistory.length - 1;
+                    } else if (historyIndex > 0) {
+                        historyIndex--;
+                    }
+                    terminalInput.value = commandHistory[historyIndex];
+                    terminalInputDisplay.textContent = commandHistory[historyIndex];
+                    
+                    // Move cursor to end
+                    setTimeout(() => {
+                        terminalInput.selectionStart = terminalInput.selectionEnd = terminalInput.value.length;
+                    }, 0);
+                }
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (historyIndex !== -1) {
+                    if (historyIndex < commandHistory.length - 1) {
+                        historyIndex++;
+                        terminalInput.value = commandHistory[historyIndex];
+                        terminalInputDisplay.textContent = commandHistory[historyIndex];
+                    } else {
+                        historyIndex = -1;
+                        terminalInput.value = '';
+                        terminalInputDisplay.textContent = '';
+                    }
+                }
             }
         });
 
@@ -268,6 +308,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     appendTerminalLine('  contact   - Show contact and social links', 'system-out');
                     appendTerminalLine('  quote     - Print my favorite motivational quote', 'system-out');
                     appendTerminalLine('  theme     - Toggle light/dark site theme', 'system-out');
+                    appendTerminalLine('  cv        - Open printable ATS CV in a new tab', 'system-out');
+                    appendTerminalLine('  github    - Open GitHub profile in a new tab', 'system-out');
+                    appendTerminalLine('  linkedin  - Open LinkedIn profile in a new tab', 'system-out');
+                    appendTerminalLine('  instagram - Open Instagram profile in a new tab', 'system-out');
                     appendTerminalLine('  clear     - Clear terminal screen', 'system-out');
                     appendTerminalLine('  help      - Show this help message', 'system-out');
                     break;
@@ -312,11 +356,28 @@ document.addEventListener('DOMContentLoaded', () => {
                         themeToggleBtn.click();
                     }
                     break;
+                case 'cv':
+                    appendTerminalLine('Opening ATS CV in new tab...', 'system-out');
+                    window.open('cv.html', '_blank');
+                    break;
+                case 'github':
+                    appendTerminalLine('Opening GitHub profile...', 'system-out');
+                    window.open('https://github.com/Emzyjeppp', '_blank');
+                    break;
+                case 'linkedin':
+                    appendTerminalLine('Opening LinkedIn profile...', 'system-out');
+                    window.open('https://www.linkedin.com/in/muhammadjepri/', '_blank');
+                    break;
+                case 'instagram':
+                    appendTerminalLine('Opening Instagram...', 'system-out');
+                    window.open('https://www.instagram.com/emzyjeppp/', '_blank');
+                    break;
                 default:
                     appendTerminalLine(`Command not found: ${cmd}. Type 'help' for options.`, 'error-out');
             }
         };
     }
+
     // 6. Back to Top Button Interaction
     const backToTopBtn = document.getElementById('back-to-top');
 
@@ -336,4 +397,28 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 7. Subtle Scroll Reveal Animation Observer
+    const revealSections = document.querySelectorAll('.reveal');
+
+    if ('IntersectionObserver' in window && revealSections.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Reveal once
+                }
+            });
+        }, {
+            threshold: 0.15, // Trigger when 15% of the section is visible
+            rootMargin: '0px 0px -50px 0px' // Margins to trigger slightly early/late
+        });
+
+        revealSections.forEach(sec => revealObserver.observe(sec));
+    } else {
+        // Fallback for older browsers
+        revealSections.forEach(sec => sec.classList.add('active'));
+    }
 });
+
+
