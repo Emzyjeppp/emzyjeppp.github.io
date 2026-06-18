@@ -93,13 +93,25 @@
         }
 
         /* Skills section */
-        .skills-category {
-            margin-bottom: 0.5rem;
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
             font-size: 10pt;
+            margin-top: 0.25rem;
         }
-        .skills-category strong {
-            display: inline-block;
+        .skills-table td {
+            padding: 0.25rem 0;
+            vertical-align: top;
+            text-align: justify;
+        }
+        .skill-label {
             width: 100px;
+            font-weight: bold;
+            color: #000;
+        }
+        .skill-colon {
+            width: 15px;
+            text-align: left;
         }
 
         /* Page-break utility for printing */
@@ -242,15 +254,23 @@
     <div class="section">
         <h2 class="section-title">Keterampilan & Bahasa</h2>
         
-        <div class="skills-category">
-            <strong>Soft Skill</strong>: Kerja Sama Tim, Pemecahan Masalah (Problem Solving), Kemampuan Adaptasi, Manajemen Waktu, Komunikasi Interpersonal.
-        </div>
-        <div class="skills-category">
-            <strong>Hard Skill</strong>: Python, CustomTkinter, Batchfile Scripting, HTML/CSS/JavaScript, Bootstrap, Relational Database (SQL), NoSQL Database (MongoDB), Git/GitHub, System Administration.
-        </div>
-        <div class="skills-category">
-            <strong>Bahasa</strong>: Indonesia (Mahir/Native), Inggris (Menengah).
-        </div>
+        <table class="skills-table">
+            <tr>
+                <td class="skill-label">Soft Skill</td>
+                <td class="skill-colon">:</td>
+                <td>Kerja Sama Tim, Pemecahan Masalah (Problem Solving), Kemampuan Adaptasi, Manajemen Waktu, Komunikasi Interpersonal.</td>
+            </tr>
+            <tr>
+                <td class="skill-label">Hard Skill</td>
+                <td class="skill-colon">:</td>
+                <td>Python, CustomTkinter, Batchfile Scripting, HTML/CSS/JavaScript, Bootstrap, Relational Database (SQL), NoSQL Database (MongoDB), Git/GitHub, System Administration.</td>
+            </tr>
+            <tr>
+                <td class="skill-label">Bahasa</td>
+                <td class="skill-colon">:</td>
+                <td>Indonesia (Mahir/Native), Inggris (Menengah).</td>
+            </tr>
+        </table>
     </div>
 
     <div class="section">
