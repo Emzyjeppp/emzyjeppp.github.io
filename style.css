@@ -184,12 +184,13 @@ ul {
     justify-content: center;
     cursor: pointer;
     font-size: 1.2rem;
-    transition: all var(--transition-fast);
+    transition: all var(--transition-normal);
 }
 
 .theme-toggle-btn:hover {
     background-color: var(--card-bg);
-    border-color: var(--border-hover);
+    border-color: var(--accent);
+    transform: scale(1.08) rotate(15deg);
 }
 
 /* Show/hide sun/moon depending on theme attribute */
@@ -269,7 +270,7 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     border-radius: 50%;
     opacity: 0.65;
     box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
-    animation: rotate-clockwise 12s linear infinite;
+    animation: rotate-clockwise 25s linear infinite;
 }
 
 /* Inner counter-rotating solid glow ring */
@@ -285,7 +286,7 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     border-radius: 50%;
     opacity: 0.8;
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
-    animation: rotate-counter 6s linear infinite;
+    animation: rotate-counter 18s linear infinite;
 }
 
 /* Glowing tech corners framing the avatar */
@@ -431,12 +432,13 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     border: 1px solid var(--border-color);
     border-radius: 8px;
     background-color: var(--card-bg);
-    transition: all var(--transition-fast);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .service-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
+    border-color: var(--accent);
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(99, 102, 241, 0.12);
 }
 
 .service-icon {
@@ -518,12 +520,13 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     border-radius: 8px;
     background-color: var(--card-bg);
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
 }
 
 .project-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.08);
 }
 
 .project-info {
@@ -699,13 +702,14 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     border: 1px solid var(--border-color);
     border-radius: 8px;
     background-color: var(--card-bg);
-    transition: all var(--transition-fast);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
     gap: 1.5rem;
 }
 
 .cert-card:hover {
-    border-color: var(--border-hover);
-    transform: translateY(-2px);
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.08);
 }
 
 .cert-info {
@@ -1397,5 +1401,54 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* 7. Entrance Animations (Page Load) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Apply entrance animations to Hero elements */
+.hero-content .badge {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.1s;
+}
+.hero-content .hero-title {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.25s;
+}
+.hero-content .hero-subtitle {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.4s;
+}
+.hero-content .status-widget {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.55s;
+}
+.hero-content .hero-actions {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.7s;
+}
+.hero-avatar-wrapper {
+    animation: scaleIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation-delay: 0.3s;
 }
 
