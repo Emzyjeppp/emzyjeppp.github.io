@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. Premium Theme Switcher Engine
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
-    const themesList = ['dark', 'light', 'dracula', 'cyberpunk', 'nord', 'monokai'];
+    const themesList = ['dark', 'light', 'dracula', 'cyberpunk', 'nord', 'monokai', 'gemini'];
 
     const updateGithubStatsTheme = (theme) => {
         const statsCard = document.getElementById('github-stats-card');
@@ -41,6 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
             titleColor = 'a6e22e';
             iconColor = 'a6e22e';
             textColor = 'f8f8f2';
+        } else if (theme === 'gemini') {
+            githubTheme = 'discord_theme';
+            titleColor = 'a78bfa';
+            iconColor = 'a78bfa';
+            textColor = 'c7d2fe';
         }
 
         statsCard.src = `https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=${githubTheme}&hide_border=true&bg_color=00000000&title_color=${titleColor}&icon_color=${iconColor}&text_color=${textColor}`;
