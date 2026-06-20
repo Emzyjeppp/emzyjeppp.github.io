@@ -245,156 +245,164 @@ document.addEventListener('DOMContentLoaded', () => {
     let commandHistory = [];
     let historyIndex = -1;
 
-    // Snake Game Variables
-    let isPlayingSnake = false;
-    let snakeGameLoop = null;
-    let snakeCanvas, ctx;
-    let snake = [];
-    let food = {};
-    let dx = 15;
-    let dy = 0;
-    let score = 0;
-    const gridCellSize = 15;
-    const gridCount = 20;
+    if (terminalContainer && terminalInput && terminalBody) {
+        // Snake Game Variables
+        let isPlayingSnake = false;
+        let snakeGameLoop = null;
+        let snakeCanvas, ctx;
+        let snake = [];
+        let food = {};
+        let dx = 15;
+        let dy = 0;
+        let score = 0;
+        const gridCellSize = 15;
+        const gridCount = 20;
 
-    const startSnakeGame = () => {
-        isPlayingSnake = true;
-        terminalCursor.style.display = 'none';
-        terminalInputDisplay.textContent = 'Playing Snake... (Press ESC to exit)';
-        
-        appendTerminalLine('--- RETRO ARCADE SNEK ---', 'diag-out');
-        appendTerminalLine('Control using Arrow Keys or WASD. Eat red dots. Press ESC to quit.', 'system-out');
-
-        const canvasContainer = document.createElement('div');
-        canvasContainer.id = 'snake-container';
-        canvasContainer.style.display = 'flex';
-        canvasContainer.style.flexDirection = 'column';
-        canvasContainer.style.alignItems = 'center';
-        canvasContainer.style.margin = '1rem 0';
-        canvasContainer.innerHTML = `
-            <div style="color: #22c55e; font-family: monospace; font-size: 1rem; margin-bottom: 0.5rem; display: flex; gap: 2rem;">
-                <span>SCORE: <span id="snake-score">0</span></span>
-                <span>HIGH SCORE: <span id="snake-highscore">${localStorage.getItem('snake_highscore') || 0}</span></span>
-            </div>
-            <canvas id="snake-canvas" width="300" height="300" style="border: 1px solid var(--border-color); background-color: #050505; border-radius: 4px;"></canvas>
-        `;
-        terminalOutput.appendChild(canvasContainer);
-
-        snakeCanvas = document.getElementById('snake-canvas');
-        ctx = snakeCanvas.getContext('2d');
-        
-        snake = [
-            {x: 150, y: 150},
-            {x: 135, y: 150},
-            {x: 120, y: 150}
-        ];
-        dx = 15;
-        dy = 0;
-        score = 0;
-        placeFood();
-
-        terminalInput.focus();
-        
-        setTimeout(() => {
-            terminalBody.scrollTop = terminalBody.scrollHeight;
-        }, 20);
-
-        if (snakeGameLoop) clearInterval(snakeGameLoop);
-        snakeGameLoop = setInterval(gameStep, 100);
-    };
-
-    const placeFood = () => {
-        food.x = Math.floor(Math.random() * gridCount) * gridCellSize;
-        food.y = Math.floor(Math.random() * gridCount) * gridCellSize;
-        snake.forEach(part => {
-            if (part.x === food.x && part.y === food.y) placeFood();
-        });
-    };
-
-    const gameStep = () => {
-        const head = {x: snake[0].x + dx, y: snake[0].y + dy};
-
-        if (head.x < 0 || head.x >= 300 || head.y < 0 || head.y >= 300 || checkSelfCollision(head)) {
-            gameOver();
-            return;
+        // Hoisted function declaration to avoid ReferenceError in startSnakeGame
+        function appendTerminalLine(text, className = 'system-out') {
+            const line = document.createElement('div');
+            line.className = `terminal-output-line ${className}`;
+            line.textContent = text;
+            terminalOutput.appendChild(line);
         }
 
-        snake.unshift(head);
+        const startSnakeGame = () => {
+            isPlayingSnake = true;
+            terminalCursor.style.display = 'none';
+            terminalInputDisplay.textContent = 'Playing Snake... (Press ESC to exit)';
+            
+            appendTerminalLine('--- RETRO ARCADE SNEK ---', 'diag-out');
+            appendTerminalLine('Control using Arrow Keys or WASD. Eat red dots. Press ESC to quit.', 'system-out');
 
-        const ateFood = head.x === food.x && head.y === food.y;
-        if (ateFood) {
-            score += 10;
-            document.getElementById('snake-score').textContent = score;
-            const highScore = parseInt(localStorage.getItem('snake_highscore') || '0', 10);
-            if (score > highScore) {
-                localStorage.setItem('snake_highscore', score);
-                document.getElementById('snake-highscore').textContent = score;
-            }
+            const canvasContainer = document.createElement('div');
+            canvasContainer.id = 'snake-container';
+            canvasContainer.style.display = 'flex';
+            canvasContainer.style.flexDirection = 'column';
+            canvasContainer.style.alignItems = 'center';
+            canvasContainer.style.margin = '1rem 0';
+            canvasContainer.innerHTML = `
+                <div style="color: #22c55e; font-family: monospace; font-size: 1rem; margin-bottom: 0.5rem; display: flex; gap: 2rem;">
+                    <span>SCORE: <span id="snake-score">0</span></span>
+                    <span>HIGH SCORE: <span id="snake-highscore">${localStorage.getItem('snake_highscore') || 0}</span></span>
+                </div>
+                <canvas id="snake-canvas" width="300" height="300" style="border: 1px solid var(--border-color); background-color: #050505; border-radius: 4px;"></canvas>
+            `;
+            terminalOutput.appendChild(canvasContainer);
+
+            snakeCanvas = document.getElementById('snake-canvas');
+            ctx = snakeCanvas.getContext('2d');
+            
+            snake = [
+                {x: 150, y: 150},
+                {x: 135, y: 150},
+                {x: 120, y: 150}
+            ];
+            dx = 15;
+            dy = 0;
+            score = 0;
             placeFood();
-        } else {
-            snake.pop();
-        }
 
-        drawGame();
-    };
+            terminalInput.focus();
+            
+            setTimeout(() => {
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+            }, 20);
 
-    const checkSelfCollision = (head) => {
-        for (let i = 1; i < snake.length; i++) {
-            if (snake[i].x === head.x && snake[i].y === head.y) return true;
-        }
-        return false;
-    };
+            if (snakeGameLoop) clearInterval(snakeGameLoop);
+            snakeGameLoop = setInterval(gameStep, 100);
+        };
 
-    const drawGame = () => {
-        ctx.fillStyle = '#050505';
-        ctx.fillRect(0, 0, 300, 300);
+        const placeFood = () => {
+            food.x = Math.floor(Math.random() * gridCount) * gridCellSize;
+            food.y = Math.floor(Math.random() * gridCount) * gridCellSize;
+            snake.forEach(part => {
+                if (part.x === food.x && part.y === food.y) placeFood();
+            });
+        };
 
-        ctx.fillStyle = '#ef4444';
-        ctx.beginPath();
-        ctx.arc(food.x + 7.5, food.y + 7.5, 6, 0, 2 * Math.PI);
-        ctx.fill();
+        const gameStep = () => {
+            const head = {x: snake[0].x + dx, y: snake[0].y + dy};
 
-        snake.forEach((part, index) => {
-            ctx.fillStyle = index === 0 ? '#22c55e' : '#166534';
-            ctx.fillRect(part.x + 1, part.y + 1, 13, 13);
-        });
-    };
+            if (head.x < 0 || head.x >= 300 || head.y < 0 || head.y >= 300 || checkSelfCollision(head)) {
+                gameOver();
+                return;
+            }
 
-    const gameOver = () => {
-        clearInterval(snakeGameLoop);
-        snakeGameLoop = null;
+            snake.unshift(head);
 
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        ctx.fillRect(0, 0, 300, 300);
+            const ateFood = head.x === food.x && head.y === food.y;
+            if (ateFood) {
+                score += 10;
+                document.getElementById('snake-score').textContent = score;
+                const highScore = parseInt(localStorage.getItem('snake_highscore') || '0', 10);
+                if (score > highScore) {
+                    localStorage.setItem('snake_highscore', score);
+                    document.getElementById('snake-highscore').textContent = score;
+                }
+                placeFood();
+            } else {
+                snake.pop();
+            }
 
-        ctx.fillStyle = '#ef4444';
-        ctx.font = 'bold 1.25rem monospace';
-        ctx.textAlign = 'center';
-        ctx.fillText('GAME OVER', 150, 110);
+            drawGame();
+        };
 
-        ctx.fillStyle = '#a1a1aa';
-        ctx.font = '0.9rem monospace';
-        ctx.fillText(`Final Score: ${score}`, 150, 145);
-        ctx.fillText('Press ENTER to replay', 150, 185);
-        ctx.fillText('Press ESC to exit', 150, 210);
-    };
+        const checkSelfCollision = (head) => {
+            for (let i = 1; i < snake.length; i++) {
+                if (snake[i].x === head.x && snake[i].y === head.y) return true;
+            }
+            return false;
+        };
 
-    const exitSnakeGame = () => {
-        isPlayingSnake = false;
-        if (snakeGameLoop) {
+        const drawGame = () => {
+            ctx.fillStyle = '#050505';
+            ctx.fillRect(0, 0, 300, 300);
+
+            ctx.fillStyle = '#ef4444';
+            ctx.beginPath();
+            ctx.arc(food.x + 7.5, food.y + 7.5, 6, 0, 2 * Math.PI);
+            ctx.fill();
+
+            snake.forEach((part, index) => {
+                ctx.fillStyle = index === 0 ? '#22c55e' : '#166534';
+                ctx.fillRect(part.x + 1, part.y + 1, 13, 13);
+            });
+        };
+
+        const gameOver = () => {
             clearInterval(snakeGameLoop);
             snakeGameLoop = null;
-        }
-        terminalCursor.style.display = '';
-        terminalInput.value = '';
-        terminalInputDisplay.textContent = '';
-        appendTerminalLine('Returned to console.', 'system-out');
-        setTimeout(() => {
-            terminalBody.scrollTop = terminalBody.scrollHeight;
-        }, 20);
-    };
 
-    if (terminalContainer && terminalInput && terminalBody) {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+            ctx.fillRect(0, 0, 300, 300);
+
+            ctx.fillStyle = '#ef4444';
+            ctx.font = 'bold 1.25rem monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText('GAME OVER', 150, 110);
+
+            ctx.fillStyle = '#a1a1aa';
+            ctx.font = '0.9rem monospace';
+            ctx.fillText(`Final Score: ${score}`, 150, 145);
+            ctx.fillText('Press ENTER to replay', 150, 185);
+            ctx.fillText('Press ESC to exit', 150, 210);
+        };
+
+        const exitSnakeGame = () => {
+            isPlayingSnake = false;
+            if (snakeGameLoop) {
+                clearInterval(snakeGameLoop);
+                snakeGameLoop = null;
+            }
+            terminalCursor.style.display = '';
+            terminalInput.value = '';
+            terminalInputDisplay.textContent = '';
+            appendTerminalLine('Returned to console.', 'system-out');
+            setTimeout(() => {
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+            }, 20);
+        };
+
         terminalBody.addEventListener('click', () => {
             terminalInput.focus();
         });
@@ -498,13 +506,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         });
-
-        const appendTerminalLine = (text, className = 'system-out') => {
-            const line = document.createElement('div');
-            line.className = `terminal-output-line ${className}`;
-            line.textContent = text;
-            terminalOutput.appendChild(line);
-        };
 
         const processCommand = (fullCmd) => {
             const tokens = fullCmd.trim().split(/\s+/);
