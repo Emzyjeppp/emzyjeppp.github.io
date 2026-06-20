@@ -442,16 +442,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
                     e.preventDefault();
-                    if (dy === 0) { dx = 0; dy = -15; }
+                    if (dy === 0) { dx = 0; dy = -gridCellSize; }
                 } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
                     e.preventDefault();
-                    if (dy === 0) { dx = 0; dy = 15; }
+                    if (dy === 0) { dx = 0; dy = gridCellSize; }
                 } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
                     e.preventDefault();
-                    if (dx === 0) { dx = -15; dy = 0; }
+                    if (dx === 0) { dx = -gridCellSize; dy = 0; }
                 } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
                     e.preventDefault();
-                    if (dx === 0) { dx = 15; dy = 0; }
+                    if (dx === 0) { dx = gridCellSize; dy = 0; }
                 }
                 return;
             }
