@@ -36,6 +36,54 @@ html[data-theme="light"] {
     --shadow: rgba(0, 0, 0, 0.05);
 }
 
+html[data-theme="dracula"] {
+    --bg-color: #282a36;
+    --card-bg: #1d1f27;
+    --text-primary: #f8f8f2;
+    --text-secondary: #f8f8f2;
+    --text-muted: #6272a4;
+    --accent: #bd93f9;
+    --border-color: #44475a;
+    --border-hover: #6272a4;
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+
+html[data-theme="cyberpunk"] {
+    --bg-color: #000000;
+    --card-bg: #090909;
+    --text-primary: #fcee0a;
+    --text-secondary: #00f0ff;
+    --text-muted: #ff007f;
+    --accent: #00f0ff;
+    --border-color: #fcee0a;
+    --border-hover: #00f0ff;
+    --shadow: rgba(255, 0, 127, 0.2);
+}
+
+html[data-theme="nord"] {
+    --bg-color: #2e3440;
+    --card-bg: #3b4252;
+    --text-primary: #eceff4;
+    --text-secondary: #d8dee9;
+    --text-muted: #4c566a;
+    --accent: #88c0d0;
+    --border-color: #434c5e;
+    --border-hover: #4c566a;
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+html[data-theme="monokai"] {
+    --bg-color: #272822;
+    --card-bg: #1e1f1c;
+    --text-primary: #f8f8f2;
+    --text-secondary: #f8f8f2;
+    --text-muted: #75715e;
+    --accent: #a6e22e;
+    --border-color: #3e3d32;
+    --border-hover: #75715e;
+    --shadow: rgba(0, 0, 0, 0.4);
+}
+
 /* Reset & Base Styles */
 * {
     margin: 0;
@@ -520,13 +568,33 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     border-radius: 8px;
     background-color: var(--card-bg);
     cursor: pointer;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease, box-shadow 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .project-card:hover {
     border-color: var(--accent);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.08);
+    box-shadow: 0 12px 30px rgba(99, 102, 241, 0.12);
+}
+
+.card-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255, 255, 255, 0.1) 0%, transparent 60%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.project-card:hover .card-glare {
+    opacity: 1;
 }
 
 .project-info {

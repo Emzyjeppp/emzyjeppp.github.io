@@ -1,38 +1,72 @@
 // Minimalist & Clean Portfolio Interactivity
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Light/Dark Mode Switcher
+    // 1. Premium Theme Switcher Engine
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
+    const themesList = ['dark', 'light', 'dracula', 'cyberpunk', 'nord', 'monokai'];
 
     const updateGithubStatsTheme = (theme) => {
         const statsCard = document.getElementById('github-stats-card');
         const langsCard = document.getElementById('github-langs-card');
         if (!statsCard || !langsCard) return;
 
-        if (theme === 'dark') {
-            statsCard.src = 'https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=react&hide_border=true&bg_color=00000000&title_color=6366f1&icon_color=6366f1&text_color=a1a1aa';
-            langsCard.src = 'https://github-readme-stats.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=react&hide_border=true&bg_color=00000000&title_color=6366f1&icon_color=6366f1&text_color=a1a1aa';
-        } else {
-            statsCard.src = 'https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=default&hide_border=true&bg_color=00000000&title_color=4f46e5&icon_color=4f46e5&text_color=4b5563';
-            langsCard.src = 'https://github-readme-stats.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=default&hide_border=true&bg_color=00000000&title_color=4f46e5&icon_color=4f46e5&text_color=4b5563';
+        let githubTheme = 'react';
+        let titleColor = '6366f1';
+        let iconColor = '6366f1';
+        let textColor = 'a1a1aa';
+
+        if (theme === 'light') {
+            githubTheme = 'default';
+            titleColor = '4f46e5';
+            iconColor = '4f46e5';
+            textColor = '4b5563';
+        } else if (theme === 'dracula') {
+            githubTheme = 'dracula';
+            titleColor = 'bd93f9';
+            iconColor = 'bd93f9';
+            textColor = 'f8f8f2';
+        } else if (theme === 'cyberpunk') {
+            githubTheme = 'tokyonight';
+            titleColor = 'fcee0a';
+            iconColor = '00f0ff';
+            textColor = '00f0ff';
+        } else if (theme === 'nord') {
+            githubTheme = 'nord';
+            titleColor = '88c0d0';
+            iconColor = '88c0d0';
+            textColor = 'd8dee9';
+        } else if (theme === 'monokai') {
+            githubTheme = 'monokai';
+            titleColor = 'a6e22e';
+            iconColor = 'a6e22e';
+            textColor = 'f8f8f2';
         }
+
+        statsCard.src = `https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=${githubTheme}&hide_border=true&bg_color=00000000&title_color=${titleColor}&icon_color=${iconColor}&text_color=${textColor}`;
+        langsCard.src = `https://github-readme-stats.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=${githubTheme}&hide_border=true&bg_color=00000000&title_color=${titleColor}&icon_color=${iconColor}&text_color=${textColor}`;
+    };
+
+    const setTheme = (theme) => {
+        if (!themesList.includes(theme)) return;
+        htmlElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        updateGithubStatsTheme(theme);
+    };
+
+    const toggleTheme = () => {
+        const currentTheme = htmlElement.getAttribute('data-theme') || 'dark';
+        let nextIndex = (themesList.indexOf(currentTheme) + 1) % themesList.length;
+        if (nextIndex === -1) nextIndex = 0;
+        setTheme(themesList[nextIndex]);
     };
 
     // Load saved theme or default to dark
     const savedTheme = localStorage.getItem('theme') || 'dark';
-    htmlElement.setAttribute('data-theme', savedTheme);
-    updateGithubStatsTheme(savedTheme);
+    setTheme(savedTheme);
 
     if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            const currentTheme = htmlElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            htmlElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateGithubStatsTheme(newTheme);
-        });
+        themeToggleBtn.addEventListener('click', toggleTheme);
     }
 
     // 2. Copy Email to Clipboard Feature
@@ -211,18 +245,166 @@ document.addEventListener('DOMContentLoaded', () => {
     let commandHistory = [];
     let historyIndex = -1;
 
+    // Snake Game Variables
+    let isPlayingSnake = false;
+    let snakeGameLoop = null;
+    let snakeCanvas, ctx;
+    let snake = [];
+    let food = {};
+    let dx = 15;
+    let dy = 0;
+    let score = 0;
+    const gridCellSize = 15;
+    const gridCount = 20;
+
+    const startSnakeGame = () => {
+        isPlayingSnake = true;
+        terminalCursor.style.display = 'none';
+        terminalInputDisplay.textContent = 'Playing Snake... (Press ESC to exit)';
+        
+        appendTerminalLine('--- RETRO ARCADE SNEK ---', 'diag-out');
+        appendTerminalLine('Control using Arrow Keys or WASD. Eat red dots. Press ESC to quit.', 'system-out');
+
+        const canvasContainer = document.createElement('div');
+        canvasContainer.id = 'snake-container';
+        canvasContainer.style.display = 'flex';
+        canvasContainer.style.flexDirection = 'column';
+        canvasContainer.style.alignItems = 'center';
+        canvasContainer.style.margin = '1rem 0';
+        canvasContainer.innerHTML = `
+            <div style="color: #22c55e; font-family: monospace; font-size: 1rem; margin-bottom: 0.5rem; display: flex; gap: 2rem;">
+                <span>SCORE: <span id="snake-score">0</span></span>
+                <span>HIGH SCORE: <span id="snake-highscore">${localStorage.getItem('snake_highscore') || 0}</span></span>
+            </div>
+            <canvas id="snake-canvas" width="300" height="300" style="border: 1px solid var(--border-color); background-color: #050505; border-radius: 4px;"></canvas>
+        `;
+        terminalOutput.appendChild(canvasContainer);
+
+        snakeCanvas = document.getElementById('snake-canvas');
+        ctx = snakeCanvas.getContext('2d');
+        
+        snake = [
+            {x: 150, y: 150},
+            {x: 135, y: 150},
+            {x: 120, y: 150}
+        ];
+        dx = 15;
+        dy = 0;
+        score = 0;
+        placeFood();
+
+        terminalInput.focus();
+        
+        setTimeout(() => {
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }, 20);
+
+        if (snakeGameLoop) clearInterval(snakeGameLoop);
+        snakeGameLoop = setInterval(gameStep, 100);
+    };
+
+    const placeFood = () => {
+        food.x = Math.floor(Math.random() * gridCount) * gridCellSize;
+        food.y = Math.floor(Math.random() * gridCount) * gridCellSize;
+        snake.forEach(part => {
+            if (part.x === food.x && part.y === food.y) placeFood();
+        });
+    };
+
+    const gameStep = () => {
+        const head = {x: snake[0].x + dx, y: snake[0].y + dy};
+
+        if (head.x < 0 || head.x >= 300 || head.y < 0 || head.y >= 300 || checkSelfCollision(head)) {
+            gameOver();
+            return;
+        }
+
+        snake.unshift(head);
+
+        const ateFood = head.x === food.x && head.y === food.y;
+        if (ateFood) {
+            score += 10;
+            document.getElementById('snake-score').textContent = score;
+            const highScore = parseInt(localStorage.getItem('snake_highscore') || '0', 10);
+            if (score > highScore) {
+                localStorage.setItem('snake_highscore', score);
+                document.getElementById('snake-highscore').textContent = score;
+            }
+            placeFood();
+        } else {
+            snake.pop();
+        }
+
+        drawGame();
+    };
+
+    const checkSelfCollision = (head) => {
+        for (let i = 1; i < snake.length; i++) {
+            if (snake[i].x === head.x && snake[i].y === head.y) return true;
+        }
+        return false;
+    };
+
+    const drawGame = () => {
+        ctx.fillStyle = '#050505';
+        ctx.fillRect(0, 0, 300, 300);
+
+        ctx.fillStyle = '#ef4444';
+        ctx.beginPath();
+        ctx.arc(food.x + 7.5, food.y + 7.5, 6, 0, 2 * Math.PI);
+        ctx.fill();
+
+        snake.forEach((part, index) => {
+            ctx.fillStyle = index === 0 ? '#22c55e' : '#166534';
+            ctx.fillRect(part.x + 1, part.y + 1, 13, 13);
+        });
+    };
+
+    const gameOver = () => {
+        clearInterval(snakeGameLoop);
+        snakeGameLoop = null;
+
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+        ctx.fillRect(0, 0, 300, 300);
+
+        ctx.fillStyle = '#ef4444';
+        ctx.font = 'bold 1.25rem monospace';
+        ctx.textAlign = 'center';
+        ctx.fillText('GAME OVER', 150, 110);
+
+        ctx.fillStyle = '#a1a1aa';
+        ctx.font = '0.9rem monospace';
+        ctx.fillText(`Final Score: ${score}`, 150, 145);
+        ctx.fillText('Press ENTER to replay', 150, 185);
+        ctx.fillText('Press ESC to exit', 150, 210);
+    };
+
+    const exitSnakeGame = () => {
+        isPlayingSnake = false;
+        if (snakeGameLoop) {
+            clearInterval(snakeGameLoop);
+            snakeGameLoop = null;
+        }
+        terminalCursor.style.display = '';
+        terminalInput.value = '';
+        terminalInputDisplay.textContent = '';
+        appendTerminalLine('Returned to console.', 'system-out');
+        setTimeout(() => {
+            terminalBody.scrollTop = terminalBody.scrollHeight;
+        }, 20);
+    };
+
     if (terminalContainer && terminalInput && terminalBody) {
-        // Auto focus input on clicking terminal
         terminalBody.addEventListener('click', () => {
             terminalInput.focus();
         });
 
-        // Sync input typing to display span
         terminalInput.addEventListener('input', () => {
-            terminalInputDisplay.textContent = terminalInput.value;
+            if (!isPlayingSnake) {
+                terminalInputDisplay.textContent = terminalInput.value;
+            }
         });
 
-        // Keep input focused when container is clicked
         terminalInput.addEventListener('blur', () => {
             terminalCursor.classList.add('blurred');
         });
@@ -230,32 +412,59 @@ document.addEventListener('DOMContentLoaded', () => {
             terminalCursor.classList.remove('blurred');
         });
 
-        // Handle commands on enter key and history navigation
         terminalInput.addEventListener('keydown', (e) => {
+            if (isPlayingSnake) {
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    exitSnakeGame();
+                    return;
+                }
+                
+                if (!snakeGameLoop) {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const oldContainer = document.getElementById('snake-container');
+                        if (oldContainer) oldContainer.remove();
+                        startSnakeGame();
+                    }
+                    return;
+                }
+
+                if (e.key === 'ArrowUp' || e.key === 'w' || e.key === 'W') {
+                    e.preventDefault();
+                    if (dy === 0) { dx = 0; dy = -15; }
+                } else if (e.key === 'ArrowDown' || e.key === 's' || e.key === 'S') {
+                    e.preventDefault();
+                    if (dy === 0) { dx = 0; dy = 15; }
+                } else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+                    e.preventDefault();
+                    if (dx === 0) { dx = -15; dy = 0; }
+                } else if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+                    e.preventDefault();
+                    if (dx === 0) { dx = 15; dy = 0; }
+                }
+                return;
+            }
+
             if (e.key === 'Enter') {
                 const fullCommand = terminalInput.value.trim();
-                const command = fullCommand.toLowerCase().split(' ')[0];
                 
-                // Echo typed command
                 appendTerminalLine(`guest@jeppp-terminal:~$ ${fullCommand}`, 'cmd-echo');
                 
                 if (fullCommand) {
-                    // Save to history if different from the last entry
                     if (commandHistory.length === 0 || commandHistory[commandHistory.length - 1] !== fullCommand) {
                         commandHistory.push(fullCommand);
                     }
                 }
-                historyIndex = -1; // Reset history index
+                historyIndex = -1;
                 
-                if (command) {
-                    processCommand(command);
+                if (fullCommand) {
+                    processCommand(fullCommand);
                 }
                 
-                // Reset input
                 terminalInput.value = '';
                 terminalInputDisplay.textContent = '';
                 
-                // Auto scroll to bottom
                 setTimeout(() => {
                     terminalBody.scrollTop = terminalBody.scrollHeight;
                 }, 10);
@@ -270,7 +479,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     terminalInput.value = commandHistory[historyIndex];
                     terminalInputDisplay.textContent = commandHistory[historyIndex];
                     
-                    // Move cursor to end
                     setTimeout(() => {
                         terminalInput.selectionStart = terminalInput.selectionEnd = terminalInput.value.length;
                     }, 0);
@@ -298,7 +506,11 @@ document.addEventListener('DOMContentLoaded', () => {
             terminalOutput.appendChild(line);
         };
 
-        const processCommand = (cmd) => {
+        const processCommand = (fullCmd) => {
+            const tokens = fullCmd.trim().split(/\s+/);
+            const cmd = tokens[0].toLowerCase();
+            const args = tokens.slice(1);
+
             switch (cmd) {
                 case 'help':
                     appendTerminalLine('Available commands:', 'system-out');
@@ -307,7 +519,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     appendTerminalLine('  skills    - Show core programming skill set', 'system-out');
                     appendTerminalLine('  contact   - Show contact and social links', 'system-out');
                     appendTerminalLine('  quote     - Print my favorite motivational quote', 'system-out');
-                    appendTerminalLine('  theme     - Toggle light/dark site theme', 'system-out');
+                    appendTerminalLine('  theme     - Cycle themes or set one (e.g., "theme dracula")', 'system-out');
+                    appendTerminalLine('  play      - Play a retro arcade Snake game!', 'diag-out');
                     appendTerminalLine('  cv        - Open printable ATS CV in a new tab', 'system-out');
                     appendTerminalLine('  github    - Open GitHub profile in a new tab', 'system-out');
                     appendTerminalLine('  linkedin  - Open LinkedIn profile in a new tab', 'system-out');
@@ -351,10 +564,23 @@ document.addEventListener('DOMContentLoaded', () => {
                     terminalOutput.innerHTML = '';
                     break;
                 case 'theme':
-                    appendTerminalLine('Toggling website theme...', 'system-out');
-                    if (themeToggleBtn) {
-                        themeToggleBtn.click();
+                    if (args.length > 0) {
+                        const targetTheme = args[0].toLowerCase();
+                        if (themesList.includes(targetTheme)) {
+                            appendTerminalLine(`Setting theme to "${targetTheme}"...`, 'system-out');
+                            setTheme(targetTheme);
+                        } else {
+                            appendTerminalLine(`Theme "${targetTheme}" not found. Available: ${themesList.join(', ')}`, 'error-out');
+                        }
+                    } else {
+                        appendTerminalLine('Cycling website theme...', 'system-out');
+                        toggleTheme();
                     }
+                    break;
+                case 'play':
+                case 'snake':
+                case 'game':
+                    startSnakeGame();
                     break;
                 case 'cv':
                     appendTerminalLine('Opening ATS CV in new tab...', 'system-out');
@@ -377,6 +603,30 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
     }
+
+    // 3D Tilt Hover Effect for Project Cards
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            card.style.setProperty('--x', `${(x / rect.width) * 100}%`);
+            card.style.setProperty('--y', `${(y / rect.height) * 100}%`);
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const tiltX = ((y - centerY) / centerY) * 12;
+            const tiltY = -((x - centerX) / centerX) * 12;
+
+            card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.03, 1.03, 1.03)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+    });
 
     // 6. Back to Top Button Interaction
     const backToTopBtn = document.getElementById('back-to-top');
