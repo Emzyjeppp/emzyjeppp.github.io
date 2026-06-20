@@ -953,34 +953,10 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
         width: 170px;
         height: 170px;
     }
-    .avatar-wrapper {
-        width: 130px;
-        height: 130px;
-    }
     .hero-avatar {
-        width: 106px;
-        height: 106px;
+        width: 154px;
+        height: 154px;
     }
-    .avatar-decoration {
-        width: 146px;
-        height: 146px;
-    }
-    .decor-ring.ring-outer {
-        width: 134px;
-        height: 134px;
-    }
-    .decor-ring.ring-inner {
-        width: 118px;
-        height: 118px;
-    }
-    .decor-corner {
-        width: 10px;
-        height: 10px;
-    }
-    .corner-tl { top: 12px; left: 12px; }
-    .corner-tr { top: 12px; right: 12px; }
-    .corner-bl { bottom: 12px; left: 12px; }
-    .corner-br { bottom: 12px; right: 12px; }
     
     hr.divider {
         margin: 3rem 0;
