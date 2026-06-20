@@ -298,144 +298,27 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
 .hero-avatar-wrapper {
     flex-shrink: 0;
     position: relative;
-    width: 220px;
-    height: 220px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.avatar-wrapper {
-    position: relative;
     width: 170px;
     height: 170px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    border: 2px solid var(--border-color);
+    background-color: var(--card-bg);
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.hero-avatar-wrapper:hover {
+    border-color: var(--accent);
+    transform: scale(1.03);
 }
 
 .hero-avatar {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid var(--card-bg);
-    box-shadow: 0 0 15px var(--shadow);
-    z-index: 5;
-    position: relative;
-    background-color: var(--card-bg);
-    transition: transform var(--transition-fast);
-}
-
-/* Discord-like Avatar Decoration */
-.avatar-decoration {
-    position: absolute;
-    width: 190px;
-    height: 190px;
-    pointer-events: none;
-    z-index: 10;
-}
-
-/* Outer rotating dashed tech ring */
-.decor-ring.ring-outer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 176px;
-    height: 176px;
-    border: 2px dashed var(--accent);
-    border-radius: 50%;
-    opacity: 0.65;
-    box-shadow: 0 0 10px rgba(99, 102, 241, 0.2);
-    animation: rotate-clockwise 25s linear infinite;
-}
-
-/* Inner counter-rotating solid glow ring */
-.decor-ring.ring-inner {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     width: 154px;
     height: 154px;
-    border: 2px solid transparent;
-    border-top-color: var(--accent);
-    border-bottom-color: var(--accent);
     border-radius: 50%;
-    opacity: 0.8;
-    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
-    animation: rotate-counter 18s linear infinite;
-}
-
-/* Glowing tech corners framing the avatar */
-.decor-corner {
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    border: 2px solid var(--accent);
-    opacity: 0.9;
-    filter: drop-shadow(0 0 5px var(--accent));
-    transition: transform 0.3s ease;
-}
-
-.corner-tl {
-    top: 15px;
-    left: 15px;
-    border-right: none;
-    border-bottom: none;
-}
-
-.corner-tr {
-    top: 15px;
-    right: 15px;
-    border-left: none;
-    border-bottom: none;
-}
-
-.corner-bl {
-    bottom: 15px;
-    left: 15px;
-    border-right: none;
-    border-top: none;
-}
-
-.corner-br {
-    bottom: 15px;
-    right: 15px;
-    border-left: none;
-    border-top: none;
-}
-
-/* Hover effect on wrapper to trigger subtle micro-animation */
-.hero-avatar-wrapper:hover .corner-tl {
-    transform: translate(-3px, -3px);
-}
-.hero-avatar-wrapper:hover .corner-tr {
-    transform: translate(3px, -3px);
-}
-.hero-avatar-wrapper:hover .corner-bl {
-    transform: translate(-3px, 3px);
-}
-.hero-avatar-wrapper:hover .corner-br {
-    transform: translate(3px, 3px);
-}
-
-@keyframes rotate-clockwise {
-    from {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-}
-
-@keyframes rotate-counter {
-    from {
-        transform: translate(-50%, -50%) rotate(360deg);
-    }
-    to {
-        transform: translate(-50%, -50%) rotate(0deg);
-    }
+    object-fit: cover;
 }
 
 .badge {
@@ -1261,7 +1144,7 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     border: 1px solid #27272a;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+    box-shadow: none;
     font-family: var(--font-mono);
 }
 
@@ -1295,7 +1178,7 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.8rem;
-    color: #71717a;
+    color: #a1a1aa;
     font-weight: 500;
 }
 
