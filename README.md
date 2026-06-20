@@ -3,8 +3,8 @@
 Personal minimalist portfolio website & ATS-compliant CV built with semantic HTML, CSS (Vanilla), and JavaScript. Pushed live to GitHub Pages.
 
 ## 🌐 Live URL
-- **Web Portfolio**: [emzyjeppp.github.io](https://emzyjeppp.github.io)
-- **ATS CV Page**: [emzyjeppp.github.io/cv.html](https://emzyjeppp.github.io/cv.html)
+- **Web Portfolio**: [jeppp.is-a.dev](https://jeppp.is-a.dev)
+- **ATS CV Page**: [jeppp.is-a.dev/cv.html](https://jeppp.is-a.dev/cv.html)
 
 ---
 
@@ -25,8 +25,8 @@ Personal minimalist portfolio website & ATS-compliant CV built with semantic HTM
 ### 📄 ATS-Compliant CV (`cv.html` & Pre-renders)
 - **Perfect Spacing & Layout**: Enforced alignment for label-colon columns using structured tabular grids.
 - **Multiple Formats**: Direct header downloads for clean, pre-rendered versions:
-  - **[Download PDF](https://emzyjeppp.github.io/assets/CV_Muhammad_Jepri.pdf)**: Headless browser printed PDF omitting interactive controls.
-  - **[Download Word (.docx)](https://emzyjeppp.github.io/assets/CV_Muhammad_Jepri.docx)**: Custom-built borderless layout document generated using `python-docx`.
+  - **[Download PDF](https://jeppp.is-a.dev/assets/CV_Muhammad_Jepri.pdf)**: Headless browser printed PDF omitting interactive controls.
+  - **[Download Word (.docx)](https://jeppp.is-a.dev/assets/CV_Muhammad_Jepri.docx)**: Custom-built borderless layout document generated using `python-docx`.
 
 ---
 
