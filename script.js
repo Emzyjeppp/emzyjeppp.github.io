@@ -252,10 +252,10 @@ document.addEventListener('DOMContentLoaded', () => {
         let snakeCanvas, ctx;
         let snake = [];
         let food = {};
-        let dx = 15;
+        let dx = 12;
         let dy = 0;
         let score = 0;
-        const gridCellSize = 15;
+        const gridCellSize = 12;
         const gridCount = 20;
 
         // Hoisted function declaration to avoid ReferenceError in startSnakeGame
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span>SCORE: <span id="snake-score">0</span></span>
                     <span>HIGH SCORE: <span id="snake-highscore">${localStorage.getItem('snake_highscore') || 0}</span></span>
                 </div>
-                <canvas id="snake-canvas" width="300" height="300" style="border: 1px solid var(--border-color); background-color: #050505; border-radius: 4px;"></canvas>
+                <canvas id="snake-canvas" width="240" height="240" style="border: 1px solid var(--border-color); background-color: #050505; border-radius: 4px;"></canvas>
             `;
             terminalOutput.appendChild(canvasContainer);
 
@@ -294,11 +294,11 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx = snakeCanvas.getContext('2d');
             
             snake = [
-                {x: 150, y: 150},
-                {x: 135, y: 150},
-                {x: 120, y: 150}
+                {x: 120, y: 120},
+                {x: 108, y: 120},
+                {x: 96, y: 120}
             ];
-            dx = 15;
+            dx = 12;
             dy = 0;
             score = 0;
             placeFood();
@@ -324,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const gameStep = () => {
             const head = {x: snake[0].x + dx, y: snake[0].y + dy};
 
-            if (head.x < 0 || head.x >= 300 || head.y < 0 || head.y >= 300 || checkSelfCollision(head)) {
+            if (head.x < 0 || head.x >= 240 || head.y < 0 || head.y >= 240 || checkSelfCollision(head)) {
                 gameOver();
                 return;
             }
@@ -357,16 +357,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const drawGame = () => {
             ctx.fillStyle = '#050505';
-            ctx.fillRect(0, 0, 300, 300);
+            ctx.fillRect(0, 0, 240, 240);
 
             ctx.fillStyle = '#ef4444';
             ctx.beginPath();
-            ctx.arc(food.x + 7.5, food.y + 7.5, 6, 0, 2 * Math.PI);
+            ctx.arc(food.x + 6, food.y + 6, 5, 0, 2 * Math.PI);
             ctx.fill();
 
             snake.forEach((part, index) => {
                 ctx.fillStyle = index === 0 ? '#22c55e' : '#166534';
-                ctx.fillRect(part.x + 1, part.y + 1, 13, 13);
+                ctx.fillRect(part.x + 1, part.y + 1, 10, 10);
             });
         };
 
@@ -375,18 +375,18 @@ document.addEventListener('DOMContentLoaded', () => {
             snakeGameLoop = null;
 
             ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-            ctx.fillRect(0, 0, 300, 300);
+            ctx.fillRect(0, 0, 240, 240);
 
             ctx.fillStyle = '#ef4444';
             ctx.font = 'bold 1.25rem monospace';
             ctx.textAlign = 'center';
-            ctx.fillText('GAME OVER', 150, 110);
+            ctx.fillText('GAME OVER', 120, 80);
 
             ctx.fillStyle = '#a1a1aa';
             ctx.font = '0.9rem monospace';
-            ctx.fillText(`Final Score: ${score}`, 150, 145);
-            ctx.fillText('Press ENTER to replay', 150, 185);
-            ctx.fillText('Press ESC to exit', 150, 210);
+            ctx.fillText(`Final Score: ${score}`, 120, 115);
+            ctx.fillText('Press ENTER to replay', 120, 150);
+            ctx.fillText('Press ESC to exit', 120, 175);
         };
 
         const exitSnakeGame = () => {

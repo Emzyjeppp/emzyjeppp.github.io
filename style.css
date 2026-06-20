@@ -1282,7 +1282,7 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
 }
 
 .terminal-body.game-active {
-    max-height: 480px;
+    max-height: 540px;
 }
 
 .terminal-line {
