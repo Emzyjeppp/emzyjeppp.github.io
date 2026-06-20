@@ -268,6 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const startSnakeGame = () => {
             isPlayingSnake = true;
+            terminalBody.classList.add('game-active');
             terminalCursor.style.display = 'none';
             terminalInputDisplay.textContent = 'Playing Snake... (Press ESC to exit)';
             
@@ -390,6 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const exitSnakeGame = () => {
             isPlayingSnake = false;
+            terminalBody.classList.remove('game-active');
             if (snakeGameLoop) {
                 clearInterval(snakeGameLoop);
                 snakeGameLoop = null;

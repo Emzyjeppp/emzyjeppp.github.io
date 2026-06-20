@@ -1278,6 +1278,11 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     font-size: 0.9rem;
     line-height: 1.5;
     cursor: text;
+    transition: max-height 0.3s ease;
+}
+
+.terminal-body.game-active {
+    max-height: 480px;
 }
 
 .terminal-line {
