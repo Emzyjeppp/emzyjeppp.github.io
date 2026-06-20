@@ -1144,7 +1144,6 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     border: 1px solid #27272a;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: none;
     font-family: var(--font-mono);
 }
 
