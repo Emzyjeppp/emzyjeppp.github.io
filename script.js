@@ -48,8 +48,8 @@ document.addEventListener('DOMContentLoaded', () => {
             textColor = 'c7d2fe';
         }
 
-        statsCard.src = `https://github-readme-stats.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=${githubTheme}&hide_border=true&bg_color=00000000&title_color=${titleColor}&icon_color=${iconColor}&text_color=${textColor}`;
-        langsCard.src = `https://github-readme-stats.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=${githubTheme}&hide_border=true&bg_color=00000000&title_color=${titleColor}&icon_color=${iconColor}&text_color=${textColor}`;
+        statsCard.src = `https://github-stats-extended.vercel.app/api?username=Emzyjeppp&show_icons=true&theme=${githubTheme}&hide_border=true&bg_color=00000000&title_color=${titleColor}&icon_color=${iconColor}&text_color=${textColor}`;
+        langsCard.src = `https://github-stats-extended.vercel.app/api/top-langs/?username=Emzyjeppp&layout=compact&theme=${githubTheme}&hide_border=true&bg_color=00000000&title_color=${titleColor}&icon_color=${iconColor}&text_color=${textColor}`;
     };
 
     const setTheme = (theme) => {
