@@ -35,12 +35,15 @@
         <div class="container nav-container">
             <a href="#" class="logo">Jeppp</a>
             <nav class="nav">
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#tech-stack" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#certifications" class="nav-link">Certifications</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#services" class="nav-link" data-i18n="nav_services">Services</a>
+                <a href="#tech-stack" class="nav-link" data-i18n="nav_skills">Skills</a>
+                <a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
+                <a href="#experience" class="nav-link" data-i18n="nav_experience">Experience</a>
+                <a href="#certifications" class="nav-link" data-i18n="nav_certifications">Certifications</a>
+                <a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+                <button id="lang-toggle" class="lang-toggle-btn" aria-label="Switch language">
+                    <span class="lang-text">EN</span>
+                </button>
                 <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
                     <i class="ph ph-sun theme-icon-sun"></i>
                     <i class="ph ph-moon theme-icon-moon"></i>
@@ -54,49 +57,49 @@
         <section class="hero container">
             <div class="hero-flex">
                 <div class="hero-content">
-                    <span class="badge">Informatics Student & Developer</span>
+                    <span class="badge" data-i18n="hero_badge">Informatics Student & Developer</span>
                     <h1 class="hero-title">Hi, I'm Muhammad Jepri, A.Md.Kom.</h1>
-                    <p class="hero-subtitle">
+                    <p class="hero-subtitle" data-i18n="hero_subtitle">
                         Informatics (S1) Student at Universitas Teknologi Digital Indonesia (UTDI). Focusing on backend systems, data analytics, and machine learning solutions.
                     </p>
                     <div class="status-widget">
                         <span class="status-dot"></span>
-                        <span class="status-text">Currently studying at Universitas Teknologi Digital Indonesia - Semester 2 (S1)</span>
+                        <span class="status-text" data-i18n="hero_status">Currently studying at Universitas Teknologi Digital Indonesia - Semester 2 (S1)</span>
                     </div>
                     <div class="hero-actions">
-                        <a href="#projects" class="btn btn-primary">View Projects</a>
-                        <a href="cv.html" class="btn btn-secondary"><i class="ph ph-file-text"></i> View CV (ATS)</a>
+                        <a href="#projects" class="btn btn-primary" data-i18n="hero_btn_projects">View Projects</a>
+                        <a href="cv.html" class="btn btn-secondary" data-i18n="hero_btn_cv"><i class="ph ph-file-text"></i> View CV (ATS)</a>
                     </div>
                 </div>
                 <div class="hero-avatar-wrapper">
                     <img src="assets/profile.png" alt="Muhammad Jepri Avatar" class="hero-avatar">
                 </div>
             </div>
-        </main>
+        </section>
 
         <!-- Services Section -->
         <section id="services" class="services section container reveal">
             <hr class="divider">
             <div class="section-grid">
                 <div class="section-title-col">
-                    <h2 class="section-title">What I Do</h2>
+                    <h2 class="section-title" data-i18n="services_title">What I Do</h2>
                 </div>
                 <div class="section-content-col">
                     <div class="services-grid">
                         <div class="service-card">
                             <div class="service-icon"><i class="ph ph-terminal-window"></i></div>
                             <h3>Backend & Python</h3>
-                            <p>Designing backend architecture, working with databases, and building robust scripts using Python.</p>
+                            <p data-i18n="service1_desc">Designing backend architecture, working with databases, and building robust scripts using Python.</p>
                         </div>
                         <div class="service-card">
                             <div class="service-icon"><i class="ph ph-layout"></i></div>
-                            <h3>Web & Mobile Dev</h3>
-                            <p>Building responsive web solutions and mobile-first applications based on clean design principles and business logic.</p>
+                            <h3 data-i18n="service2_title">Web & Mobile Dev</h3>
+                            <p data-i18n="service2_desc">Building responsive web solutions and mobile-first applications based on clean design principles and business logic.</p>
                         </div>
                         <div class="service-card">
                             <div class="service-icon"><i class="ph ph-cpu"></i></div>
-                            <h3>Automation Scripts</h3>
-                            <p>Automating workflows, file management, and system tasks with custom Windows Batch files and automation tools.</p>
+                            <h3 data-i18n="service3_title">Automation Scripts</h3>
+                            <p data-i18n="service3_desc">Automating workflows, file management, and system tasks with custom Windows Batch files and automation tools.</p>
                         </div>
                     </div>
                 </div>
@@ -108,12 +111,12 @@
             <hr class="divider">
             <div class="section-grid">
                 <div class="section-title-col">
-                    <h2 class="section-title">Skills & Focus</h2>
+                    <h2 class="section-title" data-i18n="skills_title">Skills & Focus</h2>
                 </div>
                 <div class="section-content-col">
                     <div class="skills-wrapper">
                         <div class="skills-column">
-                            <h3 class="skills-category-title">Core Technologies</h3>
+                            <h3 class="skills-category-title" data-i18n="skills_core_title">Core Technologies</h3>
                             <div class="skills-grid">
                                 <div class="skill-badge-item">
                                     <i class="ph ph-terminal-window" style="color: #4b8bbe;"></i>
@@ -158,27 +161,27 @@
                             </div>
                         </div>
                         <div class="focus-column">
-                            <h3 class="skills-category-title">Current Focus</h3>
+                            <h3 class="skills-category-title" data-i18n="skills_focus_title">Current Focus</h3>
                             <div class="focus-list">
                                 <div class="focus-item">
                                     <div class="focus-icon"><i class="ph ph-shield-check"></i></div>
                                     <div class="focus-info">
-                                        <h4>Cybersecurity & Threat Intelligence</h4>
-                                        <p>Studying vulnerability assessments, cryptography, and network security protocols.</p>
+                                        <h4 data-i18n="focus1_title">Cybersecurity & Threat Intelligence</h4>
+                                        <p data-i18n="focus1_desc">Studying vulnerability assessments, cryptography, and network security protocols.</p>
                                     </div>
                                 </div>
                                 <div class="focus-item">
                                     <div class="focus-icon"><i class="ph ph-chart-line"></i></div>
                                     <div class="focus-info">
-                                        <h4>Data Visualization & Analytics</h4>
-                                        <p>Transforming complex datasets into clear, actionable visual dashboards and charts.</p>
+                                        <h4 data-i18n="focus2_title">Data Visualization & Analytics</h4>
+                                        <p data-i18n="focus2_desc">Transforming complex datasets into clear, actionable visual dashboards and charts.</p>
                                     </div>
                                 </div>
                                 <div class="focus-item">
                                     <div class="focus-icon"><i class="ph ph-device-mobile"></i></div>
                                     <div class="focus-info">
-                                        <h4>Native Android Development</h4>
-                                        <p>Continuing mobile learning with modern declarative UI using Jetpack Compose.</p>
+                                        <h4 data-i18n="focus3_title">Native Android Development</h4>
+                                        <p data-i18n="focus3_desc">Continuing mobile learning with modern declarative UI using Jetpack Compose.</p>
                                     </div>
                                 </div>
                             </div>
@@ -193,7 +196,7 @@
             <hr class="divider">
             <div class="section-grid">
                 <div class="section-title-col">
-                    <h2 class="section-title">Selected Work</h2>
+                    <h2 class="section-title" data-i18n="projects_title">Selected Work</h2>
                 </div>
                 <div class="section-content-col">
                     <div class="project-list">
@@ -202,7 +205,7 @@
                             <div class="card-glare"></div>
                             <div class="project-info">
                                 <h3 class="project-name">clipboard-manager</h3>
-                                <p class="project-desc">Modern clipboard history manager built with Python and CustomTkinter.</p>
+                                <p class="project-desc" data-i18n="project1_desc">Modern clipboard history manager built with Python and CustomTkinter.</p>
                                 <div class="project-tags">
                                     <span>Python</span>
                                     <span>CustomTkinter</span>
@@ -217,7 +220,7 @@
                             <div class="card-glare"></div>
                             <div class="project-info">
                                 <h3 class="project-name">Uangku-HematMahasiswa</h3>
-                                <p class="project-desc">Pocket money tracking prototype integrated with an interactive map to locate budget-friendly student dining spots.</p>
+                                <p class="project-desc" data-i18n="project2_desc">Pocket money tracking prototype integrated with an interactive map to locate budget-friendly student dining spots.</p>
                                 <div class="project-tags">
                                     <span>HTML</span>
                                     <span>CSS</span>
@@ -232,7 +235,7 @@
                             <div class="card-glare"></div>
                             <div class="project-info">
                                 <h3 class="project-name">windows-tools</h3>
-                                <p class="project-desc">Collection of useful Windows Batch utilities for cleaning, organizing, and automation.</p>
+                                <p class="project-desc" data-i18n="project3_desc">Collection of useful Windows Batch utilities for cleaning, organizing, and automation.</p>
                                 <div class="project-tags">
                                     <span>Batchfile</span>
                                     <span>Windows Scripting</span>
@@ -246,7 +249,7 @@
                             <div class="card-glare"></div>
                             <div class="project-info">
                                 <h3 class="project-name">aspirasi-sanggar-tari</h3>
-                                <p class="project-desc">Web-based public aspiration and feedback system for dance studios in Yogyakarta. (D3 Final Project)</p>
+                                <p class="project-desc" data-i18n="project4_desc">Web-based public aspiration and feedback system for dance studios in Yogyakarta. (D3 Final Project)</p>
                                 <div class="project-tags">
                                     <span>PHP</span>
                                     <span>MySQL</span>
@@ -275,7 +278,7 @@
             <hr class="divider">
             <div class="section-grid">
                 <div class="section-title-col">
-                    <h2 class="section-title">Experience & Education</h2>
+                    <h2 class="section-title" data-i18n="experience_title">Experience & Education</h2>
                 </div>
                 <div class="section-content-col">
                     <div class="timeline">
@@ -284,11 +287,11 @@
                             <div class="timeline-date">2025 — Present</div>
                             <div class="timeline-content">
                                 <h3>Universitas Teknologi Digital Indonesia (UTDI)</h3>
-                                <span class="timeline-subtitle">Bachelor's Degree (S1) in Informatika - Rekognisi Pembelajaran Lampau (RPL)</span>
-                                <p>Advancing computer science fundamentals, focusing on intelligent systems, distributed computing, and data analytics. Maintaining academic excellence with a strong interest in machine learning workflows.</p>
-                                <a href="https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/1EM2RLEza9GsHXyy-v89owwIK5X4exiiJ-73nF_fQ1BW6tYCa4KOVG_jK9c9vvH5I3FgDg==" target="_blank" class="verify-link"><i class="ph ph-shield-check"></i> Verify on PDDIKTI</a>
+                                <span class="timeline-subtitle" data-i18n="exp1_degree">Bachelor's Degree (S1) in Informatika - Rekognisi Pembelajaran Lampau (RPL)</span>
+                                <p data-i18n="exp1_desc">Advancing computer science fundamentals, focusing on intelligent systems, distributed computing, and data analytics. Maintaining academic excellence with a strong interest in machine learning workflows.</p>
+                                <a href="https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/1EM2RLEza9GsHXyy-v89owwIK5X4exiiJ-73nF_fQ1BW6tYCa4KOVG_jK9c9vvH5I3FgDg==" target="_blank" class="verify-link"><i class="ph ph-shield-check"></i> <span data-i18n="verify_pddikti">Verify on PDDIKTI</span></a>
                                 <div class="coursework-badges">
-                                    <strong>Completed Coursework:</strong>
+                                    <strong data-i18n="coursework_completed">Completed Coursework:</strong>
                                     <div class="badge-group">
                                         <span>Machine Learning</span>
                                         <span>Data Lakehouse</span>
@@ -298,7 +301,7 @@
                                         <span>Uji Kualitas Perangkat Lunak</span>
                                         <span>Struktur Data</span>
                                     </div>
-                                    <strong>Current Semester:</strong>
+                                    <strong data-i18n="coursework_current">Current Semester:</strong>
                                     <div class="badge-group">
                                         <span>Cybersecurity & Threat Intelligence</span>
                                         <span>Keamanan Sistem & Kriptografi</span>
@@ -313,10 +316,10 @@
                         <div class="timeline-item">
                             <div class="timeline-date">2023 – Present</div>
                             <div class="timeline-content">
-                                <h3>Independent Scripting & Automation Projects</h3>
-                                <span class="timeline-subtitle">Self-employed Developer</span>
-                                <p>Developing diverse software projects across multiple platforms, including lightweight desktop GUI utilities (Python/CustomTkinter), system command-line automation scripts (Batchfile), native Android mobile applications (Kotlin/Jetpack Compose), and responsive web platforms (PHP/MySQL) like unidaily-asisten-mahasiswa and Pengaduan-Fasilitas-Kampus for coursework and personal exploration.</p>
-                                <a href="https://maps.app.goo.gl/aSJaUDe3VHjsvWDf8" target="_blank" class="verify-link"><i class="ph ph-map-pin"></i> View Location</a>
+                                <h3 data-i18n="exp2_title">Independent Scripting & Automation Projects</h3>
+                                <span class="timeline-subtitle" data-i18n="exp2_subtitle">Self-employed Developer</span>
+                                <p data-i18n="exp2_desc">Developing diverse software projects across multiple platforms, including lightweight desktop GUI utilities (Python/CustomTkinter), system command-line automation scripts (Batchfile), native Android mobile applications (Kotlin/Jetpack Compose), and responsive web platforms (PHP/MySQL) like unidaily-asisten-mahasiswa and Pengaduan-Fasilitas-Kampus for coursework and personal exploration.</p>
+                                <a href="https://maps.app.goo.gl/aSJaUDe3VHjsvWDf8" target="_blank" class="verify-link"><i class="ph ph-map-pin"></i> <span data-i18n="view_location">View Location</span></a>
                             </div>
                         </div>
                         <!-- PKL Internship -->
@@ -324,9 +327,9 @@
                             <div class="timeline-date">31 Jan 2024 – 14 Apr 2024</div>
                             <div class="timeline-content">
                                 <h3>Dinas Ketahanan Pangan dan Pertanian (DKPP) Kotabaru</h3>
-                                <span class="timeline-subtitle">IT & Multimedia Intern</span>
-                                <p>Supported administrative planning, coordinated inter-departmental programs, and managed multimedia content. Designed the official "Sa'ijaan Unggul" rice seed logo, edited departmental activity videos, configured public videotron displays, and handled document archiving.</p>
-                                <a href="https://maps.app.goo.gl/P1JDuEzPDgERnVoq9" target="_blank" class="verify-link"><i class="ph ph-map-pin"></i> View Location</a>
+                                <span class="timeline-subtitle" data-i18n="exp3_subtitle">IT & Multimedia Intern</span>
+                                <p data-i18n="exp3_desc">Supported administrative planning, coordinated inter-departmental programs, and managed multimedia content. Designed the official "Sa'ijaan Unggul" rice seed logo, edited departmental activity videos, configured public videotron displays, and handled document archiving.</p>
+                                <a href="https://maps.app.goo.gl/P1JDuEzPDgERnVoq9" target="_blank" class="verify-link"><i class="ph ph-map-pin"></i> <span data-i18n="view_location">View Location</span></a>
                             </div>
                         </div>
                         <!-- D3 RPLA -->
@@ -334,11 +337,11 @@
                             <div class="timeline-date">2020 – 2024</div>
                             <div class="timeline-content">
                                 <h3>Universitas Teknologi Digital Indonesia (UTDI)</h3>
-                                <span class="timeline-subtitle">Associate Degree (D3) in Application Software Engineering (RPLA) — A.Md.Kom.</span>
-                                <p>Focused on the design, development, and implementation of business-oriented web and mobile information systems. Mastered database modeling, software engineering principles, and human-computer interaction workflows. Final Project: <em>Aspirasi Masyarakat Terhadap Sanggar Tari Di-Yogyakarta Dengan Menggunakan Framework Bootstrap</em> (<a href="https://eprints.utdi.ac.id/10601/" target="_blank" style="color: var(--accent); text-decoration: underline;">Publications</a>).</p>
-                                <a href="https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/FiaRgfbsAJH0ipG66eCQztDOOsciMIt-xgTX12J9G3hoqqx-gh0_aRdXz90w3Z_FBN8l5A==" target="_blank" class="verify-link"><i class="ph ph-shield-check"></i> Verify on PDDIKTI</a>
+                                <span class="timeline-subtitle" data-i18n="exp4_degree">Associate Degree (D3) in Application Software Engineering (RPLA) — A.Md.Kom.</span>
+                                <p data-i18n="exp4_desc">Focused on the design, development, and implementation of business-oriented web and mobile information systems. Mastered database modeling, software engineering principles, and human-computer interaction workflows. Final Project: <em>Aspirasi Masyarakat Terhadap Sanggar Tari Di-Yogyakarta Dengan Menggunakan Framework Bootstrap</em> (<a href="https://eprints.utdi.ac.id/10601/" target="_blank" style="color: var(--accent); text-decoration: underline;">Publications</a>).</p>
+                                <a href="https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/FiaRgfbsAJH0ipG66eCQztDOOsciMIt-xgTX12J9G3hoqqx-gh0_aRdXz90w3Z_FBN8l5A==" target="_blank" class="verify-link"><i class="ph ph-shield-check"></i> <span data-i18n="verify_pddikti">Verify on PDDIKTI</span></a>
                                 <div class="coursework-badges">
-                                    <strong>Core Coursework:</strong>
+                                    <strong data-i18n="coursework_core">Core Coursework:</strong>
                                     <div class="badge-group">
                                         <span>Web Client (Frontend)</span>
                                         <span>Web Server Side (Backend)</span>
@@ -361,9 +364,9 @@
                             <div class="timeline-date">Jul 2018 – Dec 2018 (6 Months)</div>
                             <div class="timeline-content">
                                 <h3>Kepolisian Resor (Polres) Kotabaru</h3>
-                                <span class="timeline-subtitle">Administration & IT Intern (Vocational PKL)</span>
-                                <p>Assisted the General Affairs Head (Kabag Sium) in administrative operations. Managed incoming and outgoing official correspondence, recorded document logging numbers, and streamlined general clerical office workflows.</p>
-                                <a href="https://maps.app.goo.gl/7mi4oQDBWMnafcZA8" target="_blank" class="verify-link"><i class="ph ph-map-pin"></i> View Location</a>
+                                <span class="timeline-subtitle" data-i18n="exp5_subtitle">Administration & IT Intern (Vocational PKL)</span>
+                                <p data-i18n="exp5_desc">Assisted the General Affairs Head (Kabag Sium) in administrative operations. Managed incoming and outgoing official correspondence, recorded document logging numbers, and streamlined general clerical office workflows.</p>
+                                <a href="https://maps.app.goo.gl/7mi4oQDBWMnafcZA8" target="_blank" class="verify-link"><i class="ph ph-map-pin"></i> <span data-i18n="view_location">View Location</span></a>
                             </div>
                         </div>
                         <!-- SMK Negeri 1 Kotabaru -->
@@ -371,9 +374,9 @@
                             <div class="timeline-date">2017 – 2020</div>
                             <div class="timeline-content">
                                 <h3>SMK Negeri 1 Kotabaru</h3>
-                                <span class="timeline-subtitle">Vocational High School Diploma in Rekayasa Perangkat Lunak (Software Engineering)</span>
-                                <p>Introduced to computer science and software development fundamentals. Developed initial coding projects, database schemas, and static website designs using HTML, CSS, and basic programming languages.</p>
-                                <a href="https://maps.app.goo.gl/6PLRPvF6rcDJqJJYA" target="_blank" class="verify-link"><i class="ph ph-map-pin"></i> View Location</a>
+                                <span class="timeline-subtitle" data-i18n="exp6_subtitle">Vocational High School Diploma in Rekayasa Perangkat Lunak (Software Engineering)</span>
+                                <p data-i18n="exp6_desc">Introduced to computer science and software development fundamentals. Developed initial coding projects, database schemas, and static website designs using HTML, CSS, and basic programming languages.</p>
+                                <a href="https://maps.app.goo.gl/6PLRPvF6rcDJqJJYA" target="_blank" class="verify-link"><i class="ph ph-map-pin"></i> <span data-i18n="view_location">View Location</span></a>
                             </div>
                         </div>
                     </div>
@@ -386,7 +389,7 @@
             <hr class="divider">
             <div class="section-grid">
                 <div class="section-title-col">
-                    <h2 class="section-title">Certifications</h2>
+                    <h2 class="section-title" data-i18n="certifications_title">Certifications</h2>
                 </div>
                 <div class="section-content-col">
                     <div class="certs-grid">
@@ -399,7 +402,7 @@
                             </div>
                             <div class="cert-actions">
                                 <a href="assets/inixindo-forensik.jpg" target="_blank" class="cert-verify-btn">
-                                    <span>View</span>
+                                    <span data-i18n="cert_btn_view">View</span>
                                     <i class="ph ph-image"></i>
                                 </a>
                             </div>
@@ -413,7 +416,7 @@
                             </div>
                             <div class="cert-actions">
                                 <a href="assets/inixindo-prompt.jpg" target="_blank" class="cert-verify-btn">
-                                    <span>View</span>
+                                    <span data-i18n="cert_btn_view">View</span>
                                     <i class="ph ph-image"></i>
                                 </a>
                             </div>
@@ -427,7 +430,7 @@
                             </div>
                             <div class="cert-actions">
                                 <a href="assets/inixindo-owasp.jpg" target="_blank" class="cert-verify-btn">
-                                    <span>View</span>
+                                    <span data-i18n="cert_btn_view">View</span>
                                     <i class="ph ph-image"></i>
                                 </a>
                             </div>
@@ -441,7 +444,7 @@
                             </div>
                             <div class="cert-actions">
                                 <a href="assets/eduparx-bigdata.jpg" target="_blank" class="cert-verify-btn">
-                                    <span>View</span>
+                                    <span data-i18n="cert_btn_view">View</span>
                                     <i class="ph ph-image"></i>
                                 </a>
                             </div>
@@ -455,7 +458,7 @@
                             </div>
                             <div class="cert-actions">
                                 <a href="assets/indoceiss-ai.png" target="_blank" class="cert-verify-btn">
-                                    <span>View</span>
+                                    <span data-i18n="cert_btn_view">View</span>
                                     <i class="ph ph-image"></i>
                                 </a>
                             </div>
@@ -469,7 +472,7 @@
                             </div>
                             <div class="cert-actions">
                                 <a href="assets/viewsonic-deeplearning.png" target="_blank" class="cert-verify-btn">
-                                    <span>View</span>
+                                    <span data-i18n="cert_btn_view">View</span>
                                     <i class="ph ph-image"></i>
                                 </a>
                             </div>
@@ -483,7 +486,7 @@
                             </div>
                             <div class="cert-actions">
                                 <a href="assets/aws-metrodata.png" target="_blank" class="cert-verify-btn">
-                                    <span>View</span>
+                                    <span data-i18n="cert_btn_view">View</span>
                                     <i class="ph ph-image"></i>
                                 </a>
                             </div>
@@ -497,7 +500,7 @@
                             </div>
                             <div class="cert-actions">
                                 <a href="assets/toefl-utdi.png" target="_blank" class="cert-verify-btn">
-                                    <span>View</span>
+                                    <span data-i18n="cert_btn_view">View</span>
                                     <i class="ph ph-image"></i>
                                 </a>
                             </div>
@@ -511,11 +514,11 @@
                             </div>
                             <div class="cert-actions">
                                 <a href="assets/dicoding-web.png" target="_blank" class="cert-verify-btn">
-                                    <span>View</span>
+                                    <span data-i18n="cert_btn_view">View</span>
                                     <i class="ph ph-image"></i>
                                 </a>
                                 <a href="https://dicoding.com/certificates/NVP77QY4WPR0" target="_blank" rel="noopener noreferrer" class="cert-verify-btn">
-                                    <span>Verify</span>
+                                    <span data-i18n="cert_btn_verify">Verify</span>
                                     <i class="ph ph-arrow-up-right"></i>
                                 </a>
                             </div>
@@ -530,7 +533,7 @@
             <hr class="divider">
             <div class="section-grid">
                 <div class="section-title-col">
-                    <h2 class="section-title">Dev Sandbox</h2>
+                    <h2 class="section-title" data-i18n="terminal_title">Dev Sandbox</h2>
                 </div>
                 <div class="section-content-col">
                     <div class="terminal-container">
@@ -543,8 +546,8 @@
                             <div class="terminal-title">guest@jeppp-terminal:~</div>
                         </div>
                         <div class="terminal-body" id="terminal-body">
-                            <div class="terminal-line">Welcome to Jeppp's Interactive Terminal.</div>
-                            <div class="terminal-line">Type <span class="terminal-cmd-highlight">help</span> to view all available commands.</div>
+                            <div class="terminal-line" data-i18n="term_welcome">Welcome to Jeppp's Interactive Terminal.</div>
+                            <div class="terminal-line" data-i18n="term_help_prompt">Type <span class="terminal-cmd-highlight">help</span> to view all available commands.</div>
                             <div class="terminal-output-container" id="terminal-output"></div>
                             <div class="terminal-input-line">
                                 <span class="terminal-prompt">guest@jeppp-terminal:~$</span>
@@ -562,16 +565,16 @@
             <hr class="divider">
             <div class="section-grid">
                 <div class="section-title-col">
-                    <h2 class="section-title">Let's Connect</h2>
+                    <h2 class="section-title" data-i18n="contact_title">Let's Connect</h2>
                 </div>
                 <div class="section-content-col">
-                    <p class="contact-text">
+                    <p class="contact-text" data-i18n="contact_text">
                         I'm open to collaborations or conversations. Feel free to connect with me on social media or copy my email address.
                     </p>
                     <div class="contact-actions">
-                        <a href="mailto:jefryoconner49@gmail.com" class="btn btn-primary">Send an Email</a>
+                        <a href="mailto:jefryoconner49@gmail.com" class="btn btn-primary" data-i18n="contact_btn_email">Send an Email</a>
                         <button id="copy-email-btn" class="btn btn-secondary">
-                            <span id="copy-btn-text">Copy Email Address</span>
+                            <span id="copy-btn-text" data-i18n="contact_btn_copy">Copy Email Address</span>
                             <i class="ph ph-copy"></i>
                         </button>
                     </div>
@@ -589,7 +592,7 @@
     </main>
 
     <footer class="footer container">
-        <p>&copy; 2026 Muhammad Jepri. All rights reserved.</p>
+        <p>&copy; 2026 Muhammad Jepri. <span data-i18n="footer_rights">All rights reserved.</span></p>
     </footer>
 
     <!-- Details Modal -->
@@ -603,13 +606,13 @@
                 <div class="modal-body-text">
                     <p id="modal-desc">Detailed project description goes here.</p>
                     <div class="modal-highlights">
-                        <h3>Key Accomplishments & Features:</h3>
+                        <h3 data-i18n="modal_features_title">Key Accomplishments & Features:</h3>
                         <ul id="modal-features-list"></ul>
                     </div>
                 </div>
                 <div class="modal-actions">
                     <a href="#" id="modal-repo-link" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                        <span>View Repository</span>
+                        <span data-i18n="modal_btn_repo">View Repository</span>
                         <i class="ph ph-github-logo"></i>
                     </a>
                 </div>

@@ -146,9 +146,20 @@
             font-weight: bold;
             cursor: pointer;
             border: none;
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        .no-print-btn:focus {
+            outline: none;
+        }
+        .no-print-btn:focus-visible {
+            outline: 2px solid #000;
+            outline-offset: 2px;
         }
         .no-print-btn:hover {
             background-color: #333;
+        }
+        .no-print-btn:active {
+            transform: scale(0.97);
         }
     </style>
 </head>
