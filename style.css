@@ -166,8 +166,21 @@ ul {
     font-weight: 500;
     border-radius: 6px;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition: background-color var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
     font-family: var(--font-heading);
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.btn:active {
+    transform: scale(0.97);
 }
 
 .btn-primary {
@@ -181,6 +194,10 @@ ul {
     color: var(--text-primary);
 }
 
+.btn-primary:active {
+    opacity: 0.85;
+}
+
 .btn-secondary {
     background-color: transparent;
     color: var(--text-primary);
@@ -190,6 +207,10 @@ ul {
 .btn-secondary:hover {
     background-color: var(--card-bg);
     border-color: var(--border-hover);
+}
+
+.btn-secondary:active {
+    background-color: rgba(255, 255, 255, 0.08);
 }
 
 /* Header & Theme Switcher */
@@ -262,13 +283,26 @@ ul {
     justify-content: center;
     cursor: pointer;
     font-size: 1.2rem;
-    transition: all var(--transition-normal);
+    transition: background-color var(--transition-normal), border-color var(--transition-normal), transform var(--transition-fast);
+}
+
+.theme-toggle-btn:focus {
+    outline: none;
+}
+
+.theme-toggle-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
 }
 
 .theme-toggle-btn:hover {
     background-color: var(--card-bg);
     border-color: var(--accent);
     transform: scale(1.08) rotate(15deg);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
 }
 
 /* Show/hide sun/moon depending on theme attribute */
@@ -319,6 +353,7 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     height: 154px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center 20%;
 }
 
 .badge {
@@ -1286,9 +1321,22 @@ html[data-theme="light"] .theme-icon-moon { display: block; }
     transition: opacity var(--transition-normal), visibility var(--transition-normal), transform var(--transition-fast), border-color var(--transition-fast);
 }
 
+.back-to-top-btn:focus {
+    outline: none;
+}
+
+.back-to-top-btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
 .back-to-top-btn:hover {
     border-color: var(--border-hover);
     transform: translateY(-3px);
+}
+
+.back-to-top-btn:active {
+    transform: translateY(-1px) scale(0.95);
 }
 
 .back-to-top-btn.show {
