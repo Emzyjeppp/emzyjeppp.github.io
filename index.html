@@ -57,8 +57,11 @@
         <section class="hero container">
             <div class="hero-flex">
                 <div class="hero-content">
-                    <span class="badge" data-i18n="hero_badge">Informatics Student & Developer</span>
-                    <h1 class="hero-title">Hi, I'm Muhammad Jepri, A.Md.Kom.</h1>
+                    <div class="hero-role-line">
+                        <span class="hero-comment-slash">//</span>
+                        <span class="hero-role-type" id="hero-role-type"></span><span class="hero-role-cursor" aria-hidden="true">|</span>
+                    </div>
+                    <h1 class="hero-title">Muhammad Jepri<span class="hero-title-degree">A.Md.Kom.</span></h1>
                     <p class="hero-subtitle" data-i18n="hero_subtitle">
                         Informatics (S1) Student at Universitas Teknologi Digital Indonesia (UTDI). Focusing on backend systems, data analytics, and machine learning solutions.
                     </p>
@@ -66,13 +69,44 @@
                         <span class="status-dot"></span>
                         <span class="status-text" data-i18n="hero_status">Currently studying at Universitas Teknologi Digital Indonesia - Semester 2 (S1)</span>
                     </div>
+                    <div class="hero-stats-row">
+                        <a href="https://github.com/Emzyjeppp" target="_blank" rel="noopener noreferrer" class="hero-stat-chip">
+                            <i class="ph ph-git-fork"></i> 64 <span data-i18n="hero_stat_repos">repos</span>
+                        </a>
+                        <span class="hero-stat-chip">
+                            <i class="ph ph-trophy"></i> Pull Shark ×4
+                        </span>
+                        <span class="hero-stat-chip">
+                            <i class="ph ph-map-pin"></i> Kalimantan Selatan, ID
+                        </span>
+                    </div>
                     <div class="hero-actions">
                         <a href="#projects" class="btn btn-primary" data-i18n="hero_btn_projects">View Projects</a>
                         <a href="cv.html" class="btn btn-secondary" data-i18n="hero_btn_cv"><i class="ph ph-file-text"></i> View CV (ATS)</a>
                     </div>
                 </div>
-                <div class="hero-avatar-wrapper">
-                    <img src="assets/profile.png" alt="Muhammad Jepri Avatar" class="hero-avatar">
+                <div class="hero-panel">
+                    <div class="hero-code-card">
+                        <div class="hero-card-header">
+                            <div class="terminal-buttons">
+                                <span class="term-btn close"></span>
+                                <span class="term-btn minimize"></span>
+                                <span class="term-btn maximize"></span>
+                            </div>
+                            <div class="hero-card-filename">profile.json</div>
+                        </div>
+                        <div class="hero-card-body">
+                            <div class="hero-avatar-frame">
+                                <img src="assets/profile.png" alt="Muhammad Jepri Avatar" class="hero-avatar">
+                            </div>
+                            <pre class="hero-code-block"><code><span class="tok-punc">{</span>
+  <span class="tok-key">"name"</span><span class="tok-punc">:</span> <span class="tok-str">"Muhammad Jepri"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"role"</span><span class="tok-punc">:</span> <span class="tok-str">"Informatics Student"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"location"</span><span class="tok-punc">:</span> <span class="tok-str">"Kotabaru, ID"</span><span class="tok-punc">,</span>
+  <span class="tok-key">"focus"</span><span class="tok-punc">:</span> <span class="tok-punc">[</span><span class="tok-str">"backend"</span><span class="tok-punc">,</span> <span class="tok-str">"automation"</span><span class="tok-punc">]</span>
+<span class="tok-punc">}</span></code></pre>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -114,76 +148,47 @@
                     <h2 class="section-title" data-i18n="skills_title">Skills & Focus</h2>
                 </div>
                 <div class="section-content-col">
-                    <div class="skills-wrapper">
-                        <div class="skills-column">
-                            <h3 class="skills-category-title" data-i18n="skills_core_title">Core Technologies</h3>
+                    <h3 class="skills-category-title" data-i18n="skills_core_title">Core Technologies</h3>
+                    <p class="skills-network-hint" data-i18n="skills_network_hint">Hover or tap a node to trace how each tool connects to what I build.</p>
+                    <div class="skills-network" id="skills-network" role="img" aria-label="Interactive network graph of Muhammad Jepri's core technologies grouped by Languages, Web & UI, and Systems & Data">
+                        <div class="skills-network-tooltip" id="skills-tooltip" role="status" aria-live="polite"></div>
+                        <noscript>
                             <div class="skills-grid">
-                                <div class="skill-badge-item">
-                                    <i class="ph ph-terminal-window" style="color: #4b8bbe;"></i>
-                                    <span>Python</span>
-                                </div>
-                                <div class="skill-badge-item">
-                                    <i class="ph ph-brackets-angle" style="color: #777bb4;"></i>
-                                    <span>PHP</span>
-                                </div>
-                                <div class="skill-badge-item">
-                                    <i class="ph ph-device-mobile" style="color: #6c5ce7;"></i>
-                                    <span>Kotlin</span>
-                                </div>
-                                <div class="skill-badge-item">
-                                    <i class="ph ph-code" style="color: #2e7d32;"></i>
-                                    <span>Batchfile</span>
-                                </div>
-                                <div class="skill-badge-item">
-                                    <i class="ph ph-file-html" style="color: #e34f26;"></i>
-                                    <span>HTML5</span>
-                                </div>
-                                <div class="skill-badge-item">
-                                    <i class="ph ph-file-css" style="color: #1572b6;"></i>
-                                    <span>CSS3</span>
-                                </div>
-                                <div class="skill-badge-item">
-                                    <i class="ph ph-file-js" style="color: #f7df1e;"></i>
-                                    <span>JavaScript</span>
-                                </div>
-                                <div class="skill-badge-item">
-                                    <i class="ph ph-layout" style="color: #563d7c;"></i>
-                                    <span>Bootstrap</span>
-                                </div>
-                                <div class="skill-badge-item">
-                                    <i class="ph ph-database" style="color: #1976d2;"></i>
-                                    <span>MySQL</span>
-                                </div>
-                                <div class="skill-badge-item">
-                                    <i class="ph ph-git-branch" style="color: #f05032;"></i>
-                                    <span>Git</span>
-                                </div>
+                                <div class="skill-badge-item"><i class="ph ph-terminal-window" style="color: #4b8bbe;"></i><span>Python</span></div>
+                                <div class="skill-badge-item"><i class="ph ph-brackets-angle" style="color: #777bb4;"></i><span>PHP</span></div>
+                                <div class="skill-badge-item"><i class="ph ph-device-mobile" style="color: #6c5ce7;"></i><span>Kotlin</span></div>
+                                <div class="skill-badge-item"><i class="ph ph-file-js" style="color: #f7df1e;"></i><span>JavaScript</span></div>
+                                <div class="skill-badge-item"><i class="ph ph-file-html" style="color: #e34f26;"></i><span>HTML5</span></div>
+                                <div class="skill-badge-item"><i class="ph ph-file-css" style="color: #1572b6;"></i><span>CSS3</span></div>
+                                <div class="skill-badge-item"><i class="ph ph-layout" style="color: #563d7c;"></i><span>Bootstrap</span></div>
+                                <div class="skill-badge-item"><i class="ph ph-database" style="color: #1976d2;"></i><span>MySQL</span></div>
+                                <div class="skill-badge-item"><i class="ph ph-git-branch" style="color: #f05032;"></i><span>Git</span></div>
+                                <div class="skill-badge-item"><i class="ph ph-code" style="color: #2e7d32;"></i><span>Batchfile</span></div>
+                            </div>
+                        </noscript>
+                    </div>
+
+                    <h3 class="skills-category-title skills-focus-heading" data-i18n="skills_focus_title">Current Focus</h3>
+                    <div class="focus-grid">
+                        <div class="focus-item">
+                            <div class="focus-icon"><i class="ph ph-shield-check"></i></div>
+                            <div class="focus-info">
+                                <h4 data-i18n="focus1_title">Cybersecurity & Threat Intelligence</h4>
+                                <p data-i18n="focus1_desc">Studying vulnerability assessments, cryptography, and network security protocols.</p>
                             </div>
                         </div>
-                        <div class="focus-column">
-                            <h3 class="skills-category-title" data-i18n="skills_focus_title">Current Focus</h3>
-                            <div class="focus-list">
-                                <div class="focus-item">
-                                    <div class="focus-icon"><i class="ph ph-shield-check"></i></div>
-                                    <div class="focus-info">
-                                        <h4 data-i18n="focus1_title">Cybersecurity & Threat Intelligence</h4>
-                                        <p data-i18n="focus1_desc">Studying vulnerability assessments, cryptography, and network security protocols.</p>
-                                    </div>
-                                </div>
-                                <div class="focus-item">
-                                    <div class="focus-icon"><i class="ph ph-chart-line"></i></div>
-                                    <div class="focus-info">
-                                        <h4 data-i18n="focus2_title">Data Visualization & Analytics</h4>
-                                        <p data-i18n="focus2_desc">Transforming complex datasets into clear, actionable visual dashboards and charts.</p>
-                                    </div>
-                                </div>
-                                <div class="focus-item">
-                                    <div class="focus-icon"><i class="ph ph-device-mobile"></i></div>
-                                    <div class="focus-info">
-                                        <h4 data-i18n="focus3_title">Native Android Development</h4>
-                                        <p data-i18n="focus3_desc">Continuing mobile learning with modern declarative UI using Jetpack Compose.</p>
-                                    </div>
-                                </div>
+                        <div class="focus-item">
+                            <div class="focus-icon"><i class="ph ph-chart-line"></i></div>
+                            <div class="focus-info">
+                                <h4 data-i18n="focus2_title">Data Visualization & Analytics</h4>
+                                <p data-i18n="focus2_desc">Transforming complex datasets into clear, actionable visual dashboards and charts.</p>
+                            </div>
+                        </div>
+                        <div class="focus-item">
+                            <div class="focus-icon"><i class="ph ph-device-mobile"></i></div>
+                            <div class="focus-info">
+                                <h4 data-i18n="focus3_title">Native Android Development</h4>
+                                <p data-i18n="focus3_desc">Continuing mobile learning with modern declarative UI using Jetpack Compose.</p>
                             </div>
                         </div>
                     </div>

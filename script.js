@@ -112,8 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_certifications: 'Certifications',
             nav_contact: 'Contact',
             hero_badge: 'Informatics Student & Developer',
+            hero_roles: 'Informatics Student|Backend & Python Developer|Automation Enthusiast',
             hero_subtitle: 'Informatics (S1) Student at Universitas Teknologi Digital Indonesia (UTDI). Focusing on backend systems, data analytics, and machine learning solutions.',
             hero_status: 'Currently studying at Universitas Teknologi Digital Indonesia - Semester 2 (S1)',
+            hero_stat_repos: 'repos',
             hero_btn_projects: 'View Projects',
             hero_btn_cv: 'View CV (ATS)',
             services_title: 'What I Do',
@@ -124,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             service3_desc: 'Automating workflows, file management, and system tasks with custom Windows Batch files and automation tools.',
             skills_title: 'Skills & Focus',
             skills_core_title: 'Core Technologies',
+            skills_network_hint: 'Hover or tap a node to trace how each tool connects to what I build.',
             skills_focus_title: 'Current Focus',
             focus1_title: 'Cybersecurity & Threat Intelligence',
             focus1_desc: 'Studying vulnerability assessments, cryptography, and network security protocols.',
@@ -177,8 +180,10 @@ document.addEventListener('DOMContentLoaded', () => {
             nav_certifications: 'Sertifikasi',
             nav_contact: 'Kontak',
             hero_badge: 'Mahasiswa Informatika & Developer',
+            hero_roles: 'Mahasiswa Informatika|Backend & Python Developer|Penggemar Otomatisasi',
             hero_subtitle: 'Mahasiswa Informatika (S1) di Universitas Teknologi Digital Indonesia (UTDI). Berfokus pada sistem backend, analisis data, dan solusi machine learning.',
             hero_status: 'Saat ini kuliah di Universitas Teknologi Digital Indonesia - Semester 2 (S1)',
+            hero_stat_repos: 'repo',
             hero_btn_projects: 'Lihat Proyek',
             hero_btn_cv: 'Lihat CV (ATS)',
             services_title: 'Fokus Saya',
@@ -189,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
             service3_desc: 'Mengotomatiskan alur kerja, pengelolaan berkas, dan tugas sistem dengan Windows Batch file kustom dan alat otomatisasi.',
             skills_title: 'Keahlian & Fokus',
             skills_core_title: 'Teknologi Utama',
+            skills_network_hint: 'Arahkan atau ketuk sebuah node untuk melihat hubungannya dengan proyek yang saya buat.',
             skills_focus_title: 'Fokus Saat Ini',
             focus1_title: 'Keamanan Siber & Intelijen Ancaman',
             focus1_desc: 'Mempelajari penilaian kerentanan siber, kriptografi, dan protokol keamanan jaringan.',
@@ -331,6 +337,320 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // 2b. Skills Network Graph — data derived from real project stack
+    const skillCategories = {
+        lang: { label: { en: 'Languages', id: 'Bahasa Pemrograman' }, angle: -150 },
+        web: { label: { en: 'Web & UI', id: 'Web & UI' }, angle: -30 },
+        tools: { label: { en: 'Systems & Data', id: 'Sistem & Data' }, angle: 90 }
+    };
+
+    const skillsData = [
+        { id: 'python', label: 'Python', category: 'lang', color: '#4b8bbe',
+            blurb: { en: 'Used in clipboard-manager (GUI) and general automation scripts.', id: 'Dipakai di clipboard-manager (GUI) dan skrip otomatisasi umum.' } },
+        { id: 'php', label: 'PHP', category: 'lang', color: '#777bb4',
+            blurb: { en: 'Backend language behind aspirasi-sanggar-tari.', id: 'Bahasa backend di balik aspirasi-sanggar-tari.' } },
+        { id: 'kotlin', label: 'Kotlin', category: 'lang', color: '#6c5ce7',
+            blurb: { en: 'Current focus: native Android apps with Jetpack Compose.', id: 'Fokus saat ini: aplikasi Android native dengan Jetpack Compose.' } },
+        { id: 'javascript', label: 'JavaScript', category: 'web', color: '#f7df1e',
+            blurb: { en: 'Adds interactivity to Uangku-HematMahasiswa and this site.', id: 'Menambahkan interaktivitas pada Uangku-HematMahasiswa dan situs ini.' } },
+        { id: 'html', label: 'HTML5', category: 'web', color: '#e34f26',
+            blurb: { en: 'Markup structure for every web project, including this portfolio.', id: 'Struktur markup di setiap proyek web, termasuk portofolio ini.' } },
+        { id: 'css', label: 'CSS3', category: 'web', color: '#1572b6',
+            blurb: { en: 'Styling and the 7-theme system across this site.', id: 'Styling dan sistem 7 tema di situs ini.' } },
+        { id: 'bootstrap', label: 'Bootstrap', category: 'web', color: '#563d7c',
+            blurb: { en: 'Responsive layout framework for aspirasi-sanggar-tari.', id: 'Framework tata letak responsif untuk aspirasi-sanggar-tari.' } },
+        { id: 'mysql', label: 'MySQL', category: 'tools', color: '#1976d2',
+            blurb: { en: 'Relational database behind aspirasi-sanggar-tari.', id: 'Basis data relasional di balik aspirasi-sanggar-tari.' } },
+        { id: 'git', label: 'Git', category: 'tools', color: '#f05032',
+            blurb: { en: 'Version control across all 64 public repositories.', id: 'Kontrol versi di 64 repositori publik.' } },
+        { id: 'batchfile', label: 'Batchfile', category: 'tools', color: '#2e7d32',
+            blurb: { en: 'Windows automation scripts in windows-tools.', id: 'Skrip otomatisasi Windows di windows-tools.' } }
+    ];
+
+    const renderSkillsNetwork = () => {
+        const container = document.getElementById('skills-network');
+        const tooltip = document.getElementById('skills-tooltip');
+        if (!container || container.dataset.rendered === 'true') return;
+        container.dataset.rendered = 'true';
+
+        const svgNS = 'http://www.w3.org/2000/svg';
+        const width = 800, height = 520;
+        const cx = 400, cy = 245;
+        const hubR = 26, catR = 15, leafR = 10;
+        const catRadius = 115, leafRadius = 225, spreadDeg = 46;
+
+        const svg = document.createElementNS(svgNS, 'svg');
+        svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+        svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+
+        const edgesGroup = document.createElementNS(svgNS, 'g');
+        const nodesGroup = document.createElementNS(svgNS, 'g');
+        svg.appendChild(edgesGroup);
+        svg.appendChild(nodesGroup);
+
+        const toXY = (angleDeg, radius) => {
+            const rad = angleDeg * Math.PI / 180;
+            return { x: cx + radius * Math.cos(rad), y: cy + radius * Math.sin(rad) };
+        };
+
+        const clearActiveStates = () => {
+            container.querySelectorAll('.sn-active').forEach(el => el.classList.remove('sn-active'));
+            container.classList.remove('sn-has-focus');
+            if (tooltip) {
+                tooltip.classList.remove('visible');
+                tooltip.classList.remove('sn-below');
+            }
+        };
+
+        const makeLabel = (x, y, r, text, cls) => {
+            const t = document.createElementNS(svgNS, 'text');
+            t.setAttribute('class', cls);
+            if (x < cx - 15) {
+                t.setAttribute('text-anchor', 'end');
+                t.setAttribute('x', x - (r + 8));
+                t.setAttribute('y', y + 4);
+            } else if (x > cx + 15) {
+                t.setAttribute('text-anchor', 'start');
+                t.setAttribute('x', x + (r + 8));
+                t.setAttribute('y', y + 4);
+            } else {
+                t.setAttribute('text-anchor', 'middle');
+                t.setAttribute('x', x);
+                t.setAttribute('y', y + r + 18);
+            }
+            t.textContent = text;
+            return t;
+        };
+
+        // Hub node ("MJ")
+        const hubGroup = document.createElementNS(svgNS, 'g');
+        hubGroup.setAttribute('class', 'sn-node-group');
+        hubGroup.style.setProperty('--float-delay', '0s');
+        const hubCircle = document.createElementNS(svgNS, 'circle');
+        hubCircle.setAttribute('class', 'sn-node-circle');
+        hubCircle.setAttribute('cx', cx);
+        hubCircle.setAttribute('cy', cy);
+        hubCircle.setAttribute('r', hubR);
+        hubCircle.setAttribute('fill', 'var(--accent)');
+        hubGroup.appendChild(hubCircle);
+        const hubLabel = document.createElementNS(svgNS, 'text');
+        hubLabel.setAttribute('class', 'sn-hub-label');
+        hubLabel.setAttribute('x', cx);
+        hubLabel.setAttribute('y', cy + 4);
+        hubLabel.setAttribute('text-anchor', 'middle');
+        hubLabel.setAttribute('fill', '#ffffff');
+        hubLabel.textContent = 'MJ';
+        hubGroup.appendChild(hubLabel);
+        nodesGroup.appendChild(hubGroup);
+
+        const byCategory = {};
+        skillsData.forEach(s => {
+            byCategory[s.category] = byCategory[s.category] || [];
+            byCategory[s.category].push(s);
+        });
+
+        let floatDelay = 0;
+
+        Object.keys(byCategory).forEach(catKey => {
+            const cat = skillCategories[catKey];
+            const catPos = toXY(cat.angle, catRadius);
+
+            const hubEdge = document.createElementNS(svgNS, 'path');
+            hubEdge.setAttribute('class', 'sn-edge sn-edge-hub');
+            hubEdge.setAttribute('d', `M ${cx} ${cy} L ${catPos.x} ${catPos.y}`);
+            hubEdge.dataset.chain = catKey;
+            edgesGroup.appendChild(hubEdge);
+
+            const catGroup = document.createElementNS(svgNS, 'g');
+            catGroup.setAttribute('class', 'sn-node-group');
+            floatDelay += 0.05;
+            catGroup.style.setProperty('--float-delay', `${floatDelay}s`);
+            const catNode = document.createElementNS(svgNS, 'g');
+            catNode.setAttribute('class', 'sn-node sn-node-cat');
+            catNode.setAttribute('tabindex', '0');
+            catNode.setAttribute('role', 'button');
+            catNode.dataset.chain = catKey;
+            const catCircle = document.createElementNS(svgNS, 'circle');
+            catCircle.setAttribute('class', 'sn-node-circle');
+            catCircle.setAttribute('cx', catPos.x);
+            catCircle.setAttribute('cy', catPos.y);
+            catCircle.setAttribute('r', catR);
+            catCircle.setAttribute('fill', 'var(--card-bg)');
+            catCircle.style.stroke = 'var(--border-hover)';
+            const catHitArea = document.createElementNS(svgNS, 'circle');
+            catHitArea.setAttribute('class', 'sn-hit-area');
+            catHitArea.setAttribute('cx', catPos.x);
+            catHitArea.setAttribute('cy', catPos.y);
+            catHitArea.setAttribute('r', catR + 16);
+            catHitArea.setAttribute('fill', 'transparent');
+            catNode.appendChild(catHitArea);
+            catNode.appendChild(catCircle);
+            const catLabelEl = makeLabel(catPos.x, catPos.y, catR, (cat.label[currentLang] || cat.label.en), 'sn-cat-label');
+            catLabelEl.dataset.chain = catKey;
+            catNode.appendChild(catLabelEl);
+            catGroup.appendChild(catNode);
+            nodesGroup.appendChild(catGroup);
+
+            const showCatFocus = () => {
+                clearActiveStates();
+                container.classList.add('sn-has-focus');
+                catNode.classList.add('sn-active');
+                container.querySelectorAll(`[data-chain="${catKey}"]`).forEach(el => el.classList.add('sn-active'));
+            };
+            catNode.addEventListener('mouseenter', showCatFocus);
+            catNode.addEventListener('focus', showCatFocus);
+            catNode.addEventListener('mouseleave', clearActiveStates);
+            catNode.addEventListener('blur', clearActiveStates);
+
+            const leaves = byCategory[catKey];
+            const n = leaves.length;
+            leaves.forEach((skill, i) => {
+                const offset = n > 1 ? (i - (n - 1) / 2) * (spreadDeg / (n - 1)) : 0;
+                const leafAngle = cat.angle + offset;
+                const leafPos = toXY(leafAngle, leafRadius);
+
+                const leafEdge = document.createElementNS(svgNS, 'path');
+                leafEdge.setAttribute('class', 'sn-edge');
+                leafEdge.setAttribute('d', `M ${catPos.x} ${catPos.y} L ${leafPos.x} ${leafPos.y}`);
+                leafEdge.style.stroke = skill.color;
+                leafEdge.dataset.chain = catKey;
+                leafEdge.dataset.leaf = skill.id;
+                edgesGroup.appendChild(leafEdge);
+
+                const leafGroup = document.createElementNS(svgNS, 'g');
+                leafGroup.setAttribute('class', 'sn-node-group');
+                floatDelay += 0.04;
+                leafGroup.style.setProperty('--float-delay', `${floatDelay}s`);
+                const leafNode = document.createElementNS(svgNS, 'g');
+                leafNode.setAttribute('class', 'sn-node sn-node-leaf');
+                leafNode.setAttribute('tabindex', '0');
+                leafNode.setAttribute('role', 'button');
+                leafNode.dataset.chain = catKey;
+                leafNode.dataset.leaf = skill.id;
+                const leafCircle = document.createElementNS(svgNS, 'circle');
+                leafCircle.setAttribute('class', 'sn-node-circle');
+                leafCircle.setAttribute('cx', leafPos.x);
+                leafCircle.setAttribute('cy', leafPos.y);
+                leafCircle.setAttribute('r', leafR);
+                leafCircle.setAttribute('fill', skill.color);
+                const leafHitArea = document.createElementNS(svgNS, 'circle');
+                leafHitArea.setAttribute('class', 'sn-hit-area');
+                leafHitArea.setAttribute('cx', leafPos.x);
+                leafHitArea.setAttribute('cy', leafPos.y);
+                leafHitArea.setAttribute('r', leafR + 16);
+                leafHitArea.setAttribute('fill', 'transparent');
+                leafNode.appendChild(leafHitArea);
+                leafNode.appendChild(leafCircle);
+                leafNode.appendChild(makeLabel(leafPos.x, leafPos.y, leafR, skill.label, 'sn-label'));
+                leafGroup.appendChild(leafNode);
+                nodesGroup.appendChild(leafGroup);
+
+                const showLeafFocus = (evt) => {
+                    clearActiveStates();
+                    container.classList.add('sn-has-focus');
+                    leafNode.classList.add('sn-active');
+                    catNode.classList.add('sn-active');
+                    container.querySelectorAll(`[data-chain="${catKey}"]`).forEach(el => {
+                        if (!el.dataset.leaf || el.dataset.leaf === skill.id || el.classList.contains('sn-edge-hub')) {
+                            el.classList.add('sn-active');
+                        }
+                    });
+
+                    if (tooltip) {
+                        const blurb = skill.blurb[currentLang] || skill.blurb.en;
+                        tooltip.innerHTML = `<strong>${skill.label}</strong>${blurb}`;
+                        const rect = container.getBoundingClientRect();
+                        const scaleX = rect.width / width;
+                        const scaleY = rect.height / height;
+                        let px = evt && typeof evt.clientX === 'number' ? evt.clientX - rect.left : leafPos.x * scaleX;
+                        const py = evt && typeof evt.clientY === 'number' ? evt.clientY - rect.top : leafPos.y * scaleY;
+
+                        // Flip below the node when there isn't enough room above (avoids clipping at the top edge)
+                        const notEnoughRoomAbove = py < 90;
+                        tooltip.classList.toggle('sn-below', notEnoughRoomAbove);
+
+                        // Clamp horizontally so the tooltip never spills past the container's left/right edges
+                        const halfWidth = 115;
+                        px = Math.min(Math.max(px, halfWidth), rect.width - halfWidth);
+
+                        tooltip.style.left = `${px}px`;
+                        tooltip.style.top = `${py}px`;
+                        tooltip.classList.add('visible');
+                    }
+                };
+
+                leafNode.addEventListener('mouseenter', showLeafFocus);
+                leafNode.addEventListener('mousemove', showLeafFocus);
+                leafNode.addEventListener('mouseleave', clearActiveStates);
+                leafNode.addEventListener('focus', showLeafFocus);
+                leafNode.addEventListener('blur', clearActiveStates);
+                leafNode.addEventListener('click', (evt) => {
+                    if (leafNode.classList.contains('sn-active')) clearActiveStates(); else showLeafFocus(evt);
+                });
+            });
+        });
+
+        container.appendChild(svg);
+    };
+
+    const updateSkillsNetworkLanguage = () => {
+        document.querySelectorAll('.sn-cat-label').forEach(el => {
+            const cat = skillCategories[el.dataset.chain];
+            if (cat) el.textContent = cat.label[currentLang] || cat.label.en;
+        });
+    };
+
+    // 2c. Hero role typewriter effect
+    const heroTyperState = { timeoutId: null, runId: 0 };
+
+    const startHeroTyper = () => {
+        const el = document.getElementById('hero-role-type');
+        if (!el) return;
+        heroTyperState.runId += 1;
+        const myRun = heroTyperState.runId;
+        if (heroTyperState.timeoutId) clearTimeout(heroTyperState.timeoutId);
+
+        const rolesStr = (translations[currentLang] && translations[currentLang].hero_roles) || '';
+        const roles = rolesStr.split('|').map(r => r.trim()).filter(Boolean);
+        if (roles.length === 0) return;
+
+        const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) {
+            el.textContent = roles[0];
+            return;
+        }
+
+        let roleIndex = 0;
+        let charIndex = 0;
+        let deleting = false;
+        const typeSpeed = 65;
+        const deleteSpeed = 32;
+        const holdTime = 1700;
+
+        const step = () => {
+            if (myRun !== heroTyperState.runId) return; // language switched, abort this run
+            const currentRole = roles[roleIndex];
+            if (!deleting) {
+                charIndex++;
+                el.textContent = currentRole.slice(0, charIndex);
+                if (charIndex === currentRole.length) {
+                    heroTyperState.timeoutId = setTimeout(() => { deleting = true; step(); }, holdTime);
+                    return;
+                }
+                heroTyperState.timeoutId = setTimeout(step, typeSpeed);
+            } else {
+                charIndex--;
+                el.textContent = currentRole.slice(0, charIndex);
+                if (charIndex === 0) {
+                    deleting = false;
+                    roleIndex = (roleIndex + 1) % roles.length;
+                }
+                heroTyperState.timeoutId = setTimeout(step, deleteSpeed);
+            }
+        };
+        step();
+    };
+
     const setLanguage = (lang) => {
         if (!translations[lang]) return;
         currentLang = lang;
@@ -361,11 +681,17 @@ document.addEventListener('DOMContentLoaded', () => {
         langToggleBtn.addEventListener('click', () => {
             const nextLang = currentLang === 'en' ? 'id' : 'en';
             setLanguage(nextLang);
+            startHeroTyper();
+            updateSkillsNetworkLanguage();
         });
     }
 
     // Set initial language
     setLanguage(currentLang);
+
+    // Render the skills network graph and start the hero role typewriter
+    renderSkillsNetwork();
+    startHeroTyper();
 
     const modal = document.getElementById('project-modal');
     const modalTitle = document.getElementById('modal-title');
