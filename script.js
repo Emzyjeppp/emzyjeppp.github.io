@@ -693,6 +693,17 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSkillsNetwork();
     startHeroTyper();
 
+    // Fetch real-time public repository count from GitHub API
+    fetch('https://api.github.com/users/Emzyjeppp')
+        .then(res => res.json())
+        .then(data => {
+            if (data && typeof data.public_repos === 'number') {
+                const countEl = document.getElementById('github-repo-count');
+                if (countEl) countEl.textContent = data.public_repos;
+            }
+        })
+        .catch(err => console.error('GitHub API error:', err));
+
     const modal = document.getElementById('project-modal');
     const modalTitle = document.getElementById('modal-title');
     const modalTags = document.getElementById('modal-tags');
