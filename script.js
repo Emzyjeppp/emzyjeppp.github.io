@@ -362,7 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'mysql', label: 'MySQL', category: 'tools', color: '#1976d2',
             blurb: { en: 'Relational database behind aspirasi-sanggar-tari.', id: 'Basis data relasional di balik aspirasi-sanggar-tari.' } },
         { id: 'git', label: 'Git', category: 'tools', color: '#f05032',
-            blurb: { en: 'Version control across all 64 public repositories.', id: 'Kontrol versi di 64 repositori publik.' } },
+            blurb: { en: 'Version control across all public repositories.', id: 'Kontrol versi di semua repositori publik.' } },
         { id: 'batchfile', label: 'Batchfile', category: 'tools', color: '#2e7d32',
             blurb: { en: 'Windows automation scripts in windows-tools.', id: 'Skrip otomatisasi Windows di windows-tools.' } }
     ];
@@ -693,8 +693,8 @@ document.addEventListener('DOMContentLoaded', () => {
     renderSkillsNetwork();
     startHeroTyper();
 
-    // Fetch real-time public repository count from GitHub API
-    fetch('https://api.github.com/users/Emzyjeppp')
+    // Fetch real-time public repository count from GitHub API with cache-buster
+    fetch('https://api.github.com/users/Emzyjeppp?t=' + new Date().getTime())
         .then(res => res.json())
         .then(data => {
             if (data && typeof data.public_repos === 'number') {
