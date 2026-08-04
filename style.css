@@ -1789,3 +1789,295 @@ a.hero-stat-chip:hover {
     animation-delay: 0.3s;
 }
 
+/* ==========================================================================
+   Web Applications Directory & Profile Card Styles
+   ========================================================================== */
+
+.github-profile-card {
+    position: relative;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px var(--shadow);
+    overflow: hidden;
+    transition: border-color var(--transition-normal);
+}
+
+.github-profile-card:hover {
+    border-color: var(--accent);
+}
+
+.profile-header-flex {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.profile-avatar-wrapper {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.profile-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
+}
+
+.status-badge-dot {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 14px;
+    height: 14px;
+    background-color: #10b981;
+    border: 2px solid var(--card-bg);
+    border-radius: 50%;
+}
+
+.profile-info-content {
+    flex: 1;
+}
+
+.profile-name-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.profile-fullname {
+    font-size: 1.8rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.profile-degree {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-left: 0.5rem;
+}
+
+.github-handle-link {
+    font-size: 0.95rem;
+    color: var(--accent);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.github-handle-link:hover {
+    text-decoration: underline;
+}
+
+.profile-bio {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.profile-meta-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.profile-meta-grid .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.link-highlight {
+    color: var(--accent);
+}
+.link-highlight:hover {
+    text-decoration: underline;
+}
+
+.profile-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    gap: 1rem;
+    text-align: center;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.stat-number {
+    font-size: 1.6rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Directory Header & Controls */
+.search-box-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+}
+
+.search-box-wrapper .search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
+
+.search-box-wrapper input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.75rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+}
+
+.search-box-wrapper input:focus {
+    border-color: var(--accent);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+.directory-filter-tabs {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.filter-tab {
+    padding: 0.6rem 1.2rem;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.filter-tab:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+}
+
+.filter-tab.active {
+    background-color: var(--text-primary);
+    border-color: var(--text-primary);
+    color: var(--bg-color);
+}
+
+/* Dynamic Grid */
+.webs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.webs-grid .project-card {
+    height: 100%;
+    display: block;
+}
+
+.collab-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.75rem;
+    background-color: rgba(99, 102, 241, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* No Results Card */
+.no-results-card {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--card-bg);
+    border: 1px dashed var(--border-color);
+    border-radius: 12px;
+}
+
+.no-results-icon {
+    font-size: 3rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.no-results-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+}
+
+.no-results-card p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Media Queries for Directory */
+@media (max-width: 768px) {
+    .profile-header-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    .profile-name-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .profile-meta-grid {
+        justify-content: center;
+        gap: 1rem;
+    }
+    .profile-stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+    .search-box-wrapper {
+        max-width: 100%;
+    }
+}
+
+

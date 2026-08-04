@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Jepri | Web Directory</title>
+    <meta name="description" content="Muhammad Jepri's Web Directory - A curated list of 43 active web applications hosted on GitHub Pages.">
+
+    <!-- Google Fonts - Inter, Outfit, Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons for clean outline icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Theme Flash Prevention -->
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><i class="ph ph-arrow-left"></i> Jeppp</a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#projects" class="nav-link">Selected Work</a>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="ph ph-sun theme-icon-sun"></i>
+                    <i class="ph ph-moon theme-icon-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 8rem; padding-bottom: 6rem;">
+        <!-- GitHub Profile Widget -->
+        <section class="github-profile-section reveal active" style="margin-bottom: 4rem;">
+            <div class="github-profile-card">
+                <div class="card-glare"></div>
+                <div class="profile-header-flex">
+                    <div class="profile-avatar-wrapper">
+                        <img src="https://avatars.githubusercontent.com/u/105275132?v=4" alt="Muhammad Jepri Avatar" class="profile-avatar">
+                        <span class="status-badge-dot"></span>
+                    </div>
+                    <div class="profile-info-content">
+                        <div class="profile-name-row">
+                            <h1 class="profile-fullname">Muhammad Jepri <span class="profile-degree">A.Md.Kom.</span></h1>
+                            <a href="https://github.com/Emzyjeppp" target="_blank" rel="noopener noreferrer" class="github-handle-link">
+                                @Emzyjeppp <i class="ph ph-arrow-up-right"></i>
+                            </a>
+                        </div>
+                        <p class="profile-bio">"converting caffeine into backend logic."</p>
+                        <div class="profile-meta-grid">
+                            <div class="meta-item"><i class="ph ph-map-pin"></i> Kotabaru, Kalsel, ID</div>
+                            <div class="meta-item"><i class="ph ph-envelope"></i> jefryoconner49@gmail.com</div>
+                            <div class="meta-item">
+                                <i class="ph ph-link"></i> <a href="https://jeppp.is-a.dev" target="_blank" rel="noopener noreferrer" class="link-highlight">jeppp.is-a.dev</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-stats-row">
+                    <div class="stat-box">
+                        <span class="stat-number">77</span>
+                        <span class="stat-label">Repositories</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">9</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">Following</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-number">35</span>
+                        <span class="stat-label">Live Web Pages</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Directory Header -->
+        <section class="directory-header-section" style="margin-bottom: 2rem;">
+            <div class="directory-headline-flex" style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+                <div>
+                    <h2 class="section-title" style="margin-bottom: 0.5rem; font-size: 2.2rem; font-family: 'Outfit', sans-serif; font-weight: 700;">Web Applications Directory</h2>
+                    <p style="color: var(--text-secondary); max-width: 600px;">Explore the full directory of projects deployed on GitHub Pages. Filter by technology tags or search by name to test the active live demos.</p>
+                </div>
+                <div class="search-box-wrapper">
+                    <i class="ph ph-magnifying-glass search-icon"></i>
+                    <input type="text" id="directory-search" placeholder="Cari nama web / tag..." autocomplete="off">
+                </div>
+            </div>
+
+            <!-- Categories Tabs / Filter Controls -->
+            <div class="directory-filter-tabs">
+                <button class="filter-tab active" data-filter="all">Semua (35)</button>
+                <button class="filter-tab" data-filter="web">Web Front-end</button>
+                <button class="filter-tab" data-filter="backend">Database & PHP</button>
+                <button class="filter-tab" data-filter="python">Python & GUI</button>
+                <button class="filter-tab" data-filter="collab">Kolaborasi / Fork</button>
+            </div>
+        </section>
+
+        <!-- Directory Grid -->
+        <section class="directory-grid-section">
+            <div class="webs-grid" id="webs-grid">
+                <!-- Javascript will render cards here -->
+            </div>
+            <div id="no-results-message" class="no-results-card" style="display: none;">
+                <i class="ph ph-folder-open no-results-icon"></i>
+                <h3>Proyek Tidak Ditemukan</h3>
+                <p>Tidak ada repositori atau halaman web yang sesuai dengan kata kunci pencarian Anda.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer container">
+        <p>&copy; 2026 Muhammad Jepri. All rights reserved.</p>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to Top">
+        <i class="ph ph-arrow-up"></i>
+    </button>
+
+    <script src="webs.js"></script>
+</body>
+</html>
