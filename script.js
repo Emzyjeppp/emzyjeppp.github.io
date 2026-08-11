@@ -1327,6 +1327,39 @@ document.addEventListener('DOMContentLoaded', () => {
         // Fallback for older browsers
         revealSections.forEach(sec => sec.classList.add('active'));
     }
+
+    // 8. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mainNav = document.getElementById('main-nav');
+    
+    if (mobileMenuBtn && mainNav) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('mobile-active');
+            
+            // Toggle icon between list and X
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mainNav.classList.contains('mobile-active')) {
+                icon.classList.remove('ph-list', 'ph-dots-three-vertical');
+                icon.classList.add('ph-x');
+            } else {
+                icon.classList.remove('ph-x');
+                icon.classList.add('ph-list');
+            }
+        });
+
+        // Close mobile menu when a nav link is clicked
+        const navLinksMobile = mainNav.querySelectorAll('.nav-link');
+        navLinksMobile.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav.classList.contains('mobile-active')) {
+                    mainNav.classList.remove('mobile-active');
+                    const icon = mobileMenuBtn.querySelector('i');
+                    icon.classList.remove('ph-x');
+                    icon.classList.add('ph-list');
+                }
+            });
+        });
+    }
 });
 
 
