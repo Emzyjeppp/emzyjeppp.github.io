@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggleBtn.addEventListener('click', toggleTheme);
     }
 
-    // 2. Database of 35 Web Projects (with exact creation dates)
+    // 2. Database of 19 Web Projects (with exact creation dates)
     const websData = [
         {
             name: "PresensiPanitiaMUBESXXI-Himaforka",
@@ -57,46 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
             created_at: "2023-12-23T23:13:47Z"
         },
         {
-            name: "belajargit",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/belajargit",
-            pages_url: "https://emzyjeppp.github.io/belajargit/",
-            description: "Dokumentasi interaktif dan media pembelajaran awal untuk memahami Git & GitHub.",
-            tags: ["HTML", "CSS"],
-            category: "web",
-            created_at: "2023-04-14T01:25:54Z"
-        },
-        {
-            name: "cafestudy_utdihackatonclub",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/cafestudy_utdihackatonclub",
-            pages_url: "https://emzyjeppp.github.io/cafestudy_utdihackatonclub/",
-            description: "Landing page study club berbasis web untuk pencarian kafe belajar bagi mahasiswa UTDI.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-07-04T04:12:22Z"
-        },
-        {
-            name: "CodingCamp-27July26-muhammadjepri",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/CodingCamp-27July26-muhammadjepri",
-            pages_url: "https://emzyjeppp.github.io/CodingCamp-27July26-muhammadjepri/",
-            description: "Proyek kelulusan program CodingCamp yang di-host di GitHub Pages.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-07-28T13:49:07Z"
-        },
-        {
-            name: "concert-tracker-web",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/concert-tracker-web",
-            pages_url: "https://emzyjeppp.github.io/concert-tracker-web/",
-            description: "Sistem pelacakan jadwal konser musik interaktif bagi para penggemar.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-06-24T03:22:40Z"
-        },
-        {
             name: "flipcardsap",
             owner: "Emzyjeppp",
             repo_url: "https://github.com/Emzyjeppp/flipcardsap",
@@ -115,16 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tags: ["HTML", "CSS", "JavaScript"],
             category: "web",
             created_at: "2026-07-08T11:49:28Z"
-        },
-        {
-            name: "form-perlengkapan-mubes",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/form-perlengkapan-mubes",
-            pages_url: "https://emzyjeppp.github.io/form-perlengkapan-mubes/",
-            description: "Mockup formulir manajemen inventarisasi perlengkapan Musyawarah Besar XXI Himaforka.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-07-29T09:33:43Z"
         },
         {
             name: "github-achievements-farmer",
@@ -157,26 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
             created_at: "2026-07-24T09:57:18Z"
         },
         {
-            name: "jaringan-nirkabel-web",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/jaringan-nirkabel-web",
-            pages_url: "https://emzyjeppp.github.io/jaringan-nirkabel-web/",
-            description: "Media pembelajaran interaktif mengenai konsep, frekuensi, dan konfigurasi Jaringan Nirkabel.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-07-13T19:11:42Z"
-        },
-        {
-            name: "JKT48-Ticket-Monitor-Dashboard",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/JKT48-Ticket-Monitor-Dashboard",
-            pages_url: "https://emzyjeppp.github.io/JKT48-Ticket-Monitor-Dashboard/",
-            description: "Dasbor analitik penjualan tiket teater JKT48 yang divisualisasikan dengan grafis modern.",
-            tags: ["HTML", "CSS", "JavaScript", "Analytics"],
-            category: "web",
-            created_at: "2026-06-15T14:03:48Z"
-        },
-        {
             name: "jokjoker48-form",
             owner: "Emzyjeppp",
             repo_url: "https://github.com/Emzyjeppp/jokjoker48-form",
@@ -185,16 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tags: ["HTML", "CSS", "JavaScript"],
             category: "web",
             created_at: "2026-06-16T04:21:24Z"
-        },
-        {
-            name: "LanauticaMonthly",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/LanauticaMonthly",
-            pages_url: "https://emzyjeppp.github.io/LanauticaMonthly/",
-            description: "Landing page informasi bulanan untuk rilis majalah digital komunitas Lanautica.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-04-09T13:30:45Z"
         },
         {
             name: "lanaverse",
@@ -215,46 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tags: ["HTML", "CSS", "JavaScript"],
             category: "web",
             created_at: "2023-11-04T13:27:08Z"
-        },
-        {
-            name: "math-english-logic-test",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/math-english-logic-test",
-            pages_url: "https://emzyjeppp.github.io/math-english-logic-test/",
-            description: "Aplikasi kuis logika matematika dan bahasa inggris interaktif berbasis web.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-07-15T10:08:54Z"
-        },
-        {
-            name: "pjbl-visdata-dashboard",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/pjbl-visdata-dashboard",
-            pages_url: "https://emzyjeppp.github.io/pjbl-visdata-dashboard/",
-            description: "Dasbor visualisasi data terpadu untuk proyek PjBL mata kuliah Visualisasi Data.",
-            tags: ["HTML", "CSS", "JavaScript", "Charts"],
-            category: "web",
-            created_at: "2026-07-07T18:21:30Z"
-        },
-        {
-            name: "profilsaya",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/profilsaya",
-            pages_url: "https://emzyjeppp.github.io/profilsaya/",
-            description: "Desain layout profil web sederhana tugas pengenalan pemrograman web.",
-            tags: ["HTML", "CSS"],
-            category: "web",
-            created_at: "2023-09-18T11:23:30Z"
-        },
-        {
-            name: "revou-codingcamp-day1",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/revou-codingcamp-day1",
-            pages_url: "https://emzyjeppp.github.io/revou-codingcamp-day1/",
-            description: "Tugas praktikum hari pertama di RevoU Coding Camp, berisi halaman statis responsif.",
-            tags: ["HTML", "CSS"],
-            category: "web",
-            created_at: "2026-07-27T12:59:12Z"
         },
         {
             name: "SakuKita",
@@ -287,16 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
             created_at: "2026-07-18T06:49:58Z"
         },
         {
-            name: "tbo-web",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/tbo-web",
-            pages_url: "https://emzyjeppp.github.io/tbo-web/",
-            description: "Situs visualisasi mesin automata (DFA/NFA) untuk mendukung praktikum Teori Bahasa & Otomata.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-07-13T18:52:36Z"
-        },
-        {
             name: "teamup",
             owner: "Emzyjeppp",
             repo_url: "https://github.com/Emzyjeppp/teamup",
@@ -317,26 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
             created_at: "2026-06-18T05:30:20Z"
         },
         {
-            name: "uas-imk-uangku",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/uas-imk-uangku",
-            pages_url: "https://emzyjeppp.github.io/uas-imk-uangku/",
-            description: "Halaman prototipe Uangku untuk kebutuhan UAS Interaksi Manusia & Komputer.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-07-13T18:27:36Z"
-        },
-        {
-            name: "UAS-Matematika-Komputasi-IF-1",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/UAS-Matematika-Komputasi-IF-1",
-            pages_url: "https://emzyjeppp.github.io/UAS-Matematika-Komputasi-IF-1/",
-            description: "Kalkulator matriks, permutasi, kombinasi, dan relasi tugas UAS Matematika Komputasi.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-07-13T17:26:45Z"
-        },
-        {
             name: "wish-alana-jkt48",
             owner: "Emzyjeppp",
             repo_url: "https://github.com/Emzyjeppp/wish-alana-jkt48",
@@ -345,16 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
             tags: ["HTML", "CSS", "JavaScript"],
             category: "web",
             created_at: "2026-07-11T13:53:24Z"
-        },
-        {
-            name: "wonderlana",
-            owner: "Emzyjeppp",
-            repo_url: "https://github.com/Emzyjeppp/wonderlana",
-            pages_url: "https://emzyjeppp.github.io/wonderlana/",
-            description: "Situs portal visualisasi kreatif fans club komunitas digital.",
-            tags: ["HTML", "CSS", "JavaScript"],
-            category: "web",
-            created_at: "2026-07-12T15:59:41Z"
         },
         {
             name: "Yippie18th",
