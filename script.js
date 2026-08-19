@@ -1360,6 +1360,54 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 15. Certifications Toggle (Show More/Less)
+    const certCards = document.querySelectorAll('.certs-grid .cert-card');
+    const toggleCertsBtn = document.getElementById('toggle-certs-btn');
+    const toggleCertsText = document.getElementById('toggle-certs-text');
+    const toggleCertsIcon = document.getElementById('toggle-certs-icon');
+    const INITIAL_CERTS_TO_SHOW = 4;
+    
+    if (certCards.length > INITIAL_CERTS_TO_SHOW && toggleCertsBtn) {
+        let isExpanded = false;
+        
+        // Hide initial certs
+        certCards.forEach((card, index) => {
+            if (index >= INITIAL_CERTS_TO_SHOW) {
+                card.style.display = 'none';
+            }
+        });
+        
+        toggleCertsBtn.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+            
+            certCards.forEach((card, index) => {
+                if (index >= INITIAL_CERTS_TO_SHOW) {
+                    card.style.display = isExpanded ? 'flex' : 'none';
+                }
+            });
+            
+            if (isExpanded) {
+                toggleCertsText.textContent = toggleCertsText.getAttribute('data-i18n') === 'cert_btn_show_less' ? 'Show Less Certifications' : 'Show Less Certifications';
+                // Need to hook this into i18n properly later if needed, hardcoding for now
+                toggleCertsIcon.classList.remove('ph-caret-down');
+                toggleCertsIcon.classList.add('ph-caret-up');
+            } else {
+                toggleCertsText.textContent = 'Show More Certifications';
+                toggleCertsIcon.classList.remove('ph-caret-up');
+                toggleCertsIcon.classList.add('ph-caret-down');
+                
+                // Scroll back to top of certifications section
+                const certSection = document.getElementById('certifications');
+                if (certSection) {
+                    certSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    } else if (toggleCertsBtn) {
+        // Hide button if not enough certs
+        toggleCertsBtn.style.display = 'none';
+    }
 });
 
 
