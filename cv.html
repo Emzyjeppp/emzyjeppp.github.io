@@ -1,399 +1,727 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Jepri - CV ATS</title>
-    <!-- Google Fonts - Albert Sans & Outfit -->
+    <title>Muhammad Jepri - Curriculum Vitae</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
-        /* CSS Reset & Print-friendly Styles */
+        :root {
+            --primary: #1565C0;
+            --primary-light: #E3F2FD;
+            --primary-dark: #0D47A1;
+            --accent-bg: #DCECF8;
+            --text-dark: #1E293B;
+            --text-muted: #475569;
+            --border-color: #0288D1;
+            --bar-empty: #CBD5E1;
+            --bar-filled: #0288D1;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
+
         body {
-            font-family: 'Albert Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #000;
-            background-color: #fff;
+            background-color: #F1F5F9;
+            color: var(--text-dark);
+            font-family: 'Plus Jakarta Sans', sans-serif;
             line-height: 1.45;
-            padding: 2.5rem;
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 11pt;
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Outfit', sans-serif;
-            color: #000;
-        }
-        
-        /* Header section */
-        .header {
-            text-align: center;
-            margin-bottom: 1.5rem;
-        }
-        .header h1 {
-            font-size: 20pt;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.25rem;
-        }
-        .header p {
-            font-size: 9.5pt;
-            color: #333;
-        }
-        .header a {
-            color: #000;
-            text-decoration: none;
-            border-bottom: 1px solid #666;
+            padding: 24px 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Section styles */
-        .section {
-            margin-bottom: 1.25rem;
-        }
-        .section-title {
-            font-size: 11pt;
-            font-weight: bold;
-            text-transform: uppercase;
-            border-bottom: 1px solid #000;
-            padding-bottom: 0.2rem;
-            margin-bottom: 0.75rem;
-            letter-spacing: 0.5px;
-        }
-        .section p {
-            font-size: 10pt;
-            text-align: left;
-            max-width: 70ch;
-        }
-
-        /* Job & Education entries */
-        .entry {
-            margin-bottom: 0.85rem;
-        }
-        .entry-header {
+        /* Top Action Bar (Screen Only) */
+        .action-bar {
+            width: 100%;
+            max-width: 820px;
             display: flex;
             justify-content: space-between;
-            font-weight: bold;
-            font-size: 10pt;
-            margin-bottom: 0.15rem;
-        }
-        .entry-title {
-            font-size: 10pt;
-            font-style: italic;
-            font-weight: normal;
-            margin-bottom: 0.35rem;
-        }
-        .entry ul {
-            margin-left: 1.25rem;
-            list-style-type: square;
-        }
-        .entry li {
-            font-size: 9.5pt;
-            margin-bottom: 0.25rem;
-            text-align: left;
-            max-width: 70ch;
+            align-items: center;
+            background: #FFFFFF;
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
         }
 
-        /* Skills section */
-        .skills-table {
+        .action-bar .info {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .action-bar .btn-print {
+            background: var(--primary);
+            color: #FFFFFF;
+            border: none;
+            outline: none;
+            padding: 9px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+        }
+
+        .action-bar .btn-print:hover {
+            background: var(--primary-dark);
+        }
+
+        /* CV Sheet (A4 Proportion) */
+        .cv-sheet {
             width: 100%;
-            border-collapse: collapse;
-            font-size: 10pt;
-            margin-top: 0.25rem;
-        }
-        .skills-table td {
-            padding: 0.25rem 0;
-            vertical-align: top;
-            text-align: left;
-        }
-        .skill-label {
-            width: 100px;
-            font-weight: bold;
-            color: #000;
-        }
-        .skill-colon {
-            width: 15px;
-            text-align: left;
+            max-width: 820px;
+            background: #FFFFFF;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
-        /* Page-break utility for printing */
+        /* Decorative Header Waves */
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 175px;
+            background: linear-gradient(135deg, #E1F0FC 0%, #CEE6FA 60%, #E8F4FD 100%);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            z-index: 1;
+        }
+
+        .header-bg::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -15px;
+            width: 280px;
+            height: 40px;
+            background: #CEE6FA;
+            border-top-right-radius: 100%;
+            border-bottom-right-radius: 100%;
+            z-index: 1;
+        }
+
+        /* CV Content Grid */
+        .cv-body {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            min-height: 1080px;
+        }
+
+        /* LEFT SIDEBAR */
+        .left-col {
+            padding: 24px 20px 30px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .avatar-wrap {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            padding: 5px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            margin: 0 auto 10px;
+            overflow: hidden;
+        }
+
+        .avatar-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .side-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .side-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0F172A;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 4px;
+            margin-bottom: 2px;
+        }
+
+        /* Contact Items */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 11.5px;
+            color: var(--text-dark);
+            line-height: 1.35;
+        }
+
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: #0F172A;
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9.5px;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* Skills List */
+        .skills-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            font-size: 11.5px;
+            color: var(--text-dark);
+        }
+
+        .skills-list li {
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .skills-list li::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: #0F172A;
+            font-weight: bold;
+        }
+
+        /* Languages Section */
+        .lang-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 2px;
+        }
+
+        .lang-item {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .lang-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: #0F172A;
+        }
+
+        .lang-level {
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .lang-bar {
+            display: flex;
+            gap: 4px;
+            height: 6px;
+            margin-top: 2px;
+        }
+
+        .lang-segment {
+            flex: 1;
+            background: var(--bar-empty);
+            border-radius: 1px;
+        }
+
+        .lang-segment.active {
+            background: var(--bar-filled);
+        }
+
+        /* Certifications List */
+        .cert-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            font-size: 11px;
+            color: var(--text-dark);
+        }
+
+        .cert-item {
+            position: relative;
+            padding-left: 14px;
+            line-height: 1.35;
+        }
+
+        .cert-item::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: #0F172A;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 1;
+        }
+
+        .cert-title {
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        .cert-org {
+            color: var(--text-muted);
+            font-size: 10.5px;
+        }
+
+        /* RIGHT MAIN CONTENT */
+        .main-col {
+            padding: 34px 28px 30px 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* Header Info */
+        .profile-header {
+            margin-bottom: 2px;
+        }
+
+        .main-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 34px;
+            font-weight: 800;
+            color: #0F172A;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .summary-text {
+            font-size: 12px;
+            color: #334155;
+            line-height: 1.5;
+            text-align: justify;
+        }
+
+        /* Main Section */
+        .main-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .main-sec-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0F172A;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 4px;
+        }
+
+        /* Experience Timeline Entries */
+        .exp-entry {
+            display: grid;
+            grid-template-columns: 86px 1fr;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+
+        .exp-date {
+            font-size: 10.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: -0.2px;
+            padding-top: 2px;
+            line-height: 1.3;
+        }
+
+        .exp-details {
+            border-left: 1.5px solid #CBD5E1;
+            padding-left: 12px;
+        }
+
+        .exp-role {
+            font-size: 13px;
+            font-weight: 700;
+            font-style: italic;
+            color: #0F172A;
+            line-height: 1.25;
+        }
+
+        .exp-company {
+            font-size: 11.5px;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+
+        .exp-bullets {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            font-size: 11.5px;
+            color: #334155;
+            line-height: 1.4;
+        }
+
+        .exp-bullets li {
+            position: relative;
+            padding-left: 14px;
+        }
+
+        .exp-bullets li::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: #475569;
+        }
+
+        /* Education Entries */
+        .edu-entry {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            margin-bottom: 6px;
+        }
+
+        .edu-year {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .edu-degree {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0F172A;
+        }
+
+        .edu-school {
+            font-size: 11.5px;
+            font-weight: 600;
+            color: #1E293B;
+            margin-bottom: 2px;
+        }
+
+        .edu-desc {
+            font-size: 11.5px;
+            color: #334155;
+            line-height: 1.4;
+        }
+
+        /* Driving Licence */
+        .license-text {
+            font-size: 12px;
+            color: var(--text-dark);
+            padding-left: 14px;
+            position: relative;
+        }
+
+        .license-text::before {
+            content: "•";
+            position: absolute;
+            left: 2px;
+            color: #0F172A;
+            font-weight: bold;
+        }
+
+        /* PRINT STYLES */
         @media print {
             body {
+                background: #FFFFFF;
                 padding: 0;
-                margin: 0;
             }
-            .no-print {
+
+            .action-bar {
                 display: none;
             }
+
+            .cv-sheet {
+                box-shadow: none;
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .header-bg {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .contact-icon, .lang-segment.active, .main-sec-title, .side-title {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
         }
-        
-        /* Interactive browser view only button */
-        .no-print-btn {
-            display: inline-block;
-            margin-bottom: 1.5rem;
-            padding: 0.5rem 1rem;
-            background-color: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 9pt;
-            font-weight: bold;
-            cursor: pointer;
-            border: none;
-            transition: transform 0.15s ease, background-color 0.15s ease;
-        }
-        .no-print-btn:focus {
-            outline: none;
-        }
-        .no-print-btn:focus-visible {
-            outline: 2px solid #000;
-            outline-offset: 2px;
-        }
-        .no-print-btn:hover {
-            background-color: #333;
-        }
-        .no-print-btn:active {
-            transform: scale(0.97);
+
+        /* Responsive Mobile View */
+        @media (max-width: 720px) {
+            .cv-body {
+                grid-template-columns: 1fr;
+            }
+            .left-col {
+                padding-bottom: 10px;
+            }
+            .main-col {
+                padding-top: 10px;
+            }
+            .exp-entry {
+                grid-template-columns: 1fr;
+            }
+            .exp-details {
+                border-left: none;
+                padding-left: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Action buttons for browser view -->
-    <div class="header no-print" style="text-align: left; margin-bottom: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-        <a href="index.html" class="no-print-btn" style="background-color: #f4f4f5; color: #000; border: 1px solid #ccc;">Back to Portfolio</a>
-        <a href="assets/CV_Muhammad_Jepri.pdf" download class="no-print-btn" style="background-color: #ef4444; color: #fff; border: 1px solid #ef4444;">Download PDF</a>
-        <a href="assets/CV_Muhammad_Jepri.docx" download class="no-print-btn" style="background-color: #2b579a; color: #fff; border: 1px solid #2b579a;">Download Word (.docx)</a>
-        <button onclick="window.print()" class="no-print-btn" style="background-color: #3f3f46; color: #fff; border: 1px solid #3f3f46;">Print CV</button>
+
+    <!-- Bar Aksi (Hanya Tampil di Layar Web, Tersembunyi Saat Dicetak/Save PDF) -->
+    <div class="action-bar">
+        <div class="info">
+            <strong>Curriculum Vitae – Muhammad Jepri</strong> (Siap Unduh / Print A4)
+        </div>
+        <button class="btn-print" onclick="window.print()">
+            <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
+        </button>
     </div>
 
-    <div class="header">
-        <h1>Muhammad Jepri, A.Md.Kom.</h1>
-        <p>Kotabaru, Kalimantan Selatan | 082251090558 | <a href="mailto:jefryoconner49@gmail.com">jefryoconner49@gmail.com</a></p>
-        <p><a href="https://www.linkedin.com/in/muhammadjepri/" target="_blank">linkedin.com/in/muhammadjepri</a> | <a href="https://github.com/Emzyjeppp" target="_blank">github.com/Emzyjeppp</a> | <a href="https://jeppp.is-a.dev" target="_blank">jeppp.is-a.dev</a></p>
-    </div>
+    <!-- Lembar CV -->
+    <div class="cv-sheet">
+        <!-- Dekorasi Background Biru Atas -->
+        <div class="header-bg"></div>
 
-    <div class="section">
-        <h2 class="section-title">Tentang Saya</h2>
-        <p>
-            Mahasiswa S-1 Informatika di Universitas Teknologi Digital Indonesia (UTDI) dengan latar belakang D-3 Rekayasa Perangkat Lunak Aplikasi (RPLA). Memiliki ketertarikan tinggi pada pengembangan backend systems, administrasi data, dan otomatisasi skrip. Memiliki pengalaman kerja praktik dalam pelayanan administrasi umum, manajemen media informasi publik, serta pengembangan utilitas berbasis Python dan Windows Batch file. Berorientasi pada detail, adaptif, serta fokus pada penulisan kode yang bersih dan efisien untuk menyelesaikan masalah bisnis.
-        </p>
-    </div>
+        <div class="cv-body">
+            
+            <!-- KOLOM KIRI (SIDEBAR) -->
+            <aside class="left-col">
+                <div class="avatar-wrap">
+                    <img src="./assets/profile.png" alt="Muhammad Jepri" class="avatar-img" onerror="this.src='./pfp.jpg'">
+                </div>
 
-    <div class="section">
-        <h2 class="section-title">Pengalaman Kerja</h2>
-        
-        <div class="entry">
-            <div class="entry-header">
-                <span>Dinas Ketahanan Pangan dan Pertanian (DKPP) Kotabaru</span>
-                <span>31 Januari 2024 - 14 April 2024</span>
-            </div>
-            <div class="entry-title">IT & Multimedia Intern</div>
-            <ul>
-                <li>Membantu tugas kepala sub-bagian perencanaan untuk menyusun program kerja dinas serta mengoordinasikan dokumen perencanaan dengan unit kerja lain di lingkungan kantor.</li>
-                <li>Merancang desain grafis media cetak dan promosi, termasuk pembuatan logo resmi produk benih padi "Sa'ijaan Unggul" milik Dinas Ketahanan Pangan dan Pertanian Kotabaru.</li>
-                <li>Menyunting video kegiatan pertanian dan media komunikasi ucapan hari raya dinas untuk ditayangkan di videotron publik kantor.</li>
-                <li>Membantu verifikasi serta pengelolaan berkas administrasi umum, invoice pengeluaran, dan surat pertanggungjawaban dinas keuangan dengan akurasi data 100%.</li>
-            </ul>
-        </div>
+                <!-- CONTACT -->
+                <section class="side-section">
+                    <h2 class="side-title">Contact</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>Yogyakarta, Special Region of Yogyakarta 55221</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>+6282251090558</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div style="word-break: break-all;">jefryoconner49@gmail.com</div>
+                    </div>
+                </section>
 
-        <div class="entry">
-            <div class="entry-header">
-                <span>Independent Scripting & Automation Projects</span>
-                <span>2023 - Sekarang</span>
-            </div>
-            <div class="entry-title">Self-employed Developer</div>
-            <ul>
-                <li>Mengembangkan utilitas desktop berbasis GUI menggunakan Python (CustomTkinter) seperti aplikasi clipboard manager, serta merancang skrip otomatisasi sistem operasi Windows menggunakan Batchfile.</li>
-                <li>Membangun prototipe dan aplikasi Android native menggunakan Kotlin dan Jetpack Compose (seperti Cupcake-Orders-APP dan pembelajaran Compose dasar) untuk menerapkan arsitektur mobile modern.</li>
-                <li>Merancang aplikasi web responsif seperti unidaily-asisten-mahasiswa dan portal Pengaduan-Fasilitas-Kampus menggunakan HTML, CSS, PHP, dan MySQL untuk pemenuhan tugas akademik serta pengelolaan basis data relasional.</li>
-            </ul>
-        </div>
+                <!-- SKILLS -->
+                <section class="side-section">
+                    <h2 class="side-title">Skills</h2>
+                    <ul class="skills-list">
+                        <li>Event coordination</li>
+                        <li>Event support</li>
+                        <li>Data management</li>
+                        <li>Data entry</li>
+                        <li>Microsoft Excel</li>
+                        <li>Administrative support</li>
+                        <li>Time management</li>
+                        <li>Technical problem solving</li>
+                        <li>Komunikasi kerja sama tim dan pelayanan tamu</li>
+                    </ul>
+                </section>
 
-        <div class="entry">
-            <div class="entry-header">
-                <span>Kepolisian Resor (Polres) Kotabaru</span>
-                <span>Juli 2018 - Desember 2018 (6 Bulan)</span>
-            </div>
-            <div class="entry-title">Administration & IT Intern (PKL SMK)</div>
-            <ul>
-                <li>Membantu Kepala Urusan Umum (Kabag Sium) dalam pelaksanaan tugas-tugas administratif kepolisian secara menyeluruh.</li>
-                <li>Mencatat rekapitulasi, melakukan penomoran resmi, serta mengarsipkan berkas surat masuk dan surat keluar kantor secara teratur.</li>
-                <li>Membantu operasional administrasi perkantoran untuk memperlancar komunikasi dokumen dinas di lingkungan Polres Kotabaru.</li>
-            </ul>
-        </div>
-    </div>
+                <!-- LANGUAGES -->
+                <section class="side-section">
+                    <h2 class="side-title">Languages</h2>
+                    <div class="lang-group">
+                        <div class="lang-item">
+                            <div class="lang-header">
+                                <span>English:</span>
+                                <span>B1</span>
+                            </div>
+                            <div class="lang-bar">
+                                <div class="lang-segment active"></div>
+                                <div class="lang-segment active"></div>
+                                <div class="lang-segment active"></div>
+                                <div class="lang-segment"></div>
+                                <div class="lang-segment"></div>
+                            </div>
+                            <div class="lang-level">Intermediate</div>
+                        </div>
 
-    <div class="section">
-        <h2 class="section-title">Pendidikan</h2>
+                        <div class="lang-item">
+                            <div class="lang-header">
+                                <span>Indonesian:</span>
+                                <span>C2</span>
+                            </div>
+                            <div class="lang-bar">
+                                <div class="lang-segment active"></div>
+                                <div class="lang-segment active"></div>
+                                <div class="lang-segment active"></div>
+                                <div class="lang-segment active"></div>
+                                <div class="lang-segment active"></div>
+                            </div>
+                            <div class="lang-level">Proficient</div>
+                        </div>
+                    </div>
+                </section>
 
-        <div class="entry">
-            <div class="entry-header">
-                <span>Universitas Teknologi Digital Indonesia (UTDI) (<a href="https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/1EM2RLEza9GsHXyy-v89owwIK5X4exiiJ-73nF_fQ1BW6tYCa4KOVG_jK9c9vvH5I3FgDg==" target="_blank" style="color: inherit; text-decoration: underline; font-weight: normal;">Verifikasi PDDIKTI</a>)</span>
-                <span>2025 - Sekarang</span>
-            </div>
-            <div class="entry-title">S-1 Informatika - Jalur Rekognisi Pembelajaran Lampau (RPL)</div>
-            <ul>
-                <li>Fokus pada Data Analytics, Machine Learning, Jaringan Syaraf Tiruan, dan Sistem Terdistribusi.</li>
-                <li>Mata kuliah unggulan yang diselesaikan: Machine Learning (Nilai A), Data Lakehouse (Nilai A), Jaringan Syaraf Tiruan (Nilai A), Analitika Data (Nilai A), Sistem Terdistribusi & Terdesentralisasi (Nilai A), Cybersecurity & Threat Intelligence (Nilai A), Interaksi Manusia & Komputer (Nilai A), Jaringan Nirkabel (Nilai A), Visualisasi Data (Nilai A), Praktikum Visualisasi Data (Nilai A), Soft Skill (Nilai A).</li>
-            </ul>
-        </div>
+                <!-- CERTIFICATIONS -->
+                <section class="side-section">
+                    <h2 class="side-title">Certifications</h2>
+                    <ul class="cert-list">
+                        <li class="cert-item">
+                            <span class="cert-title">Canva Essentials</span><br>
+                            <span class="cert-org">(Design & Media Creation) – Canva Design School (2026)</span>
+                        </li>
+                        <li class="cert-item">
+                            <span class="cert-title">Intro to Data Analytics</span><br>
+                            <span class="cert-org">(Data & Spreadsheet Processing) – RevoU (2026)</span>
+                        </li>
+                        <li class="cert-item">
+                            <span class="cert-title">Build an AI Agent</span><br>
+                            <span class="cert-org">IBM SkillsBuild, Credly Verified (2026)</span>
+                        </li>
+                        <li class="cert-item">
+                            <span class="cert-title">TOEFL - Like English Proficiency Test (Score: 440)</span><br>
+                            <span class="cert-org">Universitas Teknologi Digital Indonesia (2024)</span>
+                        </li>
+                        <li class="cert-item">
+                            <span class="cert-title">Belajar Dasar Pemrograman Web</span><br>
+                            <span class="cert-org">Dicoding Indonesia (2023)</span>
+                        </li>
+                    </ul>
+                </section>
+            </aside>
 
-        <div class="entry">
-            <div class="entry-header">
-                <span>Universitas Teknologi Digital Indonesia (UTDI) (<a href="https://pddikti.kemdiktisaintek.go.id/detail-mahasiswa/FiaRgfbsAJH0ipG66eCQztDOOsciMIt-xgTX12J9G3hoqqx-gh0_aRdXz90w3Z_FBN8l5A==" target="_blank" style="color: inherit; text-decoration: underline; font-weight: normal;">Verifikasi PDDIKTI</a>)</span>
-                <span>2020 - 2024</span>
-            </div>
-            <div class="entry-title">D-3 Rekayasa Perangkat Lunak Aplikasi (RPLA) - A.Md.Kom.</div>
-            <ul>
-                <li>Fokus pada pengembangan aplikasi web client-side & server-side, pemrograman native mobile, basis data non-relasional (NoSQL), serta metodologi pengembangan sistem informasi.</li>
-                <li>Tugas Akhir: Mengembangkan aplikasi web aspirasi masyarakat terhadap sanggar tari di Yogyakarta menggunakan PHP, MySQL, dan framework Bootstrap (<a href="https://eprints.utdi.ac.id/10601/" target="_blank" style="color: inherit; text-decoration: underline;">EPrints Repository</a>).</li>
-                <li>Menyelesaikan proyek aplikasi tim (Proyek Aplikasi 1, 2, & 3) sebagai prasyarat kelulusan akademik.</li>
-            </ul>
-        </div>
+            <!-- KOLOM KANAN (KONTEN UTAMA) -->
+            <main class="main-col">
+                
+                <!-- HEADER & RINGKASAN -->
+                <header class="profile-header">
+                    <h1 class="main-name">Muhammad Jepri</h1>
+                    <p class="summary-text">
+                        Mahasiswa aktif berdomisili di Yogyakarta dengan latar belakang pendidikan diploma Rekayasa Perangkat Lunak Aplikasi. Berpengalaman dalam administrasi data, registrasi kegiatan, dan operasional lapangan. Terbiasa bekerja dengan spreadsheet, teliti, serta disiplin dalam manajemen waktu untuk mendukung kebutuhan operasional harian.
+                    </p>
+                </header>
 
-        <div class="entry">
-            <div class="entry-header">
-                <span>SMK Negeri 1 Kotabaru</span>
-                <span>Juli 2017 - Mei 2020</span>
-            </div>
-            <div class="entry-title">Teknik Komputer dan Informatika - Rekayasa Perangkat Lunak (RPL)</div>
-            <ul>
-                <li>Mempelajari fondasi teknologi informasi, algoritma dasar pemrograman, perancangan basis data relasional, serta dasar-dasar pemrograman web.</li>
-                <li>Dinyatakan Lulus pada Mei 2020 dengan penguasaan konsep dasar siklus hidup pengembangan perangkat lunak (SDLC).</li>
-            </ul>
-        </div>
-    </div>
+                <!-- EXPERIENCE -->
+                <section class="main-section">
+                    <h2 class="main-sec-title">Experience</h2>
 
-    <div class="section">
-        <h2 class="section-title">Keterampilan & Bahasa</h2>
-        
-        <table class="skills-table">
-            <tr>
-                <td class="skill-label">Soft Skill</td>
-                <td class="skill-colon">:</td>
-                <td>Kerja Sama Tim, Pemecahan Masalah (Problem Solving), Kemampuan Adaptasi, Manajemen Waktu, Komunikasi Interpersonal.</td>
-            </tr>
-            <tr>
-                <td class="skill-label">Hard Skill</td>
-                <td class="skill-colon">:</td>
-                <td>Python, CustomTkinter, Batchfile Scripting, HTML/CSS/JavaScript, Bootstrap, Relational Database (SQL), NoSQL Database (MongoDB), Git/GitHub, System Administration.</td>
-            </tr>
-            <tr>
-                <td class="skill-label">Bahasa</td>
-                <td class="skill-colon">:</td>
-                <td>Indonesia (Mahir/Native), Inggris (Menengah).</td>
-            </tr>
-        </table>
-    </div>
+                    <!-- Lanautica: Event Assistant -->
+                    <article class="exp-entry">
+                        <div class="exp-date">07/2026 - 09/2026</div>
+                        <div class="exp-details">
+                            <div class="exp-role">Event & Administrative Assistant</div>
+                            <div class="exp-company"><strong>Lanautica</strong> - Yogyakarta, DI Yogyakarta, Indonesia</div>
+                            <ul class="exp-bullets">
+                                <li>Administered membership operations and event workflows.</li>
+                                <li>Melayani registrasi langsung ratusan peserta di meja depan dan memverifikasi tiket masuk saat acara berlangsung.</li>
+                                <li>Mencatat dan merekapitulasi data anggota, iuran, serta donasi ke spreadsheet secara terstruktur.</li>
+                                <li>Mengatur alur antrean pengunjung agar proses masuk tetap tertib dan sesuai jadwal.</li>
+                            </ul>
+                        </div>
+                    </article>
 
-    <div class="section">
-        <h2 class="section-title">Sertifikasi</h2>
-        
-        <div class="entry" style="margin-bottom: 0.6rem;">
-            <div class="entry-header">
-                <span>Cyber Security (Micro Learning) (eduparx / Inixindo Jogja)</span>
-                <span>Juli 2026</span>
-            </div>
-            <div class="entry-title" style="margin-bottom: 0px; font-size: 9.5pt;">
-                ID Kredensial: 9b32f7f3-780d-4b0e-89c6-06a962875ee0
-            </div>
-        </div>
+                    <!-- ForAlana: Creative Contributor -->
+                    <article class="exp-entry">
+                        <div class="exp-date">07/2026 - 09/2026</div>
+                        <div class="exp-details">
+                            <div class="exp-role">Creative & Documentation Assistant</div>
+                            <div class="exp-company"><strong>ForAlana</strong> - Yogyakarta, DI Yogyakarta, Indonesia</div>
+                            <ul class="exp-bullets">
+                                <li>Membantu persiapan konten digital, visual, dan media interaktif untuk kampanye perayaan ulang tahun komunitas.</li>
+                                <li>Berkoordinasi dengan tim desain untuk menyusun materi publikasi dan papan ucapan pengunjung.</li>
+                                <li>Mengelola pengunggahan berkas dokumentasi dan memastikan materi acara siap digunakan tepat waktu.</li>
+                            </ul>
+                        </div>
+                    </article>
 
-        <div class="entry" style="margin-bottom: 0.6rem;">
-            <div class="entry-header">
-                <span>Forensik Digital Dasar: Mengamankan Bukti Setelah Insiden Siber (Inixindo Jogja)</span>
-                <span>April 2026</span>
-            </div>
-            <div class="entry-title" style="margin-bottom: 0px; font-size: 9.5pt;">
-                ID Sertifikat: 9c1e394a-880d-4562-baed-8b2af54d9beb
-            </div>
-        </div>
+                    <!-- Lanautica: Data Entry -->
+                    <article class="exp-entry">
+                        <div class="exp-date">04/2026 - 07/2026</div>
+                        <div class="exp-details">
+                            <div class="exp-role">Data Entry Clerk</div>
+                            <div class="exp-company"><strong>Lanautica</strong> - Yogyakarta, DI Yogyakarta, Indonesia</div>
+                            <ul class="exp-bullets">
+                                <li>Mengumpulkan, memverifikasi, dan menginput data aktivitas digital serta metrik keterlibatan ke dalam spreadsheet.</li>
+                                <li>Merapikan arsip data publik dan riwayat komunikasi secara berkala agar mudah diakses tim.</li>
+                                <li>Memastikan format data konsisten dan bebas dari kesalahan pencatatan.</li>
+                            </ul>
+                        </div>
+                    </article>
+                </section>
 
-        <div class="entry" style="margin-bottom: 0.6rem;">
-            <div class="entry-header">
-                <span>Prompt Engineering untuk Non-Teknik: Seni Berbicara dengan AI Agar Hasilnya Pas Kebutuhan (Inixindo Jogja)</span>
-                <span>Maret 2026</span>
-            </div>
-            <div class="entry-title" style="margin-bottom: 0px; font-size: 9.5pt;">
-                ID Sertifikat: c145ba56-6508-47ae-be13-ad1cd8b27881
-            </div>
-        </div>
+                <!-- EDUCATION -->
+                <section class="main-section">
+                    <h2 class="main-sec-title">Education</h2>
 
-        <div class="entry" style="margin-bottom: 0.6rem;">
-            <div class="entry-header">
-                <span>Implementasi Keamanan OWASP Top 10: Mengidentifikasi dan Mencegah Kerentanan Web Paling Umum (Inixindo Jogja)</span>
-                <span>Maret 2026</span>
-            </div>
-            <div class="entry-title" style="margin-bottom: 0px; font-size: 9.5pt;">
-                ID Sertifikat: 631ff6bf-7277-4c1d-84f5-8d8cf48f7737
-            </div>
-        </div>
+                    <article class="edu-entry">
+                        <div class="edu-year">2027</div>
+                        <div class="edu-degree">Bachelor of Science Informatics</div>
+                        <div class="edu-school"><strong>Universitas Teknologi Digital Indonesia</strong> - Yogyakarta, Indonesia</div>
+                        <p class="edu-desc">
+                            Mahasiswa aktif yang menempuh studi di bidang teknologi informasi. Berpengalaman dalam pengelolaan data, penggunaan aplikasi perkantoran (Google Sheets / Excel), serta koordinasi kegiatan operasional dan kepanitiaan.
+                        </p>
+                    </article>
 
-        <div class="entry" style="margin-bottom: 0.6rem;">
-            <div class="entry-header">
-                <span>Big Data (Micro Learning) (eduparx / Inixindo Jogja)</span>
-                <span>Maret 2026</span>
-            </div>
-            <div class="entry-title" style="margin-bottom: 0px; font-size: 9.5pt;">
-                ID Kredensial: bbae01e1-85b6-4ec6-ad36-fb1b86a65a88
-            </div>
-        </div>
+                    <article class="edu-entry">
+                        <div class="edu-year">2024</div>
+                        <div class="edu-degree">Diploma of Higher Education Applied Software Engineering</div>
+                        <div class="edu-school"><strong>Universitas Teknologi Digital Indonesia</strong> - Yogyakarta, Indonesia</div>
+                        <p class="edu-desc">
+                            Menyelesaikan studi D3 Rekayasa Perangkat Lunak Aplikasi. Mempelajari logika pemrograman, pengelolaan data aplikasi, serta pengujian sistem secara praktis.
+                        </p>
+                    </article>
+                </section>
 
-        <div class="entry" style="margin-bottom: 0.6rem;">
-            <div class="entry-header">
-                <span>Beyond Coding: Peran Engineer sebagai Arsitek Peradaban di Era AI Otonom (IndoCEISS Jateng)</span>
-                <span>Februari 2026</span>
-            </div>
-            <div class="entry-title" style="margin-bottom: 0px; font-size: 9.5pt;">
-                No. Seri: 15/011/INDOCEISS/JATENG/02/2026
-            </div>
-        </div>
+                <!-- DRIVING LICENCE -->
+                <section class="main-section">
+                    <h2 class="main-sec-title">Driving Licence</h2>
+                    <div class="license-text">Category C</div>
+                </section>
 
-        <div class="entry" style="margin-bottom: 0.6rem;">
-            <div class="entry-header">
-                <span>Deep Learning dalam Pembelajaran Berbasis Teknologi Interactive Flat Panel (ViewSonic Indonesia & HTT-ID)</span>
-                <span>Desember 2025</span>
-            </div>
-            <div class="entry-title" style="margin-bottom: 0px; font-size: 9.5pt;">
-                No. Seri: 07.95.003/HTT-ID/12/2025
-            </div>
-        </div>
-
-        <div class="entry" style="margin-bottom: 0.6rem;">
-            <div class="entry-header">
-                <span>AWS Cloud Campus Class 2025: Unlocking the Power of Cloud (AWS & Metrodata Academy)</span>
-                <span>Oktober 2025</span>
-            </div>
-            <div class="entry-title" style="margin-bottom: 0px; font-size: 9.5pt;">
-                Partisipasi Kelas Cloud Campus (Diselenggarakan di UTDI)
-            </div>
-        </div>
-
-        <div class="entry" style="margin-bottom: 0.6rem;">
-            <div class="entry-header">
-                <span>TOEFL - Like Test (Universitas Teknologi Digital Indonesia / UTDI)</span>
-                <span>Januari 2024</span>
-            </div>
-            <div class="entry-title" style="margin-bottom: 0px; font-size: 9.5pt;">
-                Skor: 440 | No. Seri: 3832/ULDS/I/2024
-            </div>
-        </div>
-
-        <div class="entry" style="margin-bottom: 0.6rem;">
-            <div class="entry-header">
-                <span>Belajar Dasar Pemrograman Web (Dicoding Indonesia)</span>
-                <span>Desember 2023</span>
-            </div>
-            <div class="entry-title" style="margin-bottom: 0px; font-size: 9.5pt;">
-                ID Kredensial: NVP77QY4WPR0 (<a href="https://dicoding.com/certificates/NVP77QY4WPR0" target="_blank" style="color: inherit; text-decoration: underline;">Verifikasi Kredensial</a>)
-            </div>
+            </main>
         </div>
     </div>
+
 </body>
 </html>
