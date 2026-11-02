@@ -36,7 +36,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 16px 10px;
+            padding: 24px 12px;
         }
 
         /* Top Action Bar (Screen Only) */
@@ -50,7 +50,7 @@
             padding: 10px 18px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
         .action-bar .info {
@@ -73,17 +73,17 @@
             gap: 8px;
         }
 
-        /* EXACT A4 SHEET: 210mm x 297mm */
+        /* NATURAL CV SHEET (NO EXTRA BOTTOM SPACE) */
         .page {
             width: 210mm;
-            height: 297mm;
-            max-height: 297mm;
+            max-width: 100%;
             background: #FFFFFF;
             box-shadow: 0 8px 30px rgba(0,0,0,0.12);
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            border-radius: 2px;
         }
 
         /* TOP BLUE WAVE BACKGROUND */
@@ -92,10 +92,10 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 50mm;
+            height: 160px;
             background: linear-gradient(135deg, #E2F0FC 0%, #D0E7FA 55%, #E9F4FE 100%);
-            border-bottom-left-radius: 38mm;
-            border-bottom-right-radius: 38mm;
+            border-bottom-left-radius: 120px;
+            border-bottom-right-radius: 120px;
             z-index: 1;
         }
 
@@ -103,12 +103,12 @@
             content: "";
             position: absolute;
             left: 0;
-            bottom: -5mm;
-            width: 70mm;
-            height: 14mm;
+            bottom: -15px;
+            width: 260px;
+            height: 50px;
             background: #D0E7FA;
-            border-top-right-radius: 50mm;
-            border-bottom-right-radius: 50mm;
+            border-top-right-radius: 100px;
+            border-bottom-right-radius: 100px;
             z-index: 1;
         }
 
@@ -119,28 +119,27 @@
             display: flex;
             flex-direction: row;
             width: 100%;
-            height: 100%;
-            padding: 6.5mm 10mm 6.5mm 10mm;
-            gap: 6.5mm;
+            padding: 24px 32px 36px 32px;
+            gap: 28px;
         }
 
-        /* LEFT SIDEBAR: 62mm */
+        /* LEFT SIDEBAR */
         .sidebar {
-            width: 62mm;
+            width: 230px;
             flex-shrink: 0;
             display: flex;
             flex-direction: column;
-            gap: 3.2mm;
+            gap: 18px;
         }
 
         .avatar-wrap {
-            width: 38mm;
-            height: 38mm;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             background: #FFFFFF;
-            padding: 1.2mm;
+            padding: 4px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-            margin: 0 auto 1mm;
+            margin: 0 auto 4px;
             overflow: hidden;
         }
 
@@ -155,43 +154,43 @@
         .side-section {
             display: flex;
             flex-direction: column;
-            gap: 1.4mm;
+            gap: 8px;
         }
 
         .side-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 9pt;
+            font-size: 13.5px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
             color: var(--text-title);
-            border-bottom: 1.5px solid var(--line-blue);
-            padding-bottom: 0.6mm;
-            margin-bottom: 0.5mm;
+            border-bottom: 2px solid var(--line-blue);
+            padding-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         /* Contact Details */
         .contact-row {
             display: flex;
             align-items: flex-start;
-            gap: 2mm;
-            font-size: 7.4pt;
+            gap: 10px;
+            font-size: 11.5px;
             color: var(--text-body);
-            line-height: 1.24;
+            line-height: 1.3;
         }
 
         .contact-ico {
-            width: 3.8mm;
-            height: 3.8mm;
+            width: 18px;
+            height: 18px;
             background: #0F172A;
             color: #FFFFFF;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 5pt;
+            font-size: 9px;
             flex-shrink: 0;
-            margin-top: 0.2mm;
+            margin-top: 1px;
         }
 
         /* Skills Bullets */
@@ -199,15 +198,15 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.8mm;
-            font-size: 7.3pt;
+            gap: 4px;
+            font-size: 11.5px;
             color: var(--text-body);
-            line-height: 1.2;
+            line-height: 1.25;
         }
 
         .skills-list li {
             position: relative;
-            padding-left: 2.6mm;
+            padding-left: 14px;
         }
 
         .skills-list li::before {
@@ -222,33 +221,33 @@
         .lang-group {
             display: flex;
             flex-direction: column;
-            gap: 1.8mm;
+            gap: 10px;
         }
 
         .lang-box {
             display: flex;
             flex-direction: column;
-            gap: 0.5mm;
+            gap: 3px;
         }
 
         .lang-head {
             display: flex;
             justify-content: space-between;
-            font-size: 7.3pt;
+            font-size: 11.5px;
             font-weight: 600;
             color: var(--text-title);
         }
 
         .lang-bars {
             display: flex;
-            gap: 1mm;
-            height: 1.7mm;
+            gap: 4px;
+            height: 6px;
         }
 
         .bar-seg {
             flex: 1;
             background: var(--bar-empty);
-            border-radius: 0.3mm;
+            border-radius: 1px;
         }
 
         .bar-seg.fill {
@@ -256,7 +255,7 @@
         }
 
         .lang-sub {
-            font-size: 6.8pt;
+            font-size: 11px;
             color: var(--text-sub);
         }
 
@@ -265,23 +264,23 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 1.5mm;
-            font-size: 6.8pt;
-            line-height: 1.22;
+            gap: 8px;
+            font-size: 11px;
+            line-height: 1.3;
         }
 
         .cert-item {
             position: relative;
-            padding-left: 2.6mm;
+            padding-left: 14px;
         }
 
         .cert-item::before {
             content: "•";
             position: absolute;
             left: 0;
-            top: -0.2mm;
+            top: -1px;
             color: #0F172A;
-            font-size: 7.8pt;
+            font-size: 13px;
             font-weight: bold;
         }
 
@@ -292,6 +291,7 @@
 
         .cert-issuer {
             color: var(--text-sub);
+            font-size: 10.5px;
         }
 
         /* RIGHT MAIN CONTENT */
@@ -299,20 +299,20 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 3mm;
+            gap: 16px;
         }
 
         /* Header Title & Summary */
         .header-box {
             display: flex;
             flex-direction: column;
-            gap: 1.2mm;
-            margin-bottom: 0.5mm;
+            gap: 6px;
+            margin-bottom: 2px;
         }
 
         .person-name {
             font-family: 'Outfit', sans-serif;
-            font-size: 23pt;
+            font-size: 32px;
             font-weight: 800;
             color: var(--text-title);
             line-height: 1.1;
@@ -320,56 +320,56 @@
         }
 
         .summary-para {
-            font-size: 7.5pt;
+            font-size: 12px;
             color: #334155;
-            line-height: 1.38;
+            line-height: 1.45;
             text-align: justify;
         }
 
         /* Section Title */
         .sec-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 9.2pt;
+            font-size: 14px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
             color: var(--text-title);
-            border-bottom: 1.5px solid var(--line-blue);
-            padding-bottom: 0.6mm;
-            margin-bottom: 1.2mm;
+            border-bottom: 2px solid var(--line-blue);
+            padding-bottom: 4px;
+            margin-bottom: 8px;
         }
 
         /* Experience Layout */
         .exp-container {
             display: flex;
             flex-direction: column;
-            gap: 2.2mm;
+            gap: 10px;
         }
 
         .exp-row {
             display: flex;
             flex-direction: row;
-            gap: 2.8mm;
+            gap: 12px;
         }
 
         .exp-date-col {
-            width: 22mm;
+            width: 82px;
             flex-shrink: 0;
-            font-size: 6.8pt;
+            font-size: 11px;
             font-weight: 600;
             color: var(--text-sub);
-            padding-top: 0.2mm;
-            line-height: 1.2;
+            padding-top: 1px;
+            line-height: 1.25;
         }
 
         .exp-desc-col {
             flex: 1;
-            border-left: 1.3px solid #CBD5E1;
-            padding-left: 2.8mm;
+            border-left: 1.5px solid #CBD5E1;
+            padding-left: 12px;
         }
 
         .exp-title {
-            font-size: 8.3pt;
+            font-size: 13px;
             font-weight: 700;
             font-style: italic;
             color: var(--text-title);
@@ -377,24 +377,24 @@
         }
 
         .exp-org {
-            font-size: 7.3pt;
+            font-size: 11.5px;
             color: var(--text-body);
-            margin-bottom: 0.6mm;
+            margin-bottom: 4px;
         }
 
         .exp-ul {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.6mm;
-            font-size: 7.2pt;
+            gap: 3px;
+            font-size: 11.5px;
             color: #334155;
-            line-height: 1.28;
+            line-height: 1.35;
         }
 
         .exp-ul li {
             position: relative;
-            padding-left: 2.6mm;
+            padding-left: 14px;
         }
 
         .exp-ul li::before {
@@ -408,44 +408,44 @@
         .edu-container {
             display: flex;
             flex-direction: column;
-            gap: 1.8mm;
+            gap: 8px;
         }
 
         .edu-row {
             display: flex;
             flex-direction: column;
-            gap: 0.3mm;
+            gap: 2px;
         }
 
         .edu-year-txt {
-            font-size: 7.1pt;
+            font-size: 11px;
             font-weight: 600;
             color: var(--text-sub);
         }
 
         .edu-degree-txt {
-            font-size: 8.3pt;
+            font-size: 13px;
             font-weight: 700;
             color: var(--text-title);
         }
 
         .edu-campus-txt {
-            font-size: 7.3pt;
+            font-size: 11.5px;
             font-weight: 600;
             color: var(--text-body);
         }
 
         .edu-para-txt {
-            font-size: 7.1pt;
+            font-size: 11px;
             color: #334155;
-            line-height: 1.28;
+            line-height: 1.35;
         }
 
         /* Driving Licence */
         .lic-bullet {
-            font-size: 7.5pt;
+            font-size: 12px;
             color: var(--text-body);
-            padding-left: 2.6mm;
+            padding-left: 14px;
             position: relative;
         }
 
@@ -457,15 +457,11 @@
             font-weight: bold;
         }
 
-        /* STRICT SINGLE-PAGE PRINT RULES */
+        /* CLEAN A4 PRINT RULES */
         @media print {
-            html, body {
-                width: 210mm !important;
-                height: 297mm !important;
-                margin: 0 !important;
-                padding: 0 !important;
+            body {
                 background: #FFFFFF !important;
-                overflow: hidden !important;
+                padding: 0 !important;
             }
 
             .action-bar {
@@ -475,12 +471,12 @@
             .page {
                 box-shadow: none !important;
                 border: none !important;
-                width: 210mm !important;
-                height: 297mm !important;
-                max-height: 297mm !important;
-                page-break-after: avoid !important;
-                page-break-inside: avoid !important;
-                overflow: hidden !important;
+                width: 100% !important;
+                border-radius: 0 !important;
+            }
+
+            .container {
+                padding: 20px 28px 24px 28px !important;
             }
 
             @page {
@@ -495,7 +491,7 @@
     <!-- Bar Aksi Layar -->
     <div class="action-bar">
         <div class="info">
-            Curriculum Vitae – Muhammad Jepri (Format Bahasa Indonesia & 1 Halaman A4 Presisi)
+            Curriculum Vitae – Muhammad Jepri (Format Bahasa Indonesia & Standar Kertas A4)
         </div>
         <button class="btn-print" onclick="window.print()">
             <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
