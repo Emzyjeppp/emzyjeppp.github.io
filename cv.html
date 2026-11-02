@@ -6,143 +6,140 @@
     <title>Muhammad Jepri - Curriculum Vitae</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         :root {
-            --primary: #1565C0;
-            --primary-light: #E3F2FD;
-            --primary-dark: #0D47A1;
-            --accent-bg: #DCECF8;
-            --text-dark: #1E293B;
-            --text-muted: #475569;
-            --border-color: #0288D1;
+            --primary-blue: #1565C0;
+            --accent-wave: #D7ECFB;
+            --line-blue: #0288D1;
+            --text-title: #0F172A;
+            --text-body: #1E293B;
+            --text-sub: #475569;
             --bar-empty: #CBD5E1;
-            --bar-filled: #0288D1;
+            --bar-fill: #0288D1;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
         }
 
         body {
-            background-color: #F1F5F9;
-            color: var(--text-dark);
+            background-color: #E2E8F0;
+            color: var(--text-body);
             font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.45;
-            padding: 24px 12px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 24px 12px;
         }
 
         /* Top Action Bar (Screen Only) */
         .action-bar {
-            width: 100%;
-            max-width: 820px;
+            width: 210mm;
             display: flex;
             justify-content: space-between;
             align-items: center;
             background: #FFFFFF;
             padding: 12px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             margin-bottom: 20px;
         }
 
         .action-bar .info {
             font-size: 13px;
-            color: var(--text-muted);
-            font-weight: 500;
+            color: var(--text-sub);
+            font-weight: 600;
         }
 
         .action-bar .btn-print {
-            background: var(--primary);
+            background: var(--primary-blue);
             color: #FFFFFF;
             border: none;
-            outline: none;
             padding: 9px 18px;
             border-radius: 6px;
             font-size: 13px;
             font-weight: 600;
-            font-family: inherit;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: background 0.2s;
         }
 
-        .action-bar .btn-print:hover {
-            background: var(--primary-dark);
-        }
-
-        /* CV Sheet (A4 Proportion) */
-        .cv-sheet {
-            width: 100%;
-            max-width: 820px;
+        /* EXACT A4 SHEET: 210mm x 297mm */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            max-height: 297mm;
             background: #FFFFFF;
-            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
         }
 
-        /* Decorative Header Waves */
-        .header-bg {
+        /* TOP BLUE WAVE BACKGROUND */
+        .wave-banner {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 175px;
-            background: linear-gradient(135deg, #E1F0FC 0%, #CEE6FA 60%, #E8F4FD 100%);
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
+            height: 48mm;
+            background: linear-gradient(135deg, #E2F0FC 0%, #D0E7FA 55%, #E9F4FE 100%);
+            border-bottom-left-radius: 38mm;
+            border-bottom-right-radius: 38mm;
             z-index: 1;
         }
 
-        .header-bg::after {
+        .wave-banner::after {
             content: "";
             position: absolute;
             left: 0;
-            bottom: -15px;
-            width: 280px;
-            height: 40px;
-            background: #CEE6FA;
-            border-top-right-radius: 100%;
-            border-bottom-right-radius: 100%;
+            bottom: -5mm;
+            width: 68mm;
+            height: 14mm;
+            background: #D0E7FA;
+            border-top-right-radius: 50mm;
+            border-bottom-right-radius: 50mm;
             z-index: 1;
         }
 
-        /* CV Content Grid */
-        .cv-body {
+        /* TWO COLUMN CONTAINER */
+        .container {
             position: relative;
             z-index: 2;
-            display: grid;
-            grid-template-columns: 240px 1fr;
-            min-height: 1080px;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            height: 100%;
+            padding: 6mm 10mm 6mm 10mm;
         }
 
-        /* LEFT SIDEBAR */
-        .left-col {
-            padding: 24px 20px 30px 24px;
+        /* LEFT SIDEBAR: 64mm width */
+        .sidebar {
+            width: 64mm;
+            flex-shrink: 0;
+            padding-right: 6mm;
             display: flex;
             flex-direction: column;
-            gap: 22px;
+            gap: 3.5mm;
         }
 
         .avatar-wrap {
-            width: 150px;
-            height: 150px;
+            width: 38mm;
+            height: 38mm;
             border-radius: 50%;
             background: #FFFFFF;
-            padding: 5px;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-            margin: 0 auto 10px;
+            padding: 1.2mm;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin: 0 auto 1mm;
             overflow: hidden;
         }
 
@@ -157,111 +154,109 @@
         .side-section {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 1.5mm;
         }
 
         .side-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 13.5px;
+            font-size: 9pt;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: #0F172A;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 4px;
-            margin-bottom: 2px;
+            color: var(--text-title);
+            border-bottom: 1.6px solid var(--line-blue);
+            padding-bottom: 0.8mm;
+            margin-bottom: 0.5mm;
         }
 
-        /* Contact Items */
-        .contact-item {
+        /* Contact Details */
+        .contact-row {
             display: flex;
             align-items: flex-start;
-            gap: 10px;
-            font-size: 11.5px;
-            color: var(--text-dark);
-            line-height: 1.35;
+            gap: 2mm;
+            font-size: 7.2pt;
+            color: var(--text-body);
+            line-height: 1.25;
         }
 
-        .contact-icon {
-            width: 20px;
-            height: 20px;
+        .contact-ico {
+            width: 3.8mm;
+            height: 3.8mm;
             background: #0F172A;
             color: #FFFFFF;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 9.5px;
+            font-size: 5pt;
             flex-shrink: 0;
-            margin-top: 1px;
+            margin-top: 0.2mm;
         }
 
-        /* Skills List */
+        /* Skills Bullets */
         .skills-list {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 4px;
-            font-size: 11.5px;
-            color: var(--text-dark);
+            gap: 0.8mm;
+            font-size: 7.2pt;
+            color: var(--text-body);
+            line-height: 1.2;
         }
 
         .skills-list li {
             position: relative;
-            padding-left: 14px;
+            padding-left: 2.8mm;
         }
 
         .skills-list li::before {
             content: "•";
             position: absolute;
-            left: 2px;
+            left: 0;
             color: #0F172A;
             font-weight: bold;
         }
 
-        /* Languages Section */
+        /* Languages Progress Bar */
         .lang-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 2px;
+            gap: 2mm;
         }
 
-        .lang-item {
+        .lang-box {
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: 0.5mm;
         }
 
-        .lang-header {
+        .lang-head {
             display: flex;
             justify-content: space-between;
-            font-size: 11.5px;
+            font-size: 7.2pt;
             font-weight: 600;
-            color: #0F172A;
+            color: var(--text-title);
         }
 
-        .lang-level {
-            font-size: 11px;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        .lang-bar {
+        .lang-bars {
             display: flex;
-            gap: 4px;
-            height: 6px;
-            margin-top: 2px;
+            gap: 1mm;
+            height: 1.8mm;
         }
 
-        .lang-segment {
+        .bar-seg {
             flex: 1;
             background: var(--bar-empty);
-            border-radius: 1px;
+            border-radius: 0.4mm;
         }
 
-        .lang-segment.active {
-            background: var(--bar-filled);
+        .bar-seg.fill {
+            background: var(--bar-fill);
+        }
+
+        .lang-sub {
+            font-size: 6.8pt;
+            color: var(--text-sub);
         }
 
         /* Certifications List */
@@ -269,267 +264,251 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            font-size: 11px;
-            color: var(--text-dark);
+            gap: 1.6mm;
+            font-size: 6.8pt;
+            line-height: 1.22;
         }
 
         .cert-item {
             position: relative;
-            padding-left: 14px;
-            line-height: 1.35;
+            padding-left: 2.8mm;
         }
 
         .cert-item::before {
             content: "•";
             position: absolute;
-            left: 2px;
+            left: 0;
+            top: -0.2mm;
             color: #0F172A;
+            font-size: 8pt;
             font-weight: bold;
-            font-size: 14px;
-            line-height: 1;
         }
 
-        .cert-title {
+        .cert-name {
             font-weight: 700;
-            color: #0F172A;
+            color: var(--text-title);
         }
 
-        .cert-org {
-            color: var(--text-muted);
-            font-size: 10.5px;
+        .cert-issuer {
+            color: var(--text-sub);
         }
 
         /* RIGHT MAIN CONTENT */
-        .main-col {
-            padding: 34px 28px 30px 22px;
+        .main-content {
+            flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 2.8mm;
+            padding-top: 2mm;
         }
 
-        /* Header Info */
-        .profile-header {
-            margin-bottom: 2px;
+        /* Header Title & Summary */
+        .header-box {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5mm;
+            margin-bottom: 0.5mm;
         }
 
-        .main-name {
+        .person-name {
             font-family: 'Outfit', sans-serif;
-            font-size: 34px;
+            font-size: 23pt;
             font-weight: 800;
-            color: #0F172A;
+            color: var(--text-title);
             line-height: 1.1;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
+            letter-spacing: -0.3px;
         }
 
-        .summary-text {
-            font-size: 12px;
+        .summary-para {
+            font-size: 7.6pt;
             color: #334155;
-            line-height: 1.5;
+            line-height: 1.38;
             text-align: justify;
         }
 
-        /* Main Section */
-        .main-section {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .main-sec-title {
+        /* Section Title */
+        .sec-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 14px;
+            font-size: 9.5pt;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
-            color: #0F172A;
-            border-bottom: 2px solid var(--border-color);
-            padding-bottom: 4px;
+            color: var(--text-title);
+            border-bottom: 1.6px solid var(--line-blue);
+            padding-bottom: 0.8mm;
+            margin-bottom: 1.2mm;
         }
 
-        /* Experience Timeline Entries */
-        .exp-entry {
-            display: grid;
-            grid-template-columns: 86px 1fr;
-            gap: 12px;
-            margin-bottom: 4px;
+        /* Experience Layout */
+        .exp-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2.2mm;
         }
 
-        .exp-date {
-            font-size: 10.5px;
+        .exp-row {
+            display: flex;
+            flex-direction: row;
+            gap: 3mm;
+        }
+
+        .exp-date-col {
+            width: 22mm;
+            flex-shrink: 0;
+            font-size: 6.8pt;
             font-weight: 600;
-            color: var(--text-muted);
-            letter-spacing: -0.2px;
-            padding-top: 2px;
-            line-height: 1.3;
+            color: var(--text-sub);
+            padding-top: 0.3mm;
+            line-height: 1.2;
         }
 
-        .exp-details {
-            border-left: 1.5px solid #CBD5E1;
-            padding-left: 12px;
+        .exp-desc-col {
+            flex: 1;
+            border-left: 1.4px solid #CBD5E1;
+            padding-left: 3mm;
         }
 
-        .exp-role {
-            font-size: 13px;
+        .exp-title {
+            font-size: 8.4pt;
             font-weight: 700;
             font-style: italic;
-            color: #0F172A;
-            line-height: 1.25;
+            color: var(--text-title);
+            line-height: 1.2;
         }
 
-        .exp-company {
-            font-size: 11.5px;
-            color: #334155;
-            margin-bottom: 6px;
+        .exp-org {
+            font-size: 7.4pt;
+            color: var(--text-body);
+            margin-bottom: 1mm;
         }
 
-        .exp-bullets {
+        .exp-ul {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 3px;
-            font-size: 11.5px;
+            gap: 0.8mm;
+            font-size: 7.2pt;
             color: #334155;
-            line-height: 1.4;
+            line-height: 1.28;
         }
 
-        .exp-bullets li {
+        .exp-ul li {
             position: relative;
-            padding-left: 14px;
+            padding-left: 2.8mm;
         }
 
-        .exp-bullets li::before {
+        .exp-ul li::before {
             content: "•";
             position: absolute;
-            left: 2px;
-            color: #475569;
+            left: 0;
+            color: var(--text-sub);
         }
 
-        /* Education Entries */
-        .edu-entry {
+        /* Education Layout */
+        .edu-container {
             display: flex;
             flex-direction: column;
-            gap: 2px;
-            margin-bottom: 6px;
+            gap: 2mm;
         }
 
-        .edu-year {
-            font-size: 11.5px;
+        .edu-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5mm;
+        }
+
+        .edu-year-txt {
+            font-size: 7.4pt;
             font-weight: 600;
-            color: var(--text-muted);
+            color: var(--text-sub);
         }
 
-        .edu-degree {
-            font-size: 13px;
+        .edu-degree-txt {
+            font-size: 8.4pt;
             font-weight: 700;
-            color: #0F172A;
+            color: var(--text-title);
         }
 
-        .edu-school {
-            font-size: 11.5px;
+        .edu-campus-txt {
+            font-size: 7.4pt;
             font-weight: 600;
-            color: #1E293B;
-            margin-bottom: 2px;
+            color: var(--text-body);
         }
 
-        .edu-desc {
-            font-size: 11.5px;
+        .edu-para-txt {
+            font-size: 7.1pt;
             color: #334155;
-            line-height: 1.4;
+            line-height: 1.28;
         }
 
         /* Driving Licence */
-        .license-text {
-            font-size: 12px;
-            color: var(--text-dark);
-            padding-left: 14px;
+        .lic-bullet {
+            font-size: 7.5pt;
+            color: var(--text-body);
+            padding-left: 2.8mm;
             position: relative;
         }
 
-        .license-text::before {
+        .lic-bullet::before {
             content: "•";
             position: absolute;
-            left: 2px;
-            color: #0F172A;
+            left: 0;
+            color: var(--text-title);
             font-weight: bold;
         }
 
-        /* PRINT STYLES */
+        /* STRICT SINGLE-PAGE PRINT RULES */
         @media print {
-            body {
-                background: #FFFFFF;
-                padding: 0;
+            html, body {
+                width: 210mm !important;
+                height: 297mm !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: #FFFFFF !important;
+                overflow: hidden !important;
             }
 
             .action-bar {
-                display: none;
+                display: none !important;
             }
 
-            .cv-sheet {
-                box-shadow: none;
-                max-width: 100%;
-                width: 100%;
-            }
-
-            .header-bg {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .contact-icon, .lang-segment.active, .main-sec-title, .side-title {
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .page {
+                box-shadow: none !important;
+                border: none !important;
+                width: 210mm !important;
+                height: 297mm !important;
+                max-height: 297mm !important;
+                page-break-after: avoid !important;
+                page-break-inside: avoid !important;
             }
 
             @page {
                 size: A4 portrait;
-                margin: 0;
-            }
-        }
-
-        /* Responsive Mobile View */
-        @media (max-width: 720px) {
-            .cv-body {
-                grid-template-columns: 1fr;
-            }
-            .left-col {
-                padding-bottom: 10px;
-            }
-            .main-col {
-                padding-top: 10px;
-            }
-            .exp-entry {
-                grid-template-columns: 1fr;
-            }
-            .exp-details {
-                border-left: none;
-                padding-left: 0;
+                margin: 0mm !important;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Bar Aksi (Hanya Tampil di Layar Web, Tersembunyi Saat Dicetak/Save PDF) -->
+    <!-- Bar Aksi Layar -->
     <div class="action-bar">
         <div class="info">
-            <strong>Curriculum Vitae – Muhammad Jepri</strong> (Siap Unduh / Print A4)
+            Curriculum Vitae – Muhammad Jepri (Format 1 Halaman A4 Presisi)
         </div>
         <button class="btn-print" onclick="window.print()">
             <i class="fa-solid fa-print"></i> Cetak / Simpan PDF
         </button>
     </div>
 
-    <!-- Lembar CV -->
-    <div class="cv-sheet">
-        <!-- Dekorasi Background Biru Atas -->
-        <div class="header-bg"></div>
+    <!-- Halaman CV -->
+    <div class="page">
+        <!-- Banner Wave Biru -->
+        <div class="wave-banner"></div>
 
-        <div class="cv-body">
-            
-            <!-- KOLOM KIRI (SIDEBAR) -->
-            <aside class="left-col">
+        <div class="container">
+            <!-- SIDEBAR KIRI -->
+            <aside class="sidebar">
                 <div class="avatar-wrap">
                     <img src="./assets/profile.png" alt="Muhammad Jepri" class="avatar-img" onerror="this.src='./pfp.jpg'">
                 </div>
@@ -537,16 +516,16 @@
                 <!-- CONTACT -->
                 <section class="side-section">
                     <h2 class="side-title">Contact</h2>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="contact-row">
+                        <div class="contact-ico"><i class="fa-solid fa-location-dot"></i></div>
                         <div>Yogyakarta, Special Region of Yogyakarta 55221</div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                    <div class="contact-row">
+                        <div class="contact-ico"><i class="fa-solid fa-phone"></i></div>
                         <div>+6282251090558</div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="contact-row">
+                        <div class="contact-ico"><i class="fa-solid fa-envelope"></i></div>
                         <div style="word-break: break-all;">jefryoconner49@gmail.com</div>
                     </div>
                 </section>
@@ -571,34 +550,34 @@
                 <section class="side-section">
                     <h2 class="side-title">Languages</h2>
                     <div class="lang-group">
-                        <div class="lang-item">
-                            <div class="lang-header">
+                        <div class="lang-box">
+                            <div class="lang-head">
                                 <span>English:</span>
                                 <span>B1</span>
                             </div>
-                            <div class="lang-bar">
-                                <div class="lang-segment active"></div>
-                                <div class="lang-segment active"></div>
-                                <div class="lang-segment active"></div>
-                                <div class="lang-segment"></div>
-                                <div class="lang-segment"></div>
+                            <div class="lang-bars">
+                                <div class="bar-seg fill"></div>
+                                <div class="bar-seg fill"></div>
+                                <div class="bar-seg fill"></div>
+                                <div class="bar-seg"></div>
+                                <div class="bar-seg"></div>
                             </div>
-                            <div class="lang-level">Intermediate</div>
+                            <div class="lang-sub">Intermediate</div>
                         </div>
 
-                        <div class="lang-item">
-                            <div class="lang-header">
+                        <div class="lang-box">
+                            <div class="lang-head">
                                 <span>Indonesian:</span>
                                 <span>C2</span>
                             </div>
-                            <div class="lang-bar">
-                                <div class="lang-segment active"></div>
-                                <div class="lang-segment active"></div>
-                                <div class="lang-segment active"></div>
-                                <div class="lang-segment active"></div>
-                                <div class="lang-segment active"></div>
+                            <div class="lang-bars">
+                                <div class="bar-seg fill"></div>
+                                <div class="bar-seg fill"></div>
+                                <div class="bar-seg fill"></div>
+                                <div class="bar-seg fill"></div>
+                                <div class="bar-seg fill"></div>
                             </div>
-                            <div class="lang-level">Proficient</div>
+                            <div class="lang-sub">Proficient</div>
                         </div>
                     </div>
                 </section>
@@ -608,117 +587,117 @@
                     <h2 class="side-title">Certifications</h2>
                     <ul class="cert-list">
                         <li class="cert-item">
-                            <span class="cert-title">Canva Essentials</span><br>
-                            <span class="cert-org">(Design & Media Creation) – Canva Design School (2026)</span>
+                            <span class="cert-name">Canva Essentials</span><br>
+                            <span class="cert-issuer">(Design & Media Creation) – Canva Design School (2026)</span>
                         </li>
                         <li class="cert-item">
-                            <span class="cert-title">Intro to Data Analytics</span><br>
-                            <span class="cert-org">(Data & Spreadsheet Processing) – RevoU (2026)</span>
+                            <span class="cert-name">Intro to Data Analytics</span><br>
+                            <span class="cert-issuer">(Data & Spreadsheet Processing) – RevoU (2026)</span>
                         </li>
                         <li class="cert-item">
-                            <span class="cert-title">Build an AI Agent</span><br>
-                            <span class="cert-org">IBM SkillsBuild, Credly Verified (2026)</span>
+                            <span class="cert-name">Build an AI Agent</span><br>
+                            <span class="cert-issuer">IBM SkillsBuild, Credly Verified (2026)</span>
                         </li>
                         <li class="cert-item">
-                            <span class="cert-title">TOEFL - Like English Proficiency Test (Score: 440)</span><br>
-                            <span class="cert-org">Universitas Teknologi Digital Indonesia (2024)</span>
+                            <span class="cert-name">TOEFL - Like English Proficiency Test (Score: 440)</span><br>
+                            <span class="cert-issuer">Universitas Teknologi Digital Indonesia (2024)</span>
                         </li>
                         <li class="cert-item">
-                            <span class="cert-title">Belajar Dasar Pemrograman Web</span><br>
-                            <span class="cert-org">Dicoding Indonesia (2023)</span>
+                            <span class="cert-name">Belajar Dasar Pemrograman Web</span><br>
+                            <span class="cert-issuer">Dicoding Indonesia (2023)</span>
                         </li>
                     </ul>
                 </section>
             </aside>
 
-            <!-- KOLOM KANAN (KONTEN UTAMA) -->
-            <main class="main-col">
-                
-                <!-- HEADER & RINGKASAN -->
-                <header class="profile-header">
-                    <h1 class="main-name">Muhammad Jepri</h1>
-                    <p class="summary-text">
+            <!-- KONTEN UTAMA KANAN -->
+            <main class="main-content">
+                <!-- NAMA & RINGKASAN -->
+                <header class="header-box">
+                    <h1 class="person-name">Muhammad Jepri</h1>
+                    <p class="summary-para">
                         Mahasiswa aktif berdomisili di Yogyakarta dengan latar belakang pendidikan diploma Rekayasa Perangkat Lunak Aplikasi. Berpengalaman dalam administrasi data, registrasi kegiatan, dan operasional lapangan. Terbiasa bekerja dengan spreadsheet, teliti, serta disiplin dalam manajemen waktu untuk mendukung kebutuhan operasional harian.
                     </p>
                 </header>
 
                 <!-- EXPERIENCE -->
-                <section class="main-section">
-                    <h2 class="main-sec-title">Experience</h2>
-
-                    <!-- Lanautica: Event Assistant -->
-                    <article class="exp-entry">
-                        <div class="exp-date">07/2026 - 09/2026</div>
-                        <div class="exp-details">
-                            <div class="exp-role">Event & Administrative Assistant</div>
-                            <div class="exp-company"><strong>Lanautica</strong> - Yogyakarta, DI Yogyakarta, Indonesia</div>
-                            <ul class="exp-bullets">
-                                <li>Administered membership operations and event workflows.</li>
-                                <li>Melayani registrasi langsung ratusan peserta di meja depan dan memverifikasi tiket masuk saat acara berlangsung.</li>
-                                <li>Mencatat dan merekapitulasi data anggota, iuran, serta donasi ke spreadsheet secara terstruktur.</li>
-                                <li>Mengatur alur antrean pengunjung agar proses masuk tetap tertib dan sesuai jadwal.</li>
-                            </ul>
+                <section>
+                    <h2 class="sec-title">Experience</h2>
+                    <div class="exp-container">
+                        <!-- Lanautica: Event Assistant -->
+                        <div class="exp-row">
+                            <div class="exp-date-col">07/2026 - 09/2026</div>
+                            <div class="exp-desc-col">
+                                <div class="exp-title">Event & Administrative Assistant</div>
+                                <div class="exp-org"><strong>Lanautica</strong> - Yogyakarta, DI Yogyakarta, Indonesia</div>
+                                <ul class="exp-ul">
+                                    <li>Administered membership operations and event workflows.</li>
+                                    <li>Melayani registrasi langsung ratusan peserta di meja depan dan memverifikasi tiket masuk saat acara berlangsung.</li>
+                                    <li>Mencatat dan merekapitulasi data anggota, iuran, serta donasi ke spreadsheet secara terstruktur.</li>
+                                    <li>Mengatur alur antrean pengunjung agar proses masuk tetap tertib dan sesuai jadwal.</li>
+                                </ul>
+                            </div>
                         </div>
-                    </article>
 
-                    <!-- ForAlana: Creative Contributor -->
-                    <article class="exp-entry">
-                        <div class="exp-date">07/2026 - 09/2026</div>
-                        <div class="exp-details">
-                            <div class="exp-role">Creative & Documentation Assistant</div>
-                            <div class="exp-company"><strong>ForAlana</strong> - Yogyakarta, DI Yogyakarta, Indonesia</div>
-                            <ul class="exp-bullets">
-                                <li>Membantu persiapan konten digital, visual, dan media interaktif untuk kampanye perayaan ulang tahun komunitas.</li>
-                                <li>Berkoordinasi dengan tim desain untuk menyusun materi publikasi dan papan ucapan pengunjung.</li>
-                                <li>Mengelola pengunggahan berkas dokumentasi dan memastikan materi acara siap digunakan tepat waktu.</li>
-                            </ul>
+                        <!-- ForAlana: Creative Assistant -->
+                        <div class="exp-row">
+                            <div class="exp-date-col">07/2026 - 09/2026</div>
+                            <div class="exp-desc-col">
+                                <div class="exp-title">Creative & Documentation Assistant</div>
+                                <div class="exp-org"><strong>ForAlana</strong> - Yogyakarta, DI Yogyakarta, Indonesia</div>
+                                <ul class="exp-ul">
+                                    <li>Membantu persiapan konten digital, visual, dan media interaktif untuk kampanye perayaan ulang tahun komunitas.</li>
+                                    <li>Berkoordinasi dengan tim desain untuk menyusun materi publikasi dan papan ucapan pengunjung.</li>
+                                    <li>Mengelola pengunggahan berkas dokumentasi dan memastikan materi acara siap digunakan tepat waktu.</li>
+                                </ul>
+                            </div>
                         </div>
-                    </article>
 
-                    <!-- Lanautica: Data Entry -->
-                    <article class="exp-entry">
-                        <div class="exp-date">04/2026 - 07/2026</div>
-                        <div class="exp-details">
-                            <div class="exp-role">Data Entry Clerk</div>
-                            <div class="exp-company"><strong>Lanautica</strong> - Yogyakarta, DI Yogyakarta, Indonesia</div>
-                            <ul class="exp-bullets">
-                                <li>Mengumpulkan, memverifikasi, dan menginput data aktivitas digital serta metrik keterlibatan ke dalam spreadsheet.</li>
-                                <li>Merapikan arsip data publik dan riwayat komunikasi secara berkala agar mudah diakses tim.</li>
-                                <li>Memastikan format data konsisten dan bebas dari kesalahan pencatatan.</li>
-                            </ul>
+                        <!-- Lanautica: Data Entry -->
+                        <div class="exp-row">
+                            <div class="exp-date-col">04/2026 - 07/2026</div>
+                            <div class="exp-desc-col">
+                                <div class="exp-title">Data Entry Clerk</div>
+                                <div class="exp-org"><strong>Lanautica</strong> - Yogyakarta, DI Yogyakarta, Indonesia</div>
+                                <ul class="exp-ul">
+                                    <li>Mengumpulkan, memverifikasi, dan menginput data aktivitas digital serta metrik keterlibatan ke dalam spreadsheet.</li>
+                                    <li>Merapikan arsip data publik dan riwayat komunikasi secara berkala agar mudah diakses tim.</li>
+                                    <li>Memastikan format data konsisten dan bebas dari kesalahan pencatatan.</li>
+                                </ul>
+                            </div>
                         </div>
-                    </article>
+                    </div>
                 </section>
 
                 <!-- EDUCATION -->
-                <section class="main-section">
-                    <h2 class="main-sec-title">Education</h2>
+                <section>
+                    <h2 class="sec-title">Education</h2>
+                    <div class="edu-container">
+                        <div class="edu-row">
+                            <div class="edu-year-txt">2027</div>
+                            <div class="edu-degree-txt">Bachelor of Science Informatics</div>
+                            <div class="edu-campus-txt"><strong>Universitas Teknologi Digital Indonesia</strong> - Yogyakarta, Indonesia</div>
+                            <p class="edu-para-txt">
+                                Mahasiswa aktif yang menempuh studi di bidang teknologi informasi. Berpengalaman dalam pengelolaan data, penggunaan aplikasi perkantoran (Google Sheets / Excel), serta koordinasi kegiatan operasional dan kepanitiaan.
+                            </p>
+                        </div>
 
-                    <article class="edu-entry">
-                        <div class="edu-year">2027</div>
-                        <div class="edu-degree">Bachelor of Science Informatics</div>
-                        <div class="edu-school"><strong>Universitas Teknologi Digital Indonesia</strong> - Yogyakarta, Indonesia</div>
-                        <p class="edu-desc">
-                            Mahasiswa aktif yang menempuh studi di bidang teknologi informasi. Berpengalaman dalam pengelolaan data, penggunaan aplikasi perkantoran (Google Sheets / Excel), serta koordinasi kegiatan operasional dan kepanitiaan.
-                        </p>
-                    </article>
-
-                    <article class="edu-entry">
-                        <div class="edu-year">2024</div>
-                        <div class="edu-degree">Diploma of Higher Education Applied Software Engineering</div>
-                        <div class="edu-school"><strong>Universitas Teknologi Digital Indonesia</strong> - Yogyakarta, Indonesia</div>
-                        <p class="edu-desc">
-                            Menyelesaikan studi D3 Rekayasa Perangkat Lunak Aplikasi. Mempelajari logika pemrograman, pengelolaan data aplikasi, serta pengujian sistem secara praktis.
-                        </p>
-                    </article>
+                        <div class="edu-row">
+                            <div class="edu-year-txt">2024</div>
+                            <div class="edu-degree-txt">Diploma of Higher Education Applied Software Engineering</div>
+                            <div class="edu-campus-txt"><strong>Universitas Teknologi Digital Indonesia</strong> - Yogyakarta, Indonesia</div>
+                            <p class="edu-para-txt">
+                                Menyelesaikan studi D3 Rekayasa Perangkat Lunak Aplikasi. Mempelajari logika pemrograman, pengelolaan data aplikasi, serta pengujian sistem secara praktis.
+                            </p>
+                        </div>
+                    </div>
                 </section>
 
                 <!-- DRIVING LICENCE -->
-                <section class="main-section">
-                    <h2 class="main-sec-title">Driving Licence</h2>
-                    <div class="license-text">Category C</div>
+                <section>
+                    <h2 class="sec-title">Driving Licence</h2>
+                    <div class="lic-bullet">Category C</div>
                 </section>
-
             </main>
         </div>
     </div>
