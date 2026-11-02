@@ -36,7 +36,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 18px 10px;
+            padding: 16px 10px;
         }
 
         /* Top Action Bar (Screen Only) */
@@ -50,7 +50,7 @@
             padding: 10px 18px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         .action-bar .info {
@@ -73,11 +73,10 @@
             gap: 8px;
         }
 
-        /* EXACT A4 CONTAINER: 210mm x 297mm */
+        /* EXACT A4 SHEET: 210mm x 297mm */
         .page {
             width: 210mm;
             height: 297mm;
-            max-height: 297mm;
             background: #FFFFFF;
             box-shadow: 0 8px 30px rgba(0,0,0,0.12);
             position: relative;
@@ -92,7 +91,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 46mm;
+            height: 48mm;
             background: linear-gradient(135deg, #E2F0FC 0%, #D0E7FA 55%, #E9F4FE 100%);
             border-bottom-left-radius: 36mm;
             border-bottom-right-radius: 36mm;
@@ -120,22 +119,22 @@
             flex-direction: row;
             width: 100%;
             height: 100%;
-            padding: 5.5mm 9mm 5mm 9mm;
+            padding: 6mm 9mm 6mm 9mm;
+            gap: 5mm;
         }
 
-        /* LEFT SIDEBAR: 62mm width */
+        /* LEFT SIDEBAR: 60mm */
         .sidebar {
-            width: 62mm;
+            width: 60mm;
             flex-shrink: 0;
-            padding-right: 5.5mm;
             display: flex;
             flex-direction: column;
-            gap: 2.4mm;
+            justify-content: space-between;
         }
 
         .avatar-wrap {
-            width: 35mm;
-            height: 35mm;
+            width: 36mm;
+            height: 36mm;
             border-radius: 50%;
             background: #FFFFFF;
             padding: 1.2mm;
@@ -155,7 +154,7 @@
         .side-section {
             display: flex;
             flex-direction: column;
-            gap: 1.1mm;
+            gap: 1.2mm;
         }
 
         .side-title {
@@ -167,7 +166,7 @@
             color: var(--text-title);
             border-bottom: 1.5px solid var(--line-blue);
             padding-bottom: 0.6mm;
-            margin-bottom: 0.5mm;
+            margin-bottom: 0.4mm;
         }
 
         /* Contact Details */
@@ -175,7 +174,7 @@
             display: flex;
             align-items: flex-start;
             gap: 2mm;
-            font-size: 7.1pt;
+            font-size: 6.9pt;
             color: var(--text-body);
             line-height: 1.22;
         }
@@ -189,7 +188,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4.9pt;
+            font-size: 4.8pt;
             flex-shrink: 0;
             margin-top: 0.2mm;
         }
@@ -199,8 +198,8 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.6mm;
-            font-size: 7pt;
+            gap: 0.7mm;
+            font-size: 6.9pt;
             color: var(--text-body);
             line-height: 1.18;
         }
@@ -234,7 +233,7 @@
         .lang-head {
             display: flex;
             justify-content: space-between;
-            font-size: 7.1pt;
+            font-size: 6.9pt;
             font-weight: 600;
             color: var(--text-title);
         }
@@ -256,7 +255,7 @@
         }
 
         .lang-sub {
-            font-size: 6.6pt;
+            font-size: 6.5pt;
             color: var(--text-sub);
         }
 
@@ -265,8 +264,8 @@
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 1.3mm;
-            font-size: 6.6pt;
+            gap: 1.2mm;
+            font-size: 6.5pt;
             line-height: 1.2;
         }
 
@@ -299,16 +298,14 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 2.4mm;
-            padding-top: 1.5mm;
+            justify-content: space-between;
         }
 
         /* Header Title & Summary */
         .header-box {
             display: flex;
             flex-direction: column;
-            gap: 1.1mm;
-            margin-bottom: 0.4mm;
+            gap: 1mm;
         }
 
         .person-name {
@@ -321,81 +318,81 @@
         }
 
         .summary-para {
-            font-size: 7.3pt;
+            font-size: 7.2pt;
             color: #334155;
-            line-height: 1.36;
+            line-height: 1.35;
             text-align: justify;
         }
 
         /* Section Title */
         .sec-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 9pt;
+            font-size: 8.8pt;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.8px;
             color: var(--text-title);
             border-bottom: 1.5px solid var(--line-blue);
-            padding-bottom: 0.6mm;
-            margin-bottom: 1mm;
+            padding-bottom: 0.5mm;
+            margin-bottom: 0.8mm;
         }
 
         /* Experience Layout */
         .exp-container {
             display: flex;
             flex-direction: column;
-            gap: 1.8mm;
+            gap: 1.4mm;
         }
 
         .exp-row {
             display: flex;
             flex-direction: row;
-            gap: 2.6mm;
+            gap: 2.4mm;
         }
 
         .exp-date-col {
-            width: 21mm;
+            width: 20mm;
             flex-shrink: 0;
-            font-size: 6.6pt;
+            font-size: 6.4pt;
             font-weight: 600;
             color: var(--text-sub);
             padding-top: 0.2mm;
-            line-height: 1.18;
+            line-height: 1.16;
         }
 
         .exp-desc-col {
             flex: 1;
             border-left: 1.3px solid #CBD5E1;
-            padding-left: 2.6mm;
+            padding-left: 2.5mm;
         }
 
         .exp-title {
-            font-size: 8.1pt;
+            font-size: 7.9pt;
             font-weight: 700;
             font-style: italic;
             color: var(--text-title);
-            line-height: 1.18;
+            line-height: 1.16;
         }
 
         .exp-org {
-            font-size: 7.1pt;
+            font-size: 7pt;
             color: var(--text-body);
-            margin-bottom: 0.6mm;
+            margin-bottom: 0.4mm;
         }
 
         .exp-ul {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 0.5mm;
-            font-size: 7pt;
+            gap: 0.4mm;
+            font-size: 6.8pt;
             color: #334155;
-            line-height: 1.25;
+            line-height: 1.22;
         }
 
         .exp-ul li {
             position: relative;
-            padding-left: 2.6mm;
+            padding-left: 2.5mm;
         }
 
         .exp-ul li::before {
@@ -409,44 +406,44 @@
         .edu-container {
             display: flex;
             flex-direction: column;
-            gap: 1.4mm;
+            gap: 1.1mm;
         }
 
         .edu-row {
             display: flex;
             flex-direction: column;
-            gap: 0.3mm;
+            gap: 0.2mm;
         }
 
         .edu-year-txt {
-            font-size: 7pt;
+            font-size: 6.8pt;
             font-weight: 600;
             color: var(--text-sub);
         }
 
         .edu-degree-txt {
-            font-size: 8.1pt;
+            font-size: 7.9pt;
             font-weight: 700;
             color: var(--text-title);
         }
 
         .edu-campus-txt {
-            font-size: 7.1pt;
+            font-size: 7pt;
             font-weight: 600;
             color: var(--text-body);
         }
 
         .edu-para-txt {
-            font-size: 6.9pt;
+            font-size: 6.7pt;
             color: #334155;
-            line-height: 1.25;
+            line-height: 1.22;
         }
 
         /* Driving Licence */
         .lic-bullet {
-            font-size: 7.3pt;
+            font-size: 7.2pt;
             color: var(--text-body);
-            padding-left: 2.6mm;
+            padding-left: 2.5mm;
             position: relative;
         }
 
@@ -539,9 +536,9 @@
                         <li>Koordinasi dan operasional acara</li>
                         <li>Pengelolaan dan input data</li>
                         <li>Microsoft Excel dan Google Sheets</li>
-                        <li>Administrasi perkantoran</li>
-                        <li>Manajemen waktu dan jadwal</li>
-                        <li>Pelayanan tamu dan komunikasi kerja tim</li>
+                        <li>Administrasi perkantoran dan surat</li>
+                        <li>Manajemen waktu dan alur kerja</li>
+                        <li>Pelayanan tamu dan komunikasi tim</li>
                         <li>Pemecahan masalah teknis perangkat</li>
                     </ul>
                 </section>
@@ -588,18 +585,18 @@
                     <ul class="cert-list">
                         <li class="cert-item">
                             <span class="cert-name">Canva Essentials</span><br>
-                            <span class="cert-issuer">Desain Grafis dan Media (Canva Design School, 2026)</span>
+                            <span class="cert-issuer">Desain Grafis dan Media (Canva, 2026)</span>
                         </li>
                         <li class="cert-item">
                             <span class="cert-name">Intro to Data Analytics</span><br>
-                            <span class="cert-issuer">Pengolahan Data dan Spreadsheet (RevoU, 2026)</span>
+                            <span class="cert-issuer">Pengolahan Data & Spreadsheet (RevoU, 2026)</span>
                         </li>
                         <li class="cert-item">
                             <span class="cert-name">Build an AI Agent</span><br>
                             <span class="cert-issuer">IBM SkillsBuild, Kredensial Credly (2026)</span>
                         </li>
                         <li class="cert-item">
-                            <span class="cert-name">Tes Kemampuan Bahasa Inggris (Skor: 440)</span><br>
+                            <span class="cert-name">Tes Kemampuan Bahasa Inggris (440)</span><br>
                             <span class="cert-issuer">Universitas Teknologi Digital Indonesia (2024)</span>
                         </li>
                         <li class="cert-item">
@@ -616,7 +613,7 @@
                 <header class="header-box">
                     <h1 class="person-name">Muhammad Jepri</h1>
                     <p class="summary-para">
-                        Mahasiswa aktif berdomisili di Yogyakarta dengan latar belakang diploma Rekayasa Perangkat Lunak Aplikasi. Berpengalaman dalam administrasi kantor, penginputan data, pengarsipan berkas dinas, serta penanganan registrasi meja depan acara. Terbiasa menggunakan spreadsheet dan komputer, disiplin, teliti, serta siap bekerja secara fleksibel untuk mendukung operasional kerja.
+                        Mahasiswa aktif berdomisili di Yogyakarta dengan latar belakang diploma Rekayasa Perangkat Lunak Aplikasi. Berpengalaman dalam administrasi kantor, penginputan data, koordinasi berkas dinas, serta registrasi meja depan acara. Terbiasa menggunakan spreadsheet dan komputer, disiplin, teliti, serta siap bekerja secara fleksibel untuk mendukung operasional kerja.
                     </p>
                 </header>
 
@@ -633,21 +630,19 @@
                                 <ul class="exp-ul">
                                     <li>Melayani registrasi langsung ratusan peserta di meja depan dan memverifikasi tiket masuk acara.</li>
                                     <li>Mencatat rekapitulasi data anggota, iuran, dan donasi ke spreadsheet secara teratur.</li>
-                                    <li>Membantu pengaturan antrean pengunjung agar proses masuk tetap tertib dan sesuai alur jadwal.</li>
                                 </ul>
                             </div>
                         </div>
 
-                        <!-- Magang DKPP Kotabaru -->
+                        <!-- ForAlana: Asisten Kreatif & Dokumentasi -->
                         <div class="exp-row">
-                            <div class="exp-date-col">01/2024 - 04/2024</div>
+                            <div class="exp-date-col">07/2026 - 09/2026</div>
                             <div class="exp-desc-col">
-                                <div class="exp-title">Magang Teknologi Informasi dan Administrasi</div>
-                                <div class="exp-org"><strong>Dinas Ketahanan Pangan dan Pertanian (DKPP)</strong>, Kotabaru</div>
+                                <div class="exp-title">Asisten Kreatif dan Dokumentasi Acara</div>
+                                <div class="exp-org"><strong>ForAlana</strong>, Yogyakarta (Pekerja Lepas)</div>
                                 <ul class="exp-ul">
-                                    <li>Membantu Kepala Bidang Perencanaan dalam koordinasi penugasan berkas lintas seksi.</li>
-                                    <li>Mengetik draf program kerja tahunan dinas dan menyusun arsip dokumen administrasi.</li>
-                                    <li>Menangani kendala operasional harian perangkat komputer, jaringan, dan multimedia kantor.</li>
+                                    <li>Membantu penataan konten visual dan media interaktif untuk kampanye perayaan komunitas.</li>
+                                    <li>Mengelola berkas dokumentasi dan memastikan seluruh materi acara terunggah tepat waktu.</li>
                                 </ul>
                             </div>
                         </div>
@@ -659,9 +654,21 @@
                                 <div class="exp-title">Petugas Penginput Data (Data Entry)</div>
                                 <div class="exp-org"><strong>Lanautica</strong>, Yogyakarta (Pekerja Lepas)</div>
                                 <ul class="exp-ul">
-                                    <li>Mengumpulkan, memverifikasi, dan menginput metrik aktivitas digital ke spreadsheet.</li>
+                                    <li>Mengumpulkan, memverifikasi, dan menginput metrik aktivitas digital ke spreadsheet secara teliti.</li>
                                     <li>Merapikan arsip data publik dan riwayat catatan secara berkala agar mudah diakses tim.</li>
-                                    <li>Menjaga ketelitian format data agar bebas dari kekeliruan input.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Magang DKPP Kotabaru -->
+                        <div class="exp-row">
+                            <div class="exp-date-col">01/2024 - 04/2024</div>
+                            <div class="exp-desc-col">
+                                <div class="exp-title">Magang TI dan Administrasi</div>
+                                <div class="exp-org"><strong>Dinas Ketahanan Pangan dan Pertanian (DKPP)</strong>, Kotabaru</div>
+                                <ul class="exp-ul">
+                                    <li>Membantu Kepala Bidang Perencanaan dalam penyusunan draf program kerja dan arsip surat dinas.</li>
+                                    <li>Menangani operasional harian perangkat komputer, jaringan, dan kelengkapan multimedia kantor.</li>
                                 </ul>
                             </div>
                         </div>
@@ -674,8 +681,7 @@
                                 <div class="exp-org"><strong>Kepolisian Resor (Polres)</strong>, Kotabaru</div>
                                 <ul class="exp-ul">
                                     <li>Mengelola berkas administrasi dan surat-menyurat harian pada Bagian Urusan Umum.</li>
-                                    <li>Menata dokumen fisik dan digital agar tersimpan rapi serta mudah ditemukan saat dibutuhkan.</li>
-                                    <li>Mencatat surat masuk dan keluar secara teliti pada buku agenda manual.</li>
+                                    <li>Menata dokumen fisik dan digital serta mencatat surat masuk-keluar pada buku agenda manual.</li>
                                 </ul>
                             </div>
                         </div>
@@ -691,7 +697,7 @@
                             <div class="edu-degree-txt">S1 Informatika</div>
                             <div class="edu-campus-txt"><strong>Universitas Teknologi Digital Indonesia</strong>, Yogyakarta</div>
                             <p class="edu-para-txt">
-                                Mahasiswa aktif. Mempelajari sistem informasi, pengolahan basis data, serta terbiasa menggunakan aplikasi perkantoran (Google Sheets dan Microsoft Excel).
+                                Mahasiswa aktif. Mempelajari sistem informasi, basis data, dan aplikasi perkantoran.
                             </p>
                         </div>
 
@@ -700,7 +706,7 @@
                             <div class="edu-degree-txt">D3 Rekayasa Perangkat Lunak Aplikasi</div>
                             <div class="edu-campus-txt"><strong>Universitas Teknologi Digital Indonesia</strong>, Yogyakarta</div>
                             <p class="edu-para-txt">
-                                Lulus program diploma. Berfokus pada logika komputer, pengelolaan data aplikasi, dan penyelesaian masalah teknis.
+                                Lulus diploma. Berfokus pada logika komputer, data aplikasi, dan penyelesaian masalah teknis.
                             </p>
                         </div>
                     </div>
